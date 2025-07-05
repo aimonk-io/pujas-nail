@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -45,6 +45,165 @@ const stagger = {
     },
   },
 };
+
+const galleryImages = [
+  {
+    id: 1,
+    src: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=600&fit=crop&crop=center",
+    alt: "Beautiful gel manicure with floral nail art",
+    title: "Floral Gel Manicure",
+  },
+  {
+    id: 2,
+    src: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800&h=600&fit=crop&crop=center",
+    alt: "French manicure with elegant design",
+    title: "Classic French Design",
+  },
+  {
+    id: 3,
+    src: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=800&h=600&fit=crop&crop=center",
+    alt: "Colorful nail art with intricate patterns",
+    title: "Artistic Nail Design",
+  },
+];
+
+function GallerySlider() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === galleryImages.length - 1 ? 0 : prevIndex + 1,
+    );
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) =>
+      prevIndex === 0 ? galleryImages.length - 1 : prevIndex - 1,
+    );
+  };
+
+  const goToSlide = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  return (
+    <motion.div
+      className="relative max-w-4xl mx-auto"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true }}
+      variants={fadeIn}
+    >
+      <div className="relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIndex}
+            className="absolute inset-0"
+            initial={{ opacity: 0, x: 300 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -300 }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
+          >
+            <img
+              src={galleryImages[currentIndex].src}
+              alt={galleryImages[currentIndex].alt}
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            <div className="absolute bottom-6 left-6 text-white">
+              <h3 className="text-2xl font-bold mb-2">
+                {galleryImages[currentIndex].title}
+              </h3>
+              <p className="text-white/90">{galleryImages[currentIndex].alt}</p>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+
+        {/* Navigation Arrows */}
+        <button
+          onClick={prevSlide}
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 group"
+        >
+          <svg
+            className="w-6 h-6 group-hover:scale-110 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <button
+          onClick={nextSlide}
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-all duration-300 group"
+        >
+          <svg
+            className="w-6 h-6 group-hover:scale-110 transition-transform"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </div>
+
+      {/* Dots Navigation */}
+      <div className="flex justify-center mt-6 space-x-3">
+        {galleryImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => goToSlide(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex
+                ? "bg-primary scale-125"
+                : "bg-muted-foreground/30 hover:bg-muted-foreground/50"
+            }`}
+          />
+        ))}
+      </div>
+
+      {/* Auto-play functionality */}
+      <div className="mt-8 text-center">
+        <motion.div
+          className="inline-flex items-center space-x-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.3 }}
+        >
+          <Button
+            variant="outline"
+            onClick={prevSlide}
+            className="border-primary text-primary hover:bg-primary/5"
+          >
+            Previous
+          </Button>
+          <span className="text-muted-foreground">
+            {currentIndex + 1} of {galleryImages.length}
+          </span>
+          <Button
+            variant="outline"
+            onClick={nextSlide}
+            className="border-primary text-primary hover:bg-primary/5"
+          >
+            Next
+          </Button>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+}
 
 const services = [
   {
@@ -156,6 +315,12 @@ export default function Index() {
                 Pricing
               </a>
               <a
+                href="#gallery"
+                className="text-foreground hover:text-primary transition-colors"
+              >
+                Gallery
+              </a>
+              <a
                 href="#booking"
                 className="text-foreground hover:text-primary transition-colors"
               >
@@ -218,6 +383,11 @@ export default function Index() {
               <Button
                 size="lg"
                 className="px-8 py-3 text-lg bg-gradient-to-r from-primary to-accent hover:shadow-lg transition-all duration-300"
+                onClick={() =>
+                  document
+                    .getElementById("booking")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 <Sparkles className="h-5 w-5 mr-2" />
                 Book Appointment
@@ -226,6 +396,11 @@ export default function Index() {
                 variant="outline"
                 size="lg"
                 className="px-8 py-3 text-lg border-primary text-primary hover:bg-primary/5"
+                onClick={() =>
+                  document
+                    .getElementById("gallery")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 View Gallery
               </Button>
@@ -350,6 +525,46 @@ export default function Index() {
               </div>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section
+        id="gallery"
+        className="py-20 bg-gradient-to-br from-pink-50 to-red-50"
+      >
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.div variants={fadeIn} className="flex justify-center mb-4">
+              <Badge
+                variant="secondary"
+                className="px-4 py-2 bg-primary/10 text-primary border-primary/20"
+              >
+                Our Work
+              </Badge>
+            </motion.div>
+            <motion.h2
+              variants={fadeIn}
+              className="text-3xl md:text-4xl font-bold mb-4 text-foreground"
+            >
+              Gallery Showcase
+            </motion.h2>
+            <motion.p
+              variants={fadeIn}
+              className="text-lg text-muted-foreground max-w-2xl mx-auto"
+            >
+              Discover our beautiful nail artistry and see why clients love our
+              work
+            </motion.p>
+          </motion.div>
+
+          <GallerySlider />
         </div>
       </section>
 
