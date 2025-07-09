@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -31,7 +31,17 @@ import {
   Sparkles,
   Heart,
   Gift,
+  Menu,
+  X,
 } from "lucide-react";
+import { useIsMobile } from "@/hooks/use-mobile";
+import {
+  Drawer,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerHeader,
+  DrawerClose,
+} from "@/components/ui/drawer";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -258,6 +268,19 @@ export default function Index() {
     time: "",
     message: "",
   });
+  const [navExpanded, setNavExpanded] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 20) {
+        setNavExpanded(true);
+      } else {
+        setNavExpanded(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -281,61 +304,59 @@ export default function Index() {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
+  const isMobile = useIsMobile();
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 via-white to-red-50">
       {/* Header */}
       <motion.header
-        className="bg-white/90 backdrop-blur-sm border-b border-pink-100 sticky top-0 z-50"
+        className={`sticky top-0 z-50 border-b border-pink-100 transition-all duration-500 ${navExpanded ? 'bg-white/90 backdrop-blur-sm' : 'bg-transparent'}`}
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <motion.div
-              className="flex items-center space-x-2"
-              whileHover={{ scale: 1.05 }}
-            >
-              <Sparkles className="h-8 w-8 text-primary" />
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Puja's Nail Studio
-              </h1>
-            </motion.div>
-            <nav className="hidden md:flex items-center space-x-8">
-              <a
-                href="#services"
-                className="text-foreground hover:text-primary transition-colors"
-              >
-                Services
-              </a>
-              <a
-                href="#pricing"
-                className="text-foreground hover:text-primary transition-colors"
-              >
-                Pricing
-              </a>
-              <a
-                href="#gallery"
-                className="text-foreground hover:text-primary transition-colors"
-              >
-                Gallery
-              </a>
-              <a
-                href="#booking"
-                className="text-foreground hover:text-primary transition-colors"
-              >
-                Book Now
-              </a>
-              <a
-                href="#contact"
-                className="text-foreground hover:text-primary transition-colors"
-              >
-                Contact
-              </a>
-            </nav>
-            <div className="flex items-center space-x-4">
-              <Instagram className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-              <Facebook className="h-5 w-5 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+          <div className="flex items-center justify-between w-full">
+            {/* Logo Centered */}
+            <div className="flex-1 flex justify-start">
+              <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-12 w-auto object-contain" />
+            </div>
+            {/* Navigation Links - Desktop */}
+            <div className="flex-1 flex justify-end">
+              {!isMobile ? (
+                <nav className="transition-all duration-500">
+                  <div className={`flex items-center gap-6 rounded-full px-8 py-2 shadow border border-gray-200 transition-all duration-500 ${navExpanded ? 'bg-white/90 scale-110' : 'bg-white/0 scale-100'}`}>
+                    <a href="#about" className="text-gray-700 font-medium hover:text-primary transition-colors">About</a>
+                    <a href="#services" className="text-gray-700 font-medium hover:text-primary transition-colors">Services</a>
+                    <a href="#pricing" className="text-gray-700 font-medium hover:text-primary transition-colors">Pricing</a>
+                    <a href="#contact" className="text-gray-700 font-medium hover:text-primary transition-colors">Contact</a>
+                  </div>
+                </nav>
+              ) : (
+                <Drawer direction="right">
+                  <DrawerTrigger asChild>
+                    <button aria-label="Open navigation menu" className="p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary">
+                      <Menu className="h-7 w-7 text-primary" />
+                    </button>
+                  </DrawerTrigger>
+                  <DrawerContent className="pb-8 w-full h-full fixed right-0 top-0 bottom-0 bg-background shadow-lg border-l border-gray-200 flex flex-col">
+                    <button aria-label="Close navigation menu" className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary">
+                      <DrawerClose asChild>
+                        <X className="h-6 w-6 text-primary" />
+                      </DrawerClose>
+                    </button>
+                    <DrawerHeader>
+                      <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-16 w-auto mx-auto mb-4" />
+                    </DrawerHeader>
+                    <nav className="flex flex-col gap-6 items-center mt-4">
+                      <a href="#about" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors" onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}><DrawerClose asChild><span>About</span></DrawerClose></a>
+                      <a href="#services" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors" onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}><DrawerClose asChild><span>Services</span></DrawerClose></a>
+                      <a href="#pricing" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors" onClick={() => document.getElementById('pricing')?.scrollIntoView({ behavior: 'smooth' })}><DrawerClose asChild><span>Pricing</span></DrawerClose></a>
+                      <a href="#contact" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}><DrawerClose asChild><span>Contact</span></DrawerClose></a>
+                    </nav>
+                  </DrawerContent>
+                </Drawer>
+              )}
             </div>
           </div>
         </div>
@@ -406,6 +427,36 @@ export default function Index() {
               </Button>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Sample Services Section for Nail Artist */}
+      <section id="services" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground">Our Nail Services</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Explore our range of professional nail artistry and care services, designed to pamper and beautify your hands and feet.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-pink-50 rounded-xl shadow p-8 flex flex-col items-center">
+              <img src="/logo.png" alt="Classic Manicure" className="h-16 w-16 mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-primary">Classic Manicure</h3>
+              <p className="text-muted-foreground mb-2">Nail shaping, cuticle care, and polish for a timeless look.</p>
+              <span className="text-accent font-bold">₹800</span>
+            </div>
+            <div className="bg-pink-50 rounded-xl shadow p-8 flex flex-col items-center">
+              <img src="/logo.png" alt="Gel Nail Art" className="h-16 w-16 mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-primary">Gel Nail Art</h3>
+              <p className="text-muted-foreground mb-2">Long-lasting gel polish with custom designs and embellishments.</p>
+              <span className="text-accent font-bold">₹1,200</span>
+            </div>
+            <div className="bg-pink-50 rounded-xl shadow p-8 flex flex-col items-center">
+              <img src="/logo.png" alt="Spa Pedicure" className="h-16 w-16 mb-4" />
+              <h3 className="text-xl font-semibold mb-2 text-primary">Spa Pedicure</h3>
+              <p className="text-muted-foreground mb-2">Relaxing foot soak, exfoliation, massage, and polish.</p>
+              <span className="text-accent font-bold">₹1,000</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -789,7 +840,7 @@ export default function Index() {
           >
             <motion.div variants={fadeIn} className="lg:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <Sparkles className="h-8 w-8 text-primary" />
+                <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-10 w-10 object-contain" />
                 <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   Puja's Nail Studio
                 </h3>
