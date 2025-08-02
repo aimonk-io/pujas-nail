@@ -19,8 +19,9 @@ export const sendAppointmentEmails = async (bookingData: {
   date: string;
   time: string;
   message?: string;
+  discountCode?: string;
 }) => {
-  const { name, phone, email, service, date, time, message } = bookingData;
+  const { name, phone, email, service, date, time, message, discountCode } = bookingData;
 
   // Email content for the business owner
   const businessEmailContent = `
@@ -34,6 +35,7 @@ export const sendAppointmentEmails = async (bookingData: {
       <li><strong>Date:</strong> ${date}</li>
       <li><strong>Time:</strong> ${time}</li>
       ${message ? `<li><strong>Message:</strong> ${message}</li>` : ""}
+      ${discountCode ? `<li><strong>Discount Code:</strong> ${discountCode} ${discountCode.toUpperCase() === "FIRST10C" ? "✅ (10% off applied)" : "❌ (Invalid code)"}</li>` : ""}
     </ul>
     <p><em>This booking was submitted from your website.</em></p>
   `;
@@ -48,6 +50,7 @@ export const sendAppointmentEmails = async (bookingData: {
       <li><strong>Service:</strong> ${service}</li>
       <li><strong>Date:</strong> ${date}</li>
       <li><strong>Time:</strong> ${time}</li>
+      ${discountCode && discountCode.toUpperCase() === "FIRST10C" ? `<li><strong>Discount:</strong> ✅ 10% off applied (First-time client special)</li>` : ""}
     </ul>
     <p>We will contact you shortly to confirm your appointment. If you need to make any changes, please call us at +91 98765 43210.</p>
     <p>Looking forward to seeing you!</p>

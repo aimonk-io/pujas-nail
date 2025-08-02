@@ -490,6 +490,7 @@ export default function Index() {
     date: "",
     time: "",
     message: "",
+    discountCode: "",
   });
   const [navExpanded, setNavExpanded] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -553,6 +554,7 @@ export default function Index() {
           date: "",
           time: "",
           message: "",
+          discountCode: "",
         });
       } else {
         setSubmitMessage("❌ " + result.message);
@@ -1155,17 +1157,18 @@ export default function Index() {
                 variants={slideInFromBottom}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
               >
-                <motion.div
+                <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={() => setShowDiscountDialog(true)}
                 >
-                  <CalendlyPopupButton
-                    url="https://calendly.com/pujabarmanb9/puja-nail-services"
-                    className="px-8 py-3 text-lg bg-gradient-to-r from-[#D92525] to-[#8C1F28] hover:shadow-lg transition-all duration-300 text-white font-medium rounded-lg border-0 cursor-pointer"
+                  <Button
+                    size="lg"
+                    className="px-8 py-3 text-lg bg-gradient-to-r from-[#D92525] to-[#8C1F28] hover:shadow-lg transition-all duration-300 text-white font-medium rounded-lg border-0"
                   >
-                    Book Appointment Now
-                  </CalendlyPopupButton>
-                </motion.div>
+                    🎉 Claim Your Discount
+                  </Button>
+                </motion.button>
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -1501,6 +1504,31 @@ export default function Index() {
                       </motion.div>
                     </div>
 
+                    {/* Discount Code Field */}
+                    <motion.div 
+                      className="space-y-1"
+                      variants={fadeInUp}
+                    >
+                      <Label
+                        htmlFor="discountCode"
+                        className="text-sm font-semibold text-foreground"
+                      >
+                        Discount Code (Optional)
+                      </Label>
+                      <Input
+                        id="discountCode"
+                        value={formData.discountCode}
+                        onChange={(e) =>
+                          handleInputChange("discountCode", e.target.value)
+                        }
+                        placeholder="Enter discount code (e.g., FIRST10C)"
+                        className="border-gray-200 focus:border-primary bg-white/50 backdrop-blur-sm transition-all duration-300"
+                      />
+                      <p className="text-xs text-muted-foreground">
+                        First-time clients can use code "FIRST10C" for 10% off
+                      </p>
+                    </motion.div>
+
                     <motion.div 
                       className="text-center pt-2"
                       variants={slideInFromBottom}
@@ -1669,16 +1697,28 @@ export default function Index() {
                 Your first appointment with us
               </div>
             </div>
+            
+            {/* Discount Code Section */}
+            <div className="bg-gray-50 p-4 rounded-lg border-2 border-dashed border-[#D92525]/30">
+              <div className="text-sm font-medium text-gray-600 mb-2">Use Discount Code:</div>
+              <div className="bg-white px-4 py-2 rounded border border-gray-200">
+                <span className="text-xl font-bold text-[#D92525] tracking-wider">FIRST10C</span>
+              </div>
+              <div className="text-xs text-gray-500 mt-2">
+                Enter this code when booking your appointment
+              </div>
+            </div>
+            
             <div className="space-y-2 text-sm text-muted-foreground">
               <p>✨ Valid for first-time clients only</p>
               <p>✨ Cannot be combined with other offers</p>
-              <p>✨ Mention this offer when booking</p>
+              <p>✨ Mention code "FIRST10C" when booking</p>
             </div>
             <Button 
               onClick={() => setShowDiscountDialog(false)}
               className="w-full bg-gradient-to-r from-[#D92525] to-[#8C1F28] hover:shadow-lg"
             >
-              Got it! Let's book my appointment
+              Got it! Thanks for the offer
             </Button>
           </div>
         </DialogContent>
