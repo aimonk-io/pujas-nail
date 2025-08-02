@@ -59,21 +59,39 @@ const stagger = {
 const galleryImages = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=600&fit=crop&crop=center",
-    alt: "Beautiful gel manicure with floral nail art",
-    title: "Floral Gel Manicure",
+    src: "/media/PHOTO-2025-07-07-17-41-26.jpg",
+    alt: "Nail art with pink and white design",
+    title: "Pink & White Nail Art",
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=800&h=600&fit=crop&crop=center",
-    alt: "French manicure with elegant design",
-    title: "Classic French Design",
+    src: "/media/PHOTO-2025-07-07-18-02-58.jpg",
+    alt: "Elegant nude manicure with gold accents",
+    title: "Nude Manicure with Gold",
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=800&h=600&fit=crop&crop=center",
-    alt: "Colorful nail art with intricate patterns",
-    title: "Artistic Nail Design",
+    src: "/media/PHOTO-2025-07-07-18-03-01.jpg",
+    alt: "Classic French manicure on hands",
+    title: "Classic French Manicure",
+  },
+  {
+    id: 4,
+    src: "/media/PHOTO-2025-07-07-18-03-04.jpg",
+    alt: "Bright summer nail art with floral patterns",
+    title: "Summer Floral Nails",
+  },
+  {
+    id: 5,
+    src: "/media/PHOTO-2025-07-07-18-04-23.jpg",
+    alt: "Bold red nails with glossy finish",
+    title: "Glossy Red Nails",
+  },
+  {
+    id: 6,
+    src: "/media/PHOTO-2025-07-07-18-04-33.jpg",
+    alt: "Intricate nail art with rhinestones",
+    title: "Rhinestone Nail Art",
   },
 ];
 
