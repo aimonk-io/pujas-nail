@@ -9,89 +9,92 @@
    * A different format will require also updating the theme in tailwind.config.ts.
   */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 338 60% 15%;
+    /* Samuel Alexander AW19 Collection Color Palette */
+    --background: 0 0% 95%; /* #F2F2F2 - Light gray background */
+    --foreground: 354 52% 22%; /* #591C21 - Dark burgundy text */
 
     --card: 0 0% 100%;
-    --card-foreground: 338 60% 15%;
+    --card-foreground: 354 52% 22%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 338 60% 15%;
+    --popover-foreground: 354 52% 22%;
 
-    --primary: 336 84% 57%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 354 63% 33%; /* #8C1F28 - Primary burgundy */
+    --primary-foreground: 0 0% 95%;
 
-    --secondary: 338 20% 97%;
-    --secondary-foreground: 338 60% 15%;
+    --secondary: 180 88% 13%; /* #044040 - Dark teal */
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 338 20% 97%;
-    --muted-foreground: 338 30% 60%;
+    --muted: 0 0% 95%;
+    --muted-foreground: 354 30% 40%;
 
-    --accent: 350 89% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 70% 49%; /* #D92525 - Bright red accent */
+    --accent-foreground: 0 0% 95%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 70% 49%; /* #D92525 - Bright red for destructive actions */
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 338 20% 90%;
-    --input: 338 20% 95%;
-    --ring: 336 84% 57%;
+    --border: 354 20% 85%;
+    --input: 354 20% 90%;
+    --ring: 354 63% 33%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-foreground: 354 52% 22%;
 
-    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary: 354 63% 33%;
 
-    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-primary-foreground: 0 0% 95%;
 
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: 180 88% 13%;
 
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent-foreground: 0 0% 95%;
 
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 354 20% 85%;
 
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-ring: 354 63% 33%;
   }
 
   .dark {
-    --background: 338 60% 8%;
-    --foreground: 338 20% 95%;
+    /* Samuel Alexander AW19 Collection - Dark Mode */
+    --background: 354 52% 8%; /* Darker version of #591C21 */
+    --foreground: 0 0% 95%;
 
-    --card: 338 60% 8%;
-    --card-foreground: 338 20% 95%;
+    --card: 354 52% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 338 60% 8%;
-    --popover-foreground: 338 20% 95%;
+    --popover: 354 52% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 336 84% 57%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 354 63% 33%; /* #8C1F28 - Keep primary burgundy */
+    --primary-foreground: 0 0% 95%;
 
-    --secondary: 338 40% 15%;
-    --secondary-foreground: 338 20% 95%;
+    --secondary: 180 88% 13%; /* #044040 - Keep dark teal */
+    --secondary-foreground: 0 0% 95%;
 
-    --muted: 338 40% 15%;
-    --muted-foreground: 338 20% 70%;
+    --muted: 354 52% 15%;
+    --muted-foreground: 0 0% 70%;
 
-    --accent: 350 89% 60%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 0 70% 49%; /* #D92525 - Keep bright red accent */
+    --accent-foreground: 0 0% 95%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: 0 70% 49%; /* #D92525 - Keep bright red */
+    --destructive-foreground: 0 0% 95%;
 
-    --border: 338 40% 20%;
-    --input: 338 40% 20%;
-    --ring: 336 84% 57%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 354 52% 20%;
+    --input: 354 52% 20%;
+    --ring: 354 63% 33%;
+    
+    --sidebar-background: 354 52% 10%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 354 63% 33%;
+    --sidebar-primary-foreground: 0 0% 95%;
+    --sidebar-accent: 180 88% 13%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 354 52% 20%;
+    --sidebar-ring: 354 63% 33%;
   }
 }
 
