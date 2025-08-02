@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { handleDemo } from "./routes/demo";
+import { handleAppointment } from "./routes/appointment";
 
 export function createServer() {
   const app = express();
@@ -16,6 +17,14 @@ export function createServer() {
   });
 
   app.get("/api/demo", handleDemo);
+
+  // Appointment booking route
+  app.post("/api/appointment", handleAppointment);
+  
+  // Test endpoint
+  app.get("/api/test", (req, res) => {
+    res.json({ message: "API is working!", timestamp: new Date().toISOString() });
+  });
 
   return app;
 }

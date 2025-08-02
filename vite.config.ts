@@ -19,6 +19,12 @@ export default defineConfig(({ mode }) => ({
       "@shared": path.resolve(__dirname, "./shared"),
     },
   },
+  optimizeDeps: {
+    exclude: ['nodemailer']
+  },
+  ssr: {
+    noExternal: ['nodemailer']
+  }
 }));
 
 function expressPlugin(): Plugin {
