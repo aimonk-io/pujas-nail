@@ -1374,7 +1374,7 @@ export default function Index() {
                           onChange={(e) =>
                             handleInputChange("phone", e.target.value)
                           }
-                          placeholder="+91 98765 43210"
+                          placeholder="+91 8101267975"
                           required
                           className="border-gray-200 focus:border-primary bg-white/50 backdrop-blur-sm transition-all duration-300"
                         />
@@ -1624,7 +1624,7 @@ export default function Index() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">+91 98765 43210</span>
+                  <span className="text-muted-foreground">+91 8101267975</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-primary" />
