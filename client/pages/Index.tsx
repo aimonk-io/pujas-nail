@@ -614,12 +614,12 @@ export default function Index() {
                           <a href="#work" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10 whitespace-nowrap">Work</a>
                           <a href="#services" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10 whitespace-nowrap">Services</a>
                           <a href="#pricing" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10 whitespace-nowrap">Pricing</a>
-                          <CalendlyPopupButton
-                          url="https://calendly.com/pujabarmanb9/puja-nail-services"
+                          <a 
+                          href="#booking"
                           className="text-white font-medium bg-gradient-to-r from-primary to-accent px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300 whitespace-nowrap border-0 cursor-pointer"
                         >
                           Book Now
-                        </CalendlyPopupButton>
+                        </a>
                         </motion.div>
                       </motion.div>
                     </motion.div>
@@ -639,12 +639,12 @@ export default function Index() {
                         <a href="#work" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10">Work</a>
                         <a href="#services" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10">Services</a>
                         <a href="#pricing" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10">Pricing</a>
-                        <CalendlyPopupButton
-                          url="https://calendly.com/pujabarmanb9/puja-nail-services"
+                        <a 
+                          href="#booking"
                           className="text-white font-medium bg-gradient-to-r from-primary to-accent px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300 border-0 cursor-pointer"
                         >
                           Book Now
-                        </CalendlyPopupButton>
+                        </a>
                       </motion.div>
                     </nav>
                   )}
@@ -678,12 +678,12 @@ export default function Index() {
                         <a href="#pricing" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Pricing</a>
                       </DrawerClose>
                       <DrawerClose asChild>
-                        <CalendlyPopupButton
-                          url="https://calendly.com/pujabarmanb9/puja-nail-services"
+                        <a 
+                          href="#booking"
                           className="text-lg font-medium text-gray-700 hover:text-primary transition-colors border-0 bg-transparent cursor-pointer"
                         >
                           Book Appointment
-                        </CalendlyPopupButton>
+                        </a>
                       </DrawerClose>
                     </nav>
                   </DrawerContent>
