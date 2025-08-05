@@ -46,14 +46,17 @@ export default async function handler(req, res) {
       discountApplied 
     });
 
-    // Email configuration
-    const transporter = nodemailer.createTransporter({
-      service: "gmail",
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    // Email configuration (optional - only if credentials are available)
+    let transporter = null;
+    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+      transporter = nodemailer.createTransporter({
+        service: "gmail",
+        auth: {
+          user: process.env.EMAIL_USER,
+          pass: process.env.EMAIL_PASS,
+        },
+      });
+    }
 
     // Email content for the business owner
     const businessEmailContent = `
@@ -90,7 +93,7 @@ export default async function handler(req, res) {
     `;
 
     // Send emails if email credentials are configured
-    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+    if (transporter && process.env.EMAIL_USER && process.env.EMAIL_PASS) {
       try {
         // Send email to business owner
         await transporter.sendMail({
