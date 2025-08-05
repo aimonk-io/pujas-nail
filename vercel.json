@@ -1,6 +1,11 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ],
-  "outputDirectory": "dist/spa"
+  "functions": {
+    "api/appointment.js": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "EMAIL_USER": "@email_user",
+    "EMAIL_PASS": "@email_pass"
+  }
 } 

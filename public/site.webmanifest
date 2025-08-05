@@ -1,21 +1,95 @@
 {
-  "name": "Puja's Nail Studio",
+  "name": "Puja's Nail Studio - Professional Nail Art Services",
   "short_name": "Puja Nails",
-  "description": "Professional Nail Art Services in Dabgram, Siliguri",
+  "description": "Professional nail art studio in Dabgram, Siliguri. Expert nail extensions, gel manicures, acrylic nails, and custom nail designs. Book your appointment online today!",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8C1F28",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["beauty", "lifestyle", "business"],
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "32x32",
       "type": "image/png"
     }
   ],
-  "theme_color": "#8C1F28",
-  "background_color": "#ffffff",
-  "display": "standalone",
-  "start_url": "/"
+  "screenshots": [
+    {
+      "src": "/media/PHOTO-2025-07-07-18-03-03.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Nail Art Gallery"
+    },
+    {
+      "src": "/media/PHOTO-2025-07-07-18-04-22.jpg",
+      "sizes": "750x1334",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Mobile Nail Services"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book Appointment",
+      "short_name": "Book Now",
+      "description": "Book your nail appointment online",
+      "url": "/#booking",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "View Services",
+      "short_name": "Services",
+      "description": "View all nail services and prices",
+      "url": "/#services",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "Gallery",
+      "short_name": "Gallery",
+      "description": "View our nail art gallery",
+      "url": "/#work",
+      "icons": [
+        {
+          "src": "/favicon.png",
+          "sizes": "32x32"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  }
 } 

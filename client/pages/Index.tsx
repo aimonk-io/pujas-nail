@@ -1,15 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import {
   Card,
   CardContent,
@@ -49,6 +40,7 @@ import {
   DrawerClose,
 } from "@/components/ui/drawer";
 import { CalendlyPopupButton } from "@/components/CalendlyWidget";
+import { SEOHead } from "@/components/SEOHead";
 
 // Enhanced Animation Variants
 const fadeIn = {
@@ -482,16 +474,6 @@ const nailArtTypes = [
 ];
 
 export default function Index() {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    email: "",
-    service: "",
-    date: "",
-    time: "",
-    message: "",
-    discountCode: "",
-  });
   const [navExpanded, setNavExpanded] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isNavHovered, setIsNavHovered] = useState(false);
@@ -525,61 +507,48 @@ export default function Index() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState("");
+  // Load Calendly widget script
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.body.appendChild(script);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage("");
-
-    try {
-      const response = await fetch("/api/appointment", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        setSubmitMessage("✅ " + result.message);
-        setFormData({
-          name: "",
-          phone: "",
-          email: "",
-          service: "",
-          date: "",
-          time: "",
-          message: "",
-          discountCode: "",
-        });
-      } else {
-        setSubmitMessage("❌ " + result.message);
+    return () => {
+      // Cleanup script when component unmounts
+      const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
+      if (existingScript) {
+        document.body.removeChild(existingScript);
       }
-    } catch (error) {
-      console.error("Submission error:", error);
-      setSubmitMessage("❌ Failed to submit appointment. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
+    };
+  }, []);
 
-  const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
-  };
+
 
   const isMobile = useIsMobile();
 
   return (
-    <motion.div 
-      className="min-h-screen"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-    >
+    <>
+      <SEOHead 
+        services={[
+          ...nailExtensions.map(service => ({
+            name: service.name,
+            price: service.price,
+            description: service.description
+          })),
+          ...nailArtTypes.map(service => ({
+            name: service.name,
+            price: service.price,
+            description: service.description
+          }))
+        ]}
+      />
+      <motion.div 
+        className="min-h-screen"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
       {/* Header */}
       <motion.header
         className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
@@ -726,7 +695,7 @@ export default function Index() {
       </motion.header>
 
       {/* Hero Section */}
-      <section id="home" className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#F2F2F2] via-white to-[#8C1F28]/5">
+      <section id="home" className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#F2F2F2] via-white to-[#8C1F28]/5" role="banner" aria-label="Welcome to Puja's Nail Studio">
         {/* Background Images */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 z-10" />
@@ -768,6 +737,7 @@ export default function Index() {
                           <motion.h1
               variants={slideInFromTop}
               className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent leading-tight drop-shadow-sm"
+              itemProp="name"
             >
                 Beautiful Nails,
                 <br />
@@ -776,6 +746,7 @@ export default function Index() {
               <motion.p
                 variants={fadeInUp}
                 className="text-xl text-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+                itemProp="description"
               >
                 Experience the artistry of professional nail care with Puja. From
                 classic manicures to intricate nail art, we bring your vision to
@@ -972,7 +943,7 @@ export default function Index() {
 
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-[#044040]/8">
+      <section id="services" className="py-20 bg-[#044040]/8" role="region" aria-label="Our Nail Services">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -986,7 +957,7 @@ export default function Index() {
               variants={slideInFromTop}
               className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-[#8C1F28] via-[#D92525] to-[#044040] bg-clip-text text-transparent leading-tight drop-shadow-lg"
             >
-              Services
+              Professional Nail Services
             </motion.h2>
             <motion.p
               variants={fadeInUp}
@@ -1189,7 +1160,7 @@ export default function Index() {
       </section>
 
       {/* Image Grid Showcase */}
-      <section id="work" className="py-20 bg-[#591C21]/10">
+      <section id="work" className="py-20 bg-[#591C21]/10" role="region" aria-label="Our Nail Art Gallery">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -1203,7 +1174,7 @@ export default function Index() {
               variants={slideInFromTop}
               className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-[#8C1F28] via-[#D92525] to-[#044040] bg-clip-text text-transparent leading-tight drop-shadow-lg"
             >
-              Our Work
+              Nail Art Gallery
             </motion.h2>
             <motion.p
               variants={fadeInUp}
@@ -1302,10 +1273,10 @@ export default function Index() {
 
 
       {/* Booking Form */}
-      <section id="booking" className="py-16 bg-[#8C1F28]/8">
+      <section id="booking" className="py-16 bg-[#8C1F28]/8" role="region" aria-label="Book Your Nail Appointment">
         <div className="container mx-auto px-4">
           <motion.div
-            className="max-w-2xl mx-auto"
+            className="max-w-4xl mx-auto"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -1322,261 +1293,24 @@ export default function Index() {
                 variants={fadeInUp}
                 className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
               >
-                Schedule your perfect nail treatment with just a few clicks.
+                Choose your preferred date and time to book your nail appointment. Instant confirmation and easy scheduling.
               </motion.p>
             </motion.div>
 
             <motion.div 
               variants={scaleIn}
-              whileHover={{ scale: 1.02 }}
+              whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.3 }}
             >
               <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#8C1F28]/5 to-[#D92525]/5 opacity-0 hover:opacity-100 transition-opacity duration-500" />
                 <CardContent className="relative p-6">
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <motion.div 
-                        className="space-y-1"
-                        variants={fadeInLeft}
-                      >
-                        <Label
-                          htmlFor="name"
-                          className="text-sm font-semibold text-foreground"
-                        >
-                          Full Name
-                        </Label>
-                        <Input
-                          id="name"
-                          value={formData.name}
-                          onChange={(e) =>
-                            handleInputChange("name", e.target.value)
-                          }
-                          placeholder="Enter your full name"
-                          required
-                          className="border-gray-200 focus:border-primary bg-white/50 backdrop-blur-sm transition-all duration-300"
-                        />
-                      </motion.div>
-                      <motion.div 
-                        className="space-y-1"
-                        variants={fadeInRight}
-                      >
-                        <Label
-                          htmlFor="phone"
-                          className="text-sm font-semibold text-foreground"
-                        >
-                          Phone Number
-                        </Label>
-                        <Input
-                          id="phone"
-                          type="tel"
-                          value={formData.phone}
-                          onChange={(e) =>
-                            handleInputChange("phone", e.target.value)
-                          }
-                          placeholder="+91 8101267975"
-                          required
-                          className="border-gray-200 focus:border-primary bg-white/50 backdrop-blur-sm transition-all duration-300"
-                        />
-                      </motion.div>
-                    </div>
-
-                    <motion.div 
-                      className="space-y-1"
-                      variants={fadeInUp}
-                    >
-                      <Label
-                        htmlFor="email"
-                        className="text-sm font-semibold text-foreground"
-                      >
-                        Email Address
-                      </Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={(e) =>
-                          handleInputChange("email", e.target.value)
-                        }
-                        placeholder="your.email@example.com"
-                        required
-                        className="border-gray-200 focus:border-primary bg-white/50 backdrop-blur-sm transition-all duration-300"
-                      />
-                    </motion.div>
-
-                    <motion.div 
-                      className="space-y-1"
-                      variants={fadeInUp}
-                    >
-                      <Label
-                        htmlFor="service"
-                        className="text-sm font-semibold text-foreground"
-                      >
-                        Select Service
-                      </Label>
-                      <Select
-                        value={formData.service}
-                        onValueChange={(value) =>
-                          handleInputChange("service", value)
-                        }
-                      >
-                        <SelectTrigger className="border-gray-200 focus:border-primary bg-white/50 backdrop-blur-sm transition-all duration-300">
-                          <SelectValue placeholder="Choose your service" />
-                        </SelectTrigger>
-                        <SelectContent className="bg-white/95 backdrop-blur-sm border-gray-200">
-                          {/* Nail Extensions */}
-                          <SelectItem value="extensions-header" disabled className="font-semibold text-[#044040]">
-                            ── Nail Extensions ──
-                          </SelectItem>
-                          {nailExtensions.map((service, index) => (
-                            <SelectItem key={`extension-${index}`} value={service.name}>
-                              {service.name} - {service.price}
-                            </SelectItem>
-                          ))}
-                          
-                          {/* Nail Art Types */}
-                          <SelectItem value="nail-art-header" disabled className="font-semibold text-[#D92525]">
-                            ── Nail Art Types ──
-                          </SelectItem>
-                          {nailArtTypes.map((service, index) => (
-                            <SelectItem key={`art-${index}`} value={service.name}>
-                              {service.name} - {service.price}
-                            </SelectItem>
-                          ))}
-                          
-
-                        </SelectContent>
-                      </Select>
-                    </motion.div>
-
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <motion.div 
-                        className="space-y-1"
-                        variants={fadeInLeft}
-                      >
-                        <Label
-                          htmlFor="date"
-                          className="text-sm font-semibold text-foreground"
-                        >
-                          Preferred Date
-                        </Label>
-                        <Input
-                          id="date"
-                          type="date"
-                          value={formData.date}
-                          onChange={(e) =>
-                            handleInputChange("date", e.target.value)
-                          }
-                          required
-                          min={new Date().toISOString().split("T")[0]}
-                          className="border-gray-200 focus:border-primary bg-white/50 backdrop-blur-sm transition-all duration-300"
-                        />
-                      </motion.div>
-                      <motion.div 
-                        className="space-y-1"
-                        variants={fadeInRight}
-                      >
-                        <Label
-                          htmlFor="time"
-                          className="text-sm font-semibold text-foreground"
-                        >
-                          Preferred Time
-                        </Label>
-                        <Select
-                          value={formData.time}
-                          onValueChange={(value) =>
-                            handleInputChange("time", value)
-                          }
-                        >
-                          <SelectTrigger className="border-gray-200 focus:border-primary bg-white/50 backdrop-blur-sm transition-all duration-300">
-                            <SelectValue placeholder="Select time" />
-                          </SelectTrigger>
-                          <SelectContent className="bg-white/95 backdrop-blur-sm border-gray-200">
-                            <SelectItem value="10:00">10:00 AM</SelectItem>
-                            <SelectItem value="11:00">11:00 AM</SelectItem>
-                            <SelectItem value="12:00">12:00 PM</SelectItem>
-                            <SelectItem value="14:00">2:00 PM</SelectItem>
-                            <SelectItem value="15:00">3:00 PM</SelectItem>
-                            <SelectItem value="16:00">4:00 PM</SelectItem>
-                            <SelectItem value="17:00">5:00 PM</SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </motion.div>
-                    </div>
-
-                    {/* Discount Code Field */}
-                    <motion.div 
-                      className="space-y-1"
-                      variants={fadeInUp}
-                    >
-                      <Label
-                        htmlFor="discountCode"
-                        className="text-sm font-semibold text-foreground"
-                      >
-                        Discount Code (Optional)
-                      </Label>
-                      <Input
-                        id="discountCode"
-                        value={formData.discountCode}
-                        onChange={(e) =>
-                          handleInputChange("discountCode", e.target.value)
-                        }
-                        placeholder="Enter discount code (e.g., FIRST10C)"
-                        className="border-gray-200 focus:border-primary bg-white/50 backdrop-blur-sm transition-all duration-300"
-                      />
-                      <p className="text-xs text-muted-foreground">
-                        First-time clients can use code "FIRST10C" for 10% off
-                      </p>
-                    </motion.div>
-
-                    <motion.div 
-                      className="text-center pt-2"
-                      variants={slideInFromBottom}
-                    >
-                      <motion.button
-                        type="submit"
-                        disabled={isSubmitting}
-                        whileHover={{ scale: isSubmitting ? 1 : 1.05 }}
-                        whileTap={{ scale: isSubmitting ? 1 : 0.95 }}
-                      >
-                        <Button
-                          size="lg"
-                          disabled={isSubmitting}
-                          className="px-8 py-3 text-base bg-gradient-to-r from-[#8C1F28] to-[#D92525] hover:shadow-lg transition-all duration-300 rounded-full disabled:opacity-50"
-                        >
-                          {isSubmitting ? (
-                            <>
-                              <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                              Submitting...
-                            </>
-                          ) : (
-                            <>
-                              <Sparkles className="h-4 w-4 mr-2" />
-                              Book Appointment
-                            </>
-                          )}
-                        </Button>
-                      </motion.button>
-                      
-                      {submitMessage && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className={`mt-3 p-3 rounded-lg text-sm ${
-                            submitMessage.includes("✅") 
-                              ? "bg-green-100 text-green-800 border border-green-200" 
-                              : "bg-red-100 text-red-800 border border-red-200"
-                          }`}
-                        >
-                          {submitMessage}
-                        </motion.div>
-                      )}
-                      
-                      <p className="text-xs text-muted-foreground mt-3">
-                        We'll contact you within 24 hours to confirm your appointment
-                      </p>
-                    </motion.div>
-                  </form>
+                  {/* Calendly inline widget */}
+                  <div 
+                    className="calendly-inline-widget" 
+                    data-url="https://calendly.com/pujabarmanb9/puja-nail-services?background_color=ffffff&text_color=8c1f28" 
+                    style={{ minWidth: '320px', height: '700px' }}
+                  />
                 </CardContent>
               </Card>
             </motion.div>
@@ -1590,6 +1324,8 @@ export default function Index() {
       <footer
         id="contact"
         className="bg-[#044040]/15 py-16"
+        role="contentinfo"
+        aria-label="Contact Information and Footer"
       >
         <div className="container mx-auto px-4">
           <motion.div
@@ -1612,8 +1348,22 @@ export default function Index() {
                 experience the difference.
               </p>
               <div className="flex space-x-4">
-                <Instagram className="h-6 w-6 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                <Facebook className="h-6 w-6 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                <a 
+                  href="https://www.instagram.com/pujanailstudio/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="Follow us on Instagram"
+                >
+                  <Instagram className="h-6 w-6 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                </a>
+                <a 
+                  href="https://www.facebook.com/people/puja-Nails-Studio/61578745337761/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Facebook className="h-6 w-6 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
+                </a>
               </div>
             </motion.div>
 
@@ -1624,12 +1374,12 @@ export default function Index() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">+91 8101267975</span>
+                  <span className="text-muted-foreground">+91 8101267974</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-primary" />
                   <span className="text-muted-foreground">
-                    pujabarmanb9@gmail.com
+                    pujanailstudio@gmail.com
                   </span>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -1765,6 +1515,7 @@ export default function Index() {
           </div>
         </DialogContent>
       </Dialog>
-    </motion.div>
+      </motion.div>
+    </>
   );
 }
