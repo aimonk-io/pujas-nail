@@ -42,6 +42,14 @@ import {
 import { CalendlyPopupButton } from "@/components/CalendlyWidget";
 import { SEOHead } from "@/components/SEOHead";
 
+// Google Analytics type declaration
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+    dataLayer: any[];
+  }
+}
+
 // Enhanced Animation Variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -523,6 +531,35 @@ export default function Index() {
     };
   }, []);
 
+  // Track booking section interactions
+  useEffect(() => {
+    const trackBookingInteraction = () => {
+      if (typeof window !== 'undefined' && window.gtag) {
+        window.gtag('event', 'begin_checkout', {
+          event_category: 'booking',
+          event_label: 'booking_section_view',
+          value: 1
+        });
+      }
+    };
+
+    // Track when booking section comes into view
+    const bookingSection = document.getElementById('booking');
+    if (bookingSection) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            trackBookingInteraction();
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      observer.observe(bookingSection);
+      
+      return () => observer.disconnect();
+    }
+  }, []);
+
 
 
   const isMobile = useIsMobile();
@@ -759,11 +796,19 @@ export default function Index() {
                               <Button
                 size="lg"
                 className="px-8 py-3 text-lg bg-gradient-to-r from-primary to-accent hover:shadow-lg transition-all duration-300"
-                onClick={() =>
+                onClick={() => {
+                  // Track booking button click
+                  if (typeof window !== 'undefined' && window.gtag) {
+                    window.gtag('event', 'click', {
+                      event_category: 'booking',
+                      event_label: 'hero_book_appointment',
+                      value: 1
+                    });
+                  }
                   document
                     .getElementById("booking")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
+                    ?.scrollIntoView({ behavior: "smooth" });
+                }}
               >
                   <Sparkles className="h-5 w-5 mr-2" />
                   Book Appointment
