@@ -722,6 +722,16 @@ export default function Index() {
                           Book Appointment
                         </a>
                       </DrawerClose>
+                      <DrawerClose asChild>
+                        <a 
+                          href="tel:+918101267974"
+                          className="flex items-center space-x-2 text-lg font-medium text-primary hover:text-accent transition-colors"
+                          aria-label="Call Puja's Nail Studio"
+                        >
+                          <Phone className="h-5 w-5" />
+                          <span>+91 8101267974</span>
+                        </a>
+                      </DrawerClose>
                     </nav>
                   </DrawerContent>
                 </Drawer>
@@ -1169,6 +1179,21 @@ export default function Index() {
                 Get 20% off your first appointment with us. Experience the
                 difference of professional nail artistry and discover why clients love our work.
               </motion.p>
+              <motion.div
+                variants={fadeInUp}
+                className="flex items-center justify-center space-x-4 mb-8"
+              >
+                <a 
+                  href="tel:+918101267974"
+                  className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-primary hover:text-accent transition-colors"
+                  aria-label="Call Puja's Nail Studio"
+                >
+                  <Phone className="h-4 w-4" />
+                  <span>+91 8101267974</span>
+                </a>
+                <span className="text-muted-foreground">•</span>
+                <span className="text-muted-foreground text-sm">Call for special pricing</span>
+              </motion.div>
               <motion.div 
                 variants={slideInFromBottom}
                 className="flex flex-col sm:flex-row gap-4 justify-center"
@@ -1336,10 +1361,25 @@ export default function Index() {
               </motion.h2>
               <motion.p 
                 variants={fadeInUp}
-                className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+                className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6"
               >
                 Choose your preferred date and time to book your nail appointment. Instant confirmation and easy scheduling.
               </motion.p>
+              <motion.div
+                variants={fadeInUp}
+                className="flex items-center justify-center space-x-4 mb-6"
+              >
+                <a 
+                  href="tel:+918101267974"
+                  className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#8C1F28] to-[#D92525] text-white rounded-lg hover:shadow-lg transition-all duration-300"
+                  aria-label="Call Puja's Nail Studio"
+                >
+                  <Phone className="h-5 w-5" />
+                  <span className="font-medium">Call: +91 8101267974</span>
+                </a>
+                <span className="text-muted-foreground">or</span>
+                <span className="text-muted-foreground font-medium">Book Online Below</span>
+              </motion.div>
             </motion.div>
 
             <motion.div 
@@ -1365,12 +1405,93 @@ export default function Index() {
 
 
 
-      {/* Contact & Footer */}
+      {/* Contact Section */}
+      <section id="contact" className="py-20 bg-[#044040]/10" role="region" aria-label="Contact Information">
+        <div className="container mx-auto px-4">
+          <motion.div
+            className="text-center mb-12"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.h2
+              variants={slideInFromTop}
+              className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-[#044040] via-[#8C1F28] to-[#D92525] bg-clip-text text-transparent leading-tight drop-shadow-lg"
+            >
+              Contact Us
+            </motion.h2>
+            <motion.p
+              variants={fadeInUp}
+              className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+            >
+              Get in touch with us for appointments, inquiries, or to learn more about our services
+            </motion.p>
+          </motion.div>
+
+          <motion.div
+            className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerFast}
+          >
+            {/* Phone Contact */}
+            <motion.div variants={scaleIn} className="text-center">
+              <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
+                <div className="bg-gradient-to-r from-[#044040]/10 to-[#8C1F28]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <Phone className="h-8 w-8 text-[#044040]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Call Us</h3>
+                <a 
+                  href="tel:+918101267974"
+                  className="text-2xl font-bold bg-gradient-to-r from-[#044040] to-[#8C1F28] bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 block"
+                  aria-label="Call Puja's Nail Studio"
+                >
+                  +91 8101267974
+                </a>
+                <p className="text-muted-foreground mt-2">Available 7 days a week</p>
+              </Card>
+            </motion.div>
+
+            {/* Email Contact */}
+            <motion.div variants={scaleIn} className="text-center">
+              <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
+                <div className="bg-gradient-to-r from-[#8C1F28]/10 to-[#D92525]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <Mail className="h-8 w-8 text-[#8C1F28]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Email Us</h3>
+                <a 
+                  href="mailto:pujanailstudio@gmail.com"
+                  className="text-lg font-medium text-[#8C1F28] hover:text-[#D92525] transition-colors"
+                  aria-label="Email Puja's Nail Studio"
+                >
+                  pujanailstudio@gmail.com
+                </a>
+                <p className="text-muted-foreground mt-2">Quick response guaranteed</p>
+              </Card>
+            </motion.div>
+
+            {/* Location */}
+            <motion.div variants={scaleIn} className="text-center">
+              <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
+                <div className="bg-gradient-to-r from-[#D92525]/10 to-[#044040]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="h-8 w-8 text-[#D92525]" />
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Visit Us</h3>
+                <p className="text-lg font-medium text-[#D92525] mb-2">Dabgram, Siliguri</p>
+                <p className="text-muted-foreground text-sm">West Bengal 734015, India</p>
+              </Card>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Footer */}
       <footer
-        id="contact"
         className="bg-[#044040]/15 py-16"
         role="contentinfo"
-        aria-label="Contact Information and Footer"
+        aria-label="Footer Information"
       >
         <div className="container mx-auto px-4">
           <motion.div
@@ -1419,7 +1540,13 @@ export default function Index() {
               <div className="space-y-3">
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">+91 8101267974</span>
+                  <a 
+                    href="tel:+918101267974" 
+                    className="text-muted-foreground hover:text-primary transition-colors font-medium"
+                    aria-label="Call Puja's Nail Studio"
+                  >
+                    +91 8101267974
+                  </a>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Mail className="h-5 w-5 text-primary" />
