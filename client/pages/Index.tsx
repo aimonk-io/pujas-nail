@@ -187,8 +187,8 @@ const galleryImages = [
   {
     id: 2,
     src: "/media/PHOTO-2025-07-07-18-03-03.jpg",
-    alt: "Classic French manicure with perfect finish",
-    title: "Perfect French Manicure",
+    alt: "Classic French nails with perfect finish",
+    title: "Perfect French Nails",
   },
   {
     id: 3,
@@ -354,49 +354,6 @@ function GallerySlider() {
   );
 }
 
-const services = [
-  {
-    name: "Classic Manicure",
-    price: "₹800",
-    duration: "45 mins",
-    description:
-      "Traditional nail care with cuticle trimming, shaping, and polish application",
-  },
-  {
-    name: "Gel Manicure",
-    price: "₹1,200",
-    duration: "60 mins",
-    description:
-      "Long-lasting gel polish that stays chip-free for up to 3 weeks",
-  },
-  {
-    name: "French Manicure",
-    price: "₹1,000",
-    duration: "50 mins",
-    description: "Elegant white tips with nude or pink base for a classic look",
-  },
-  {
-    name: "Nail Art Design",
-    price: "₹1,500",
-    duration: "75 mins",
-    description: "Custom nail art with intricate designs and embellishments",
-  },
-  {
-    name: "Russian Manicure",
-    price: "₹1,800",
-    duration: "90 mins",
-    description:
-      "Dry manicure technique for perfect cuticle work and long-lasting results",
-  },
-  {
-    name: "Luxury Spa Manicure",
-    price: "₹2,200",
-    duration: "120 mins",
-    description:
-      "Premium treatment with hand massage, mask, and luxury products",
-  },
-];
-
 const nailExtensions = [
   {
     name: "Acrylic Extension",
@@ -441,7 +398,7 @@ const nailArtTypes = [
     name: "French Nail Art",
     price: "₹700",
     duration: "50 mins",
-    description: "Classic French manicure with artistic variations and designs",
+    description: "Classic French nails with artistic variations and designs",
   },
   {
     name: "Sticker Nail Art",
@@ -795,9 +752,8 @@ export default function Index() {
                 className="text-xl text-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
                 itemProp="description"
               >
-                Experience the artistry of professional nail care with Puja. From
-                classic manicures to intricate nail art, we bring your vision to
-                life with precision and passion.
+                Premium at-home nail services in Siliguri. We come to you for
+                nail extensions and custom nail art—salon-quality results, at your place.
               </motion.p>
               <motion.div
                 variants={slideInFromBottom}
@@ -1012,13 +968,13 @@ export default function Index() {
               variants={slideInFromTop}
               className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-[#8C1F28] via-[#D92525] to-[#044040] bg-clip-text text-transparent leading-tight drop-shadow-lg"
             >
-              Professional Nail Services
+              Home Nail Services
             </motion.h2>
             <motion.p
               variants={fadeInUp}
               className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             >
-              Transform your nails with our comprehensive range of professional services designed to enhance your natural beauty
+              We bring premium nail extensions and custom nail art to your home in Siliguri. Relax and get salon-quality results without leaving your place.
             </motion.p>
           </motion.div>
 
@@ -1288,9 +1244,9 @@ export default function Index() {
               },
               {
                 src: "/media/PHOTO-2025-07-07-18-03-03.jpg",
-                alt: "Classic French manicure with perfect finish",
-                title: "Perfect French",
-                description: "Timeless French manicure"
+                alt: "Classic French nails with perfect finish",
+                title: "Perfect French Nails",
+                description: "Timeless French nails"
               },
               {
                 src: "/media/PHOTO-2025-07-07-18-03-03 2.jpg",
@@ -1363,7 +1319,7 @@ export default function Index() {
                 variants={fadeInUp}
                 className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed mb-6"
               >
-                Choose your preferred date and time to book your nail appointment. Instant confirmation and easy scheduling.
+                Choose your preferred date and time to book your at-home nail appointment. Instant confirmation and easy scheduling.
               </motion.p>
               <motion.div
                 variants={fadeInUp}
@@ -1478,9 +1434,9 @@ export default function Index() {
                 <div className="bg-gradient-to-r from-[#D92525]/10 to-[#044040]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <MapPin className="h-8 w-8 text-[#D92525]" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-foreground">Visit Us</h3>
-                <p className="text-lg font-medium text-[#D92525] mb-2">Dabgram, Siliguri</p>
-                <p className="text-muted-foreground text-sm">West Bengal 734015, India</p>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Service Area</h3>
+                <p className="text-lg font-medium text-[#D92525] mb-2">Siliguri & nearby areas</p>
+                <p className="text-muted-foreground text-sm">We come to you for all services</p>
               </Card>
             </motion.div>
           </motion.div>
@@ -1565,7 +1521,7 @@ export default function Index() {
 
             <motion.div variants={fadeIn}>
               <h4 className="text-lg font-semibold mb-4 text-foreground">
-                Studio Hours
+                Service Hours
               </h4>
               <div className="space-y-2">
                 <div className="flex items-center space-x-3">

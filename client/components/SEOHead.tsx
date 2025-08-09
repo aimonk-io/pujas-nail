@@ -19,9 +19,9 @@ interface SEOHeadProps {
 }
 
 export function SEOHead({
-  title = "Puja's Nail Studio - Professional Nail Art & Manicure Services in Dabgram, Siliguri | Book Online",
-  description = "Professional nail art studio in Dabgram, Siliguri. Expert nail extensions, gel manicures, acrylic nails, custom nail designs, and nail art. Open 7 days a week. Book your appointment online today! First-time clients get 10% off.",
-  keywords = "nail art, nail salon, acrylic nails, gel manicure, nail extensions, Dabgram, Siliguri, nail art studio, custom nail designs, manicure, pedicure, nail polish, nail technician, beauty salon, nail care, professional nail services",
+  title = "At-Home Nail Services in Siliguri | Nail Extensions & Custom Nail Art | We Come To You",
+  description = "Mobile nail studio in Siliguri offering at-home nail extensions and custom nail art. Salon-quality results at your place. Open 7 days a week. Book your at-home appointment today!",
+  keywords = "home service nails, at-home nail service, mobile nail technician, acrylic extensions at home, gel extensions at home, nail extensions, Siliguri, custom nail art, nail art at home, home salon, beauty at home",
   image = "https://pujasnailstudio.com/logo.png",
   url = "https://pujasnailstudio.com",
   type = "business.business",
@@ -39,6 +39,7 @@ export function SEOHead({
     "url": url,
     "telephone": businessPhone,
     "email": "pujabarmanb9@gmail.com",
+    "areaServed": "Siliguri and nearby areas",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "Dabgram",
@@ -93,7 +94,7 @@ export function SEOHead({
           "@type": "Person",
           "name": "Anjali Das"
         },
-        "reviewBody": "Best nail studio in Siliguri! The gel manicure lasted perfectly for 3 weeks."
+        "reviewBody": "Best nail studio in Siliguri! My gel extensions lasted perfectly for 3 weeks."
       }
     ],
     "sameAs": [
