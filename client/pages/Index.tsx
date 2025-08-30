@@ -545,11 +545,27 @@ export default function Index() {
       >
       {/* Header */}
       <motion.header
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          hasScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
+        }`}
+        initial="hidden"
+        animate="visible"
+        variants={fadeIn}
       >
+        {/* Floating Contact Button */}
+        <div className="absolute top-4 right-4 z-50">
+          <motion.a
+            href="tel:+918617682768"
+            className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium text-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            aria-label="Call Puja's Nail Studio"
+          >
+            <Phone className="h-4 w-4" />
+            <span>Call Now</span>
+          </motion.a>
+        </div>
+        
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between w-full">
             {/* Logo with Circle Background */}
@@ -779,7 +795,41 @@ export default function Index() {
                   <Sparkles className="h-5 w-5 mr-2" />
                   Book Appointment
                 </Button>
+                <a
+                  href="tel:+918617682768"
+                  className="inline-flex items-center space-x-2 px-8 py-3 text-lg bg-gradient-to-r from-secondary to-primary text-white rounded-lg hover:shadow-lg transition-all duration-300 font-medium"
+                  aria-label="Call Puja's Nail Studio"
+                >
+                  <Phone className="h-5 w-5" />
+                  Call Now: +91 8617682768
+                </a>
               </motion.div>
+            </motion.div>
+
+            {/* Prominent Contact Info */}
+            <motion.div
+              variants={fadeInUp}
+              className="mt-8 text-center"
+            >
+              <div className="inline-flex items-center space-x-6 bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg border border-primary/20">
+                <div className="flex items-center space-x-2">
+                  <Phone className="h-5 w-5 text-primary" />
+                  <span className="text-lg font-semibold text-foreground">Call:</span>
+                  <a
+                    href="tel:+918617682768"
+                    className="text-xl font-bold text-primary hover:text-accent transition-colors"
+                    aria-label="Call Puja's Nail Studio"
+                  >
+                    +91 8617682768
+                  </a>
+                </div>
+                <div className="w-px h-8 bg-primary/30"></div>
+                <div className="flex items-center space-x-2">
+                  <Clock className="h-5 w-5 text-primary" />
+                  <span className="text-lg font-semibold text-foreground">Open:</span>
+                  <span className="text-xl font-bold text-primary">7 Days a Week</span>
+                </div>
+              </div>
             </motion.div>
 
                          {/* Hero Image Grid */}
@@ -1644,6 +1694,25 @@ export default function Index() {
           </div>
         </DialogContent>
       </Dialog>
+
+      {/* Sticky Contact Bar for Mobile */}
+      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden">
+        <div className="bg-gradient-to-r from-primary to-accent text-white p-3 shadow-lg">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-2">
+              <Phone className="h-5 w-5" />
+              <span className="font-medium">Call Now:</span>
+            </div>
+            <a
+              href="tel:+918617682768"
+              className="text-lg font-bold hover:scale-105 transition-transform duration-200"
+              aria-label="Call Puja's Nail Studio"
+            >
+              +91 8617682768
+            </a>
+          </div>
+        </div>
+      </div>
       </motion.div>
     </>
   );
