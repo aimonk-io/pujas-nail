@@ -178,7 +178,7 @@ gtag('event', 'booking_submitted', {
 
 For technical support or integration help:
 - Email: pujabarmanb9@gmail.com
-- Phone: +91 98765 43210
+- Phone: +91 8617682768
 
 ---
 

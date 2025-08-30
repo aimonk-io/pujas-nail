@@ -7,94 +7,99 @@
    * Tailwind CSS theme
    * tailwind.config.ts expects the following color variables to be expressed as HSL values.
    * A different format will require also updating the theme in tailwind.config.ts.
-  */
+   */
   :root {
-    /* Samuel Alexander AW19 Collection Color Palette */
-    --background: 0 0% 95%; /* #F2F2F2 - Light gray background */
-    --foreground: 354 52% 22%; /* #591C21 - Dark burgundy text */
+    /* New Palette (hex reference) */
+    --chocolate-cosmos-hex: #590d22;
+    --claret-hex: #800f2f;
+    --amaranth-purple-hex: #a4133c;
+    --rose-red-hex: #c9184a;
+    --bright-pink-crayola-hex: #ff4d6d;
+    --bright-pink-crayola-2-hex: #ff758f;
+    --salmon-pink-hex: #ff8fa3;
+    --cherry-blossom-pink-hex: #ffb3c1;
+    --pink-hex: #ffccd5;
+    --lavender-blush-hex: #fff0f3;
+
+    /* Light theme mapped to HSL */
+    --background: 348 100% 97%; /* lavender blush */
+    --foreground: 343 75% 20%;  /* chocolate cosmos */
 
     --card: 0 0% 100%;
-    --card-foreground: 354 52% 22%;
+    --card-foreground: 343 75% 20%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 354 52% 22%;
+    --popover-foreground: 343 75% 20%;
 
-    --primary: 354 63% 33%; /* #8C1F28 - Primary burgundy */
-    --primary-foreground: 0 0% 95%;
+    --primary: 343 79% 36%; /* amaranth purple */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 180 88% 13%; /* #044040 - Dark teal */
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 343 79% 28%; /* claret */
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 95%;
-    --muted-foreground: 354 30% 40%;
+    --muted: 349 100% 90%; /* pink */
+    --muted-foreground: 343 30% 40%;
 
-    --accent: 0 70% 49%; /* #D92525 - Bright red accent */
-    --accent-foreground: 0 0% 95%;
+    --accent: 349 100% 65%; /* bright pink crayola */
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 70% 49%; /* #D92525 - Bright red for destructive actions */
-    --destructive-foreground: 0 0% 95%;
+    --destructive: 343 79% 44%; /* rose red */
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 354 20% 85%;
-    --input: 354 20% 90%;
-    --ring: 354 63% 33%;
+    --border: 349 60% 88%; /* soft pink border */
+    --input: 349 60% 92%;
+    --ring: 343 79% 36%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 354 52% 22%;
-
-    --sidebar-primary: 354 63% 33%;
-
-    --sidebar-primary-foreground: 0 0% 95%;
-
-    --sidebar-accent: 180 88% 13%;
-
-    --sidebar-accent-foreground: 0 0% 95%;
-
-    --sidebar-border: 354 20% 85%;
-
-    --sidebar-ring: 354 63% 33%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 343 75% 20%;
+    --sidebar-primary: 343 79% 36%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 349 100% 65%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 349 60% 88%;
+    --sidebar-ring: 343 79% 36%;
   }
 
   .dark {
-    /* Samuel Alexander AW19 Collection - Dark Mode */
-    --background: 354 52% 8%; /* Darker version of #591C21 */
-    --foreground: 0 0% 95%;
+    /* Dark theme based on palette */
+    --background: 343 75% 12%; /* deeper chocolate cosmos */
+    --foreground: 0 0% 96%;
 
-    --card: 354 52% 10%;
-    --card-foreground: 0 0% 95%;
+    --card: 343 75% 14%;
+    --card-foreground: 0 0% 96%;
 
-    --popover: 354 52% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 343 75% 14%;
+    --popover-foreground: 0 0% 96%;
 
-    --primary: 354 63% 33%; /* #8C1F28 - Keep primary burgundy */
-    --primary-foreground: 0 0% 95%;
+    --primary: 343 79% 44%; /* rose red as primary pop in dark */
+    --primary-foreground: 0 0% 98%;
 
-    --secondary: 180 88% 13%; /* #044040 - Keep dark teal */
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 343 79% 28%; /* claret */
+    --secondary-foreground: 0 0% 96%;
 
-    --muted: 354 52% 15%;
-    --muted-foreground: 0 0% 70%;
+    --muted: 343 25% 22%;
+    --muted-foreground: 0 0% 75%;
 
-    --accent: 0 70% 49%; /* #D92525 - Keep bright red accent */
-    --accent-foreground: 0 0% 95%;
+    --accent: 349 100% 73%; /* bright pink crayola 2 */
+    --accent-foreground: 343 75% 12%;
 
-    --destructive: 0 70% 49%; /* #D92525 - Keep bright red */
-    --destructive-foreground: 0 0% 95%;
+    --destructive: 343 79% 36%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 354 52% 20%;
-    --input: 354 52% 20%;
-    --ring: 354 63% 33%;
+    --border: 343 30% 26%;
+    --input: 343 30% 26%;
+    --ring: 343 79% 44%;
     
-    --sidebar-background: 354 52% 10%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 354 63% 33%;
-    --sidebar-primary-foreground: 0 0% 95%;
-    --sidebar-accent: 180 88% 13%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 354 52% 20%;
-    --sidebar-ring: 354 63% 33%;
+    --sidebar-background: 343 75% 14%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 343 79% 44%;
+    --sidebar-primary-foreground: 0 0% 96%;
+    --sidebar-accent: 349 100% 73%;
+    --sidebar-accent-foreground: 343 75% 12%;
+    --sidebar-border: 343 30% 26%;
+    --sidebar-ring: 343 79% 44%;
   }
 }
 

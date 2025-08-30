@@ -45,7 +45,7 @@ Should return: `{"message":"API is working!","timestamp":"...","method":"GET"}`
 - **Business Email**: Sent to `pujabarmanb9@gmail.com`
 - **Client Email**: Sent to the email provided in the form
 - **Discount Info**: Shows if discount was applied
-- **Contact Info**: Updated phone number (+91 8101267975)
+- **Contact Info**: Updated phone number (+91 8617682768)
 
 ## 🔍 **Testing:**
 

@@ -122,7 +122,7 @@ Sitelinks are additional links that appear below the main search result in Googl
 <a href="#services">Nail Services</a>
 <a href="#work">Nail Art Gallery</a>
 <a href="#contact">Location & Hours</a>
-<a href="tel:+918101267974">Call Now</a>
+<a href="tel:+918617682768">Call Now</a>
 ```
 
 ## Local Business Sitelinks

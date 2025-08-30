@@ -21,7 +21,7 @@ declare global {
 export const CalendlyWidget = ({ 
   url, 
   text = 'Schedule time with me', 
-  color = '#8C1F28', 
+  color = '#a4133c', 
   textColor = '#ffffff',
   className = ''
 }: CalendlyWidgetProps) => {

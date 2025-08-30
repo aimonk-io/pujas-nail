@@ -235,7 +235,7 @@ This document outlines the comprehensive SEO improvements implemented for Puja's
 
 For SEO-related questions or updates:
 - **Email**: pujabarmanb9@gmail.com
-- **Phone**: +91 8101267974
+- **Phone**: +91 8617682768
 - **Location**: Dabgram, Siliguri, West Bengal
 
 ---

@@ -26,7 +26,7 @@ export function SEOHead({
   url = "https://pujasnailstudio.com",
   type = "business.business",
   businessName = "Puja's Nail Studio",
-  businessPhone = "+91 8101267974",
+  businessPhone = "+91 8617682768",
   businessAddress = "Dabgram, Siliguri, West Bengal 734015, India",
   businessHours = "Mo-Su 10:00-20:00",
   services = []

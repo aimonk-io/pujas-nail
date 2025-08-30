@@ -87,7 +87,7 @@ export default async function handler(req, res) {
         <li><strong>Time:</strong> ${time}</li>
         ${discountCode && discountCode.toUpperCase() === "FIRST10C" ? `<li><strong>Discount:</strong> ✅ 10% off applied (First-time client special)</li>` : ""}
       </ul>
-      <p>We will contact you within 24 hours to confirm your appointment. If you need to make any changes, please call us at +91 8101267975.</p>
+      <p>We will contact you within 24 hours to confirm your appointment. If you need to make any changes, please call us at +91 8617682768.</p>
       <p>Looking forward to seeing you!</p>
       <p>Best regards,<br>Puja's Nail Studio Team</p>
     `;

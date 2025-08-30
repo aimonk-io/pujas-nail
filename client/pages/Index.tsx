@@ -681,12 +681,12 @@ export default function Index() {
                       </DrawerClose>
                       <DrawerClose asChild>
                         <a 
-                          href="tel:+918101267974"
+                          href="tel:+918617682768"
                           className="flex items-center space-x-2 text-lg font-medium text-primary hover:text-accent transition-colors"
                           aria-label="Call Puja's Nail Studio"
                         >
                           <Phone className="h-5 w-5" />
-                          <span>+91 8101267974</span>
+                          <span>+91 8617682768</span>
                         </a>
                       </DrawerClose>
                     </nav>
@@ -699,7 +699,7 @@ export default function Index() {
       </motion.header>
 
       {/* Hero Section */}
-      <section id="home" className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#F2F2F2] via-white to-[#8C1F28]/5" role="banner" aria-label="Welcome to Puja's Nail Studio">
+      <section id="home" className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#F2F2F2] via-white to-primary/5" role="banner" aria-label="Welcome to Puja's Nail Studio">
         {/* Background Images */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 z-10" />
@@ -805,8 +805,8 @@ export default function Index() {
                    />
                    {/* Multiple Overlay Layers */}
                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                   <div className="absolute inset-0 bg-gradient-to-r from-[#8C1F28]/20 to-[#D92525]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                   <div className="absolute inset-0 bg-gradient-to-br from-[#8C1F28]/10 to-[#044040]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                    
                    {/* Content Overlay */}
                    <div className="absolute inset-0 flex flex-col justify-end p-4">
@@ -839,8 +839,8 @@ export default function Index() {
                    />
                    {/* Multiple Overlay Layers */}
                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                   <div className="absolute inset-0 bg-gradient-to-r from-[#8C1F28]/20 to-[#D92525]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                   <div className="absolute inset-0 bg-gradient-to-br from-[#8C1F28]/10 to-[#044040]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                    
                    {/* Content Overlay */}
                    <div className="absolute inset-0 flex flex-col justify-end p-4">
@@ -873,8 +873,8 @@ export default function Index() {
                    />
                    {/* Multiple Overlay Layers */}
                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                   <div className="absolute inset-0 bg-gradient-to-r from-[#8C1F28]/20 to-[#D92525]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                   <div className="absolute inset-0 bg-gradient-to-br from-[#8C1F28]/10 to-[#044040]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                    
                    {/* Content Overlay */}
                    <div className="absolute inset-0 flex flex-col justify-end p-4">
@@ -907,8 +907,8 @@ export default function Index() {
                    />
                    {/* Multiple Overlay Layers */}
                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                   <div className="absolute inset-0 bg-gradient-to-r from-[#8C1F28]/20 to-[#D92525]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                   <div className="absolute inset-0 bg-gradient-to-br from-[#8C1F28]/10 to-[#044040]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
                    
                    {/* Content Overlay */}
                    <div className="absolute inset-0 flex flex-col justify-end p-4">
@@ -941,7 +941,7 @@ export default function Index() {
                  }}
                >
                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 shadow-lg">
-                   <Sparkles className="h-8 w-8 text-[#8C1F28]" />
+                   <Sparkles className="h-8 w-8 text-primary" />
                  </div>
                </motion.div>
             </motion.div>
@@ -954,7 +954,7 @@ export default function Index() {
 
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-[#044040]/8" role="region" aria-label="Our Nail Services">
+      <section id="services" className="py-20 bg-secondary/10" role="region" aria-label="Our Nail Services">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -966,7 +966,7 @@ export default function Index() {
 
             <motion.h2
               variants={slideInFromTop}
-              className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-[#8C1F28] via-[#D92525] to-[#044040] bg-clip-text text-transparent leading-tight drop-shadow-lg"
+              className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent leading-tight drop-shadow-lg"
             >
               Home Nail Services
             </motion.h2>
@@ -993,7 +993,7 @@ export default function Index() {
               <div className="text-center mb-8">
                 <motion.h3
                   variants={slideInFromTop}
-                  className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-[#044040] via-[#8C1F28] to-[#D92525] bg-clip-text text-transparent drop-shadow-lg"
+                  className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent drop-shadow-lg"
                 >
                   Nail Extensions
                 </motion.h3>
@@ -1018,20 +1018,20 @@ export default function Index() {
                     }}
                   >
                     <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#044040]/5 to-[#8C1F28]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <CardHeader className="relative pb-6">
                         <div className="flex justify-between items-start mb-4">
-                          <CardTitle className="text-xl font-bold text-foreground group-hover:text-[#044040] transition-colors">
+                          <CardTitle className="text-xl font-bold text-foreground group-hover:text-secondary transition-colors">
                             {service.name}
                           </CardTitle>
                           <Badge
                             variant="outline"
-                            className="text-[#044040] border-[#044040]/30 bg-[#044040]/10 font-semibold"
+                            className="text-secondary border-secondary/30 bg-secondary/10 font-semibold"
                           >
                             {service.duration}
                           </Badge>
                         </div>
-                        <div className="text-2xl font-bold bg-gradient-to-r from-[#D92525] to-[#8C1F28] bg-clip-text text-transparent">
+                        <div className="text-2xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                           {service.price}
                         </div>
                       </CardHeader>
@@ -1051,7 +1051,7 @@ export default function Index() {
               <div className="text-center mb-8">
                 <motion.h3
                   variants={slideInFromTop}
-                  className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-[#D92525] via-[#8C1F28] to-[#044040] bg-clip-text text-transparent drop-shadow-lg"
+                  className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent drop-shadow-lg"
                 >
                   Nail Art Types
                 </motion.h3>
@@ -1076,20 +1076,20 @@ export default function Index() {
                     }}
                   >
                     <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#D92525]/5 to-[#8C1F28]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <CardHeader className="relative pb-6">
                         <div className="flex justify-between items-start mb-4">
-                          <CardTitle className="text-xl font-bold text-foreground group-hover:text-[#D92525] transition-colors">
+                          <CardTitle className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
                             {service.name}
                           </CardTitle>
                           <Badge
                             variant="outline"
-                            className="text-[#D92525] border-[#D92525]/30 bg-[#D92525]/10 font-semibold"
+                            className="text-accent border-accent/30 bg-accent/10 font-semibold"
                           >
                             {service.duration}
                           </Badge>
                         </div>
-                        <div className="text-2xl font-bold bg-gradient-to-r from-[#8C1F28] to-[#D92525] bg-clip-text text-transparent">
+                        <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                           {service.price}
                         </div>
                       </CardHeader>
@@ -1110,7 +1110,7 @@ export default function Index() {
       {/* Pricing Highlight */}
               <section
           id="pricing"
-          className="py-20 bg-[#D92525]/8"
+          className="py-20 bg-accent/10"
         >
         <div className="container mx-auto px-4">
           <motion.div
@@ -1124,7 +1124,7 @@ export default function Index() {
 
               <motion.h2 
                 variants={slideInFromTop}
-                className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-[#D92525] via-[#8C1F28] to-[#044040] bg-clip-text text-transparent leading-tight drop-shadow-lg"
+                className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent leading-tight drop-shadow-lg"
               >
                 First-Time Client Special
               </motion.h2>
@@ -1140,12 +1140,12 @@ export default function Index() {
                 className="flex items-center justify-center space-x-4 mb-8"
               >
                 <a 
-                  href="tel:+918101267974"
+                  href="tel:+918617682768"
                   className="flex items-center space-x-2 px-4 py-2 text-sm font-medium text-primary hover:text-accent transition-colors"
                   aria-label="Call Puja's Nail Studio"
                 >
                   <Phone className="h-4 w-4" />
-                  <span>+91 8101267974</span>
+                  <span>+91 8617682768</span>
                 </a>
                 <span className="text-muted-foreground">•</span>
                 <span className="text-muted-foreground text-sm">Call for special pricing</span>
@@ -1161,7 +1161,7 @@ export default function Index() {
                 >
                   <Button
                     size="lg"
-                    className="px-8 py-3 text-lg bg-gradient-to-r from-[#D92525] to-[#8C1F28] hover:shadow-lg transition-all duration-300 text-white font-medium rounded-lg border-0"
+                    className="px-8 py-3 text-lg bg-gradient-to-r from-accent to-primary hover:shadow-lg transition-all duration-300 text-white font-medium rounded-lg border-0"
                   >
                     🎉 Claim Your Discount
                   </Button>
@@ -1174,7 +1174,7 @@ export default function Index() {
                   <Button
                     variant="outline"
                     size="lg"
-                    className="px-8 py-3 text-lg border-[#8C1F28] text-[#8C1F28] hover:bg-[#8C1F28]/5"
+                    className="px-8 py-3 text-lg border-primary text-primary hover:bg-primary/5"
                   >
                     View Full Price List
                   </Button>
@@ -1299,7 +1299,7 @@ export default function Index() {
 
 
       {/* Booking Form */}
-      <section id="booking" className="py-16 bg-[#8C1F28]/8" role="region" aria-label="Book Your Nail Appointment">
+      <section id="booking" className="py-16 bg-primary/10" role="region" aria-label="Book Your Nail Appointment">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-4xl mx-auto"
@@ -1311,7 +1311,7 @@ export default function Index() {
             <motion.div variants={bounceIn} className="text-center mb-8">
               <motion.h2 
                 variants={slideInFromTop}
-                className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-[#8C1F28] via-[#D92525] to-[#044040] bg-clip-text text-transparent leading-tight drop-shadow-lg"
+                className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent leading-tight drop-shadow-lg"
               >
                 Book Your Appointment
               </motion.h2>
@@ -1326,12 +1326,12 @@ export default function Index() {
                 className="flex items-center justify-center space-x-4 mb-6"
               >
                 <a 
-                  href="tel:+918101267974"
-                  className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-[#8C1F28] to-[#D92525] text-white rounded-lg hover:shadow-lg transition-all duration-300"
+                  href="tel:+918617682768"
+                  className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:shadow-lg transition-all duration-300"
                   aria-label="Call Puja's Nail Studio"
                 >
                   <Phone className="h-5 w-5" />
-                  <span className="font-medium">Call: +91 8101267974</span>
+                  <span className="font-medium">Call: +91 8617682768</span>
                 </a>
                 <span className="text-muted-foreground">or</span>
                 <span className="text-muted-foreground font-medium">Book Online Below</span>
@@ -1344,7 +1344,7 @@ export default function Index() {
               transition={{ duration: 0.3 }}
             >
               <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#8C1F28]/5 to-[#D92525]/5 opacity-0 hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 hover:opacity-100 transition-opacity duration-500" />
                 <CardContent className="relative p-6">
                   {/* Calendly inline widget */}
                   <div 
@@ -1362,7 +1362,7 @@ export default function Index() {
 
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-[#044040]/10" role="region" aria-label="Contact Information">
+      <section id="contact" className="py-20 bg-secondary/10" role="region" aria-label="Contact Information">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-12"
@@ -1373,7 +1373,7 @@ export default function Index() {
           >
             <motion.h2
               variants={slideInFromTop}
-              className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-[#044040] via-[#8C1F28] to-[#D92525] bg-clip-text text-transparent leading-tight drop-shadow-lg"
+              className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent leading-tight drop-shadow-lg"
             >
               Contact Us
             </motion.h2>
@@ -1395,16 +1395,16 @@ export default function Index() {
             {/* Phone Contact */}
             <motion.div variants={scaleIn} className="text-center">
               <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
-                <div className="bg-gradient-to-r from-[#044040]/10 to-[#8C1F28]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Phone className="h-8 w-8 text-[#044040]" />
+                <div className="bg-gradient-to-r from-secondary/10 to-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <Phone className="h-8 w-8 text-secondary" />
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-foreground">Call Us</h3>
                 <a 
-                  href="tel:+918101267974"
-                  className="text-2xl font-bold bg-gradient-to-r from-[#044040] to-[#8C1F28] bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 block"
+                  href="tel:+918617682768"
+                  className="text-2xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 block"
                   aria-label="Call Puja's Nail Studio"
                 >
-                  +91 8101267974
+                  +91 8617682768
                 </a>
                 <p className="text-muted-foreground mt-2">Available 7 days a week</p>
               </Card>
@@ -1413,13 +1413,13 @@ export default function Index() {
             {/* Email Contact */}
             <motion.div variants={scaleIn} className="text-center">
               <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
-                <div className="bg-gradient-to-r from-[#8C1F28]/10 to-[#D92525]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <Mail className="h-8 w-8 text-[#8C1F28]" />
+                <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <Mail className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-foreground">Email Us</h3>
                 <a 
                   href="mailto:pujanailstudio@gmail.com"
-                  className="text-lg font-medium text-[#8C1F28] hover:text-[#D92525] transition-colors"
+                  className="text-lg font-medium text-primary hover:text-accent transition-colors"
                   aria-label="Email Puja's Nail Studio"
                 >
                   pujanailstudio@gmail.com
@@ -1431,11 +1431,11 @@ export default function Index() {
             {/* Location */}
             <motion.div variants={scaleIn} className="text-center">
               <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
-                <div className="bg-gradient-to-r from-[#D92525]/10 to-[#044040]/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="h-8 w-8 text-[#D92525]" />
+                <div className="bg-gradient-to-r from-accent/10 to-secondary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="h-8 w-8 text-accent" />
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-foreground">Service Area</h3>
-                <p className="text-lg font-medium text-[#D92525] mb-2">Siliguri & nearby areas</p>
+                <p className="text-lg font-medium text-accent mb-2">Siliguri & nearby areas</p>
                 <p className="text-muted-foreground text-sm">We come to you for all services</p>
               </Card>
             </motion.div>
@@ -1445,7 +1445,7 @@ export default function Index() {
 
       {/* Footer */}
       <footer
-        className="bg-[#044040]/15 py-16"
+        className="bg-secondary/15 py-16"
         role="contentinfo"
         aria-label="Footer Information"
       >
@@ -1460,7 +1460,7 @@ export default function Index() {
             <motion.div variants={fadeIn} className="lg:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
                 <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-10 w-10 object-contain" />
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-[#8C1F28] to-[#D92525] bg-clip-text text-transparent">
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                   Puja's Nail Studio
                 </h3>
               </div>
@@ -1497,11 +1497,11 @@ export default function Index() {
                 <div className="flex items-center space-x-3">
                   <Phone className="h-5 w-5 text-primary" />
                   <a 
-                    href="tel:+918101267974" 
+                    href="tel:+918617682768" 
                     className="text-muted-foreground hover:text-primary transition-colors font-medium"
                     aria-label="Call Puja's Nail Studio"
                   >
-                    +91 8101267974
+                    +91 8617682768
                   </a>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -1561,7 +1561,7 @@ export default function Index() {
       <Dialog open={showDiscountDialog} onOpenChange={setShowDiscountDialog}>
         <DialogContent className="sm:max-w-md bg-white/95 backdrop-blur-sm border-gray-200">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-center bg-gradient-to-r from-[#D92525] to-[#8C1F28] bg-clip-text text-transparent">
+            <DialogTitle className="text-2xl font-bold text-center bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
               🎉 First-Time Client Special!
             </DialogTitle>
             <DialogDescription className="text-center text-lg mt-4">
@@ -1569,18 +1569,18 @@ export default function Index() {
             </DialogDescription>
           </DialogHeader>
           <div className="text-center space-y-4">
-            <div className="bg-gradient-to-r from-[#D92525]/10 to-[#8C1F28]/10 p-6 rounded-lg border border-[#D92525]/20">
-              <div className="text-4xl font-bold text-[#D92525] mb-2">10% OFF</div>
+            <div className="bg-gradient-to-r from-accent/10 to-primary/10 p-6 rounded-lg border border-accent/20">
+              <div className="text-4xl font-bold text-accent mb-2">10% OFF</div>
               <div className="text-lg text-muted-foreground">
                 Your first appointment with us
               </div>
             </div>
             
             {/* Discount Code Section */}
-            <div className="bg-gray-50 p-4 rounded-lg border-2 border-dashed border-[#D92525]/30">
+            <div className="bg-gray-50 p-4 rounded-lg border-2 border-dashed border-accent/30">
               <div className="text-sm font-medium text-gray-600 mb-2">Use Discount Code:</div>
               <div className="bg-white px-4 py-2 rounded border border-gray-200">
-                <span className="text-xl font-bold text-[#D92525] tracking-wider">FIRST10C</span>
+                <span className="text-xl font-bold text-accent tracking-wider">FIRST10C</span>
               </div>
               <div className="text-xs text-gray-500 mt-2">
                 Enter this code when booking your appointment
@@ -1594,7 +1594,7 @@ export default function Index() {
             </div>
             <Button 
               onClick={() => setShowDiscountDialog(false)}
-              className="w-full bg-gradient-to-r from-[#D92525] to-[#8C1F28] hover:shadow-lg"
+              className="w-full bg-gradient-to-r from-accent to-primary hover:shadow-lg"
             >
               Got it! Thanks for the offer
             </Button>
@@ -1606,7 +1606,7 @@ export default function Index() {
       <Dialog open={showPricingDialog} onOpenChange={setShowPricingDialog}>
         <DialogContent className="sm:max-w-lg bg-white/95 backdrop-blur-sm border-gray-200">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-center bg-gradient-to-r from-[#8C1F28] to-[#D92525] bg-clip-text text-transparent">
+            <DialogTitle className="text-2xl font-bold text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               📋 Complete Price List
             </DialogTitle>
             <DialogDescription className="text-center text-lg mt-4">
@@ -1614,20 +1614,21 @@ export default function Index() {
             </DialogDescription>
           </DialogHeader>
           <div className="text-center space-y-6">
-            <div className="bg-gradient-to-r from-[#8C1F28]/10 to-[#D92525]/10 p-6 rounded-lg border border-[#8C1F28]/20">
-              <Download className="h-12 w-12 mx-auto text-[#8C1F28] mb-4" />
+            <div className="bg-gradient-to-r from-primary/10 to-accent/10 p-6 rounded-lg border border-primary/20">
+              <Download className="h-12 w-12 mx-auto text-primary mb-4" />
               <h3 className="text-xl font-semibold mb-2">Puja Nail Art - Price List</h3>
               <p className="text-muted-foreground">
                 Complete pricing for all our nail services and art designs
               </p>
             </div>
+            
             <div className="flex flex-col sm:flex-row gap-3">
               <Button 
                 onClick={() => {
                   window.open('/media/Puja Nail Art.pdf', '_blank');
                   setShowPricingDialog(false);
                 }}
-                className="flex-1 bg-gradient-to-r from-[#8C1F28] to-[#D92525] hover:shadow-lg"
+                className="flex-1 bg-gradient-to-r from-primary to-accent hover:shadow-lg"
               >
                 <Download className="h-4 w-4 mr-2" />
                 Download PDF
@@ -1635,7 +1636,7 @@ export default function Index() {
               <Button 
                 variant="outline"
                 onClick={() => setShowPricingDialog(false)}
-                className="flex-1 border-[#8C1F28] text-[#8C1F28] hover:bg-[#8C1F28]/5"
+                className="flex-1 border-primary text-primary hover:bg-primary/5"
               >
                 Close
               </Button>
