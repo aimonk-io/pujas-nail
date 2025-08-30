@@ -795,15 +795,9 @@ export default function Index() {
                   <Sparkles className="h-5 w-5 mr-2" />
                   Book Appointment
                 </Button>
-                <a
-                  href="tel:+918617682768"
-                  className="inline-flex items-center space-x-2 px-8 py-3 text-lg bg-gradient-to-r from-secondary to-primary text-white rounded-lg hover:shadow-lg transition-all duration-300 font-medium"
-                  aria-label="Call Puja's Nail Studio"
-                >
-                  <Phone className="h-5 w-5" />
-                  Call Now: +91 8617682768
-                </a>
               </motion.div>
+              
+
             </motion.div>
 
             {/* Prominent Contact Info */}
