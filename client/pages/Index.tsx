@@ -826,176 +826,181 @@ export default function Index() {
               </div>
             </motion.div>
 
-                         {/* Hero Image Grid */}
-             <motion.div
-               className="relative"
-               initial="hidden"
-               animate="visible"
-               variants={staggerFast}
-             >
-               <div className="grid grid-cols-2 gap-4">
-                 <motion.div
-                   variants={scaleIn}
-                   className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
-                   whileHover={{ 
-                     scale: 1.05,
-                     transition: { duration: 0.3 }
-                   }}
-                 >
-                   <img
-                     src="/media/PHOTO-2025-07-07-18-03-58.jpg"
-                     alt="Floral nail art"
-                     className="w-full h-48 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110"
-                   />
-                   {/* Multiple Overlay Layers */}
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                   
-                   {/* Content Overlay */}
-                   <div className="absolute inset-0 flex flex-col justify-end p-4">
-                     <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                       <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Floral Elegance</h3>
-                       <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Delicate floral motifs</p>
-                     </div>
-                   </div>
-                   
-                   {/* Decorative Elements */}
-                   <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                     <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                       <Sparkles className="h-4 w-4 text-white" />
-                     </div>
-                   </div>
-                 </motion.div>
-                 
-                 <motion.div
-                   variants={scaleIn}
-                   className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
-                   whileHover={{ 
-                     scale: 1.05,
-                     transition: { duration: 0.3 }
-                   }}
-                 >
-                   <img
-                     src="/media/PHOTO-2025-07-07-18-04-22.jpg"
-                     alt="Glamorous nail art"
-                     className="w-full h-48 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110"
-                   />
-                   {/* Multiple Overlay Layers */}
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                   
-                   {/* Content Overlay */}
-                   <div className="absolute inset-0 flex flex-col justify-end p-4">
-                     <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                       <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Glamorous Sparkle</h3>
-                       <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Dazzling sparkle effects</p>
-                     </div>
-                   </div>
-                   
-                   {/* Decorative Elements */}
-                   <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                     <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                       <Sparkles className="h-4 w-4 text-white" />
-                     </div>
-                   </div>
-                 </motion.div>
-                 
-                 <motion.div
-                   variants={scaleIn}
-                   className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
-                   whileHover={{ 
-                     scale: 1.05,
-                     transition: { duration: 0.3 }
-                   }}
-                 >
-                   <img
-                     src="/media/PHOTO-2025-07-07-18-02-58 2.jpg"
-                     alt="Gold accent nails"
-                     className="w-full h-48 md:h-64 object-cover transition-transform duration-700 group-hover:scale-110"
-                   />
-                   {/* Multiple Overlay Layers */}
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                   
-                   {/* Content Overlay */}
-                   <div className="absolute inset-0 flex flex-col justify-end p-4">
-                     <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                       <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Gold Accents</h3>
-                       <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Luxurious gold detailing</p>
-                     </div>
-                   </div>
-                   
-                   {/* Decorative Elements */}
-                   <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                     <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                       <Sparkles className="h-4 w-4 text-white" />
-                     </div>
-                   </div>
-                 </motion.div>
-                 
-                 <motion.div
-                   variants={scaleIn}
-                   className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
-                   whileHover={{ 
-                     scale: 1.05,
-                     transition: { duration: 0.3 }
-                   }}
-                 >
-                   <img
-                     src="/media/PHOTO-2025-07-07-18-03-03 2.jpg"
-                     alt="Intricate nail design"
-                     className="w-full h-64 md:h-80 object-cover transition-transform duration-700 group-hover:scale-110"
-                   />
-                   {/* Multiple Overlay Layers */}
-                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                   <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                   
-                   {/* Content Overlay */}
-                   <div className="absolute inset-0 flex flex-col justify-end p-4">
-                     <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                       <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Intricate Design</h3>
-                       <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Sophisticated patterns</p>
-                     </div>
-                   </div>
-                   
-                   {/* Decorative Elements */}
-                   <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                     <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                       <Sparkles className="h-4 w-4 text-white" />
-                     </div>
-                   </div>
-                 </motion.div>
-               </div>
-              
-              {/* Floating Sparkle */}
-                             <motion.div
-                 className="absolute -top-4 -right-4"
-                 animate={{ 
-                   rotate: [0, 360],
-                   scale: [1, 1.1, 1]
-                 }}
-                 transition={{ 
-                   duration: 3,
-                   repeat: Infinity,
-                   ease: "easeInOut"
-                 }}
-               >
-                 <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 shadow-lg">
-                   <Sparkles className="h-8 w-8 text-primary" />
-                 </div>
-               </motion.div>
-            </motion.div>
+
           </div>
         </div>
       </section>
 
+      {/* Image Gallery Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/5 via-white to-accent/5" role="region" aria-label="Nail Art Gallery">
+        <div className="container mx-auto px-4 max-w-7xl">
 
-
-
+          {/* Full Screen Image Grid */}
+          <motion.div
+            className="relative w-full"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerFast}
+          >
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 w-full max-w-7xl mx-auto">
+              <motion.div
+                variants={scaleIn}
+                className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <img
+                  src="/media/PHOTO-2025-07-07-18-03-58.jpg"
+                  alt="Floral nail art"
+                  className="w-full h-48 md:h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Multiple Overlay Layers */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                
+                {/* Content Overlay */}
+                <div className="absolute inset-0 flex flex-col justify-end p-4">
+                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Floral Elegance</h3>
+                    <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Delicate floral motifs</p>
+                  </div>
+                </div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <Sparkles className="h-4 w-4 text-white" />
+                  </div>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                variants={scaleIn}
+                className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <img
+                  src="/media/PHOTO-2025-07-07-18-04-22.jpg"
+                  alt="Glamorous nail art"
+                  className="w-full h-48 md:h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Multiple Overlay Layers */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                
+                {/* Content Overlay */}
+                <div className="absolute inset-0 flex flex-col justify-end p-4">
+                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Glamorous Sparkle</h3>
+                    <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Dazzling sparkle effects</p>
+                  </div>
+                </div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <Sparkles className="h-4 w-4 text-white" />
+                  </div>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                variants={scaleIn}
+                className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <img
+                  src="/media/PHOTO-2025-07-07-18-02-58 2.jpg"
+                  alt="Gold accent nails"
+                  className="w-full h-48 md:h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Multiple Overlay Layers */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                
+                {/* Content Overlay */}
+                <div className="absolute inset-0 flex flex-col justify-end p-4">
+                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Gold Accents</h3>
+                    <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Luxurious gold detailing</p>
+                  </div>
+                </div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <Sparkles className="h-4 w-4 text-white" />
+                  </div>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                variants={scaleIn}
+                className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
+                whileHover={{ 
+                  scale: 1.05,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <img
+                  src="/media/PHOTO-2025-07-07-18-03-03 2.jpg"
+                  alt="Intricate nail design"
+                  className="w-full h-48 md:h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                {/* Multiple Overlay Layers */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
+                
+                {/* Content Overlay */}
+                <div className="absolute inset-0 flex flex-col justify-end p-4">
+                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                    <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Intricate Design</h3>
+                    <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Sophisticated patterns</p>
+                  </div>
+                </div>
+                
+                {/* Decorative Elements */}
+                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                    <Sparkles className="h-4 w-4 text-white" />
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+            
+            {/* Floating Sparkle */}
+            <motion.div
+              className="absolute -top-4 -right-4"
+              animate={{ 
+                rotate: [0, 360],
+                scale: [1, 1.1, 1]
+              }}
+              transition={{ 
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 shadow-lg">
+                <Sparkles className="h-8 w-8 text-primary" />
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section id="services" className="py-20 bg-secondary/10" role="region" aria-label="Our Nail Services">
