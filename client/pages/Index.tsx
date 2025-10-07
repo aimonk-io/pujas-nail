@@ -487,7 +487,7 @@ export default function Index() {
           // Fire Google Ads conversion
           if (typeof window !== 'undefined' && window.gtag) {
             window.gtag('event', 'conversion', {
-              'send_to': 'AW-17426628132/YOUR_CONVERSION_LABEL', // Replace with actual conversion label from Google Ads
+              'send_to': 'AW-17426628132/YWhCCOLn6P8aEKT81PVA',
               'transaction_id': ''
             });
             
