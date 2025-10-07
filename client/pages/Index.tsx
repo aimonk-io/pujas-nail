@@ -479,12 +479,38 @@ export default function Index() {
     script.async = true;
     document.body.appendChild(script);
 
+    // Listen for Calendly events
+    const handleCalendlyEvent = (e: MessageEvent) => {
+      if (e.data.event && e.data.event.indexOf('calendly') === 0) {
+        // Track when user schedules an event
+        if (e.data.event === 'calendly.event_scheduled') {
+          // Fire Google Ads conversion
+          if (typeof window !== 'undefined' && window.gtag) {
+            window.gtag('event', 'conversion', {
+              'send_to': 'AW-17426628132/YOUR_CONVERSION_LABEL', // Replace with actual conversion label from Google Ads
+              'transaction_id': ''
+            });
+            
+            // Also track as a general event
+            window.gtag('event', 'appointment_booked', {
+              event_category: 'booking',
+              event_label: 'calendly_appointment_scheduled',
+              value: 1
+            });
+          }
+        }
+      }
+    };
+
+    window.addEventListener('message', handleCalendlyEvent);
+
     return () => {
-      // Cleanup script when component unmounts
+      // Cleanup script and event listener when component unmounts
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
       if (existingScript) {
         document.body.removeChild(existingScript);
       }
+      window.removeEventListener('message', handleCalendlyEvent);
     };
   }, []);
 
@@ -552,20 +578,6 @@ export default function Index() {
         animate="visible"
         variants={fadeIn}
       >
-        {/* Floating Contact Button */}
-        <div className="absolute top-4 right-4 z-50">
-          <motion.a
-            href="tel:+918617682768"
-            className="flex items-center space-x-2 px-4 py-2 bg-gradient-to-r from-primary to-accent text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 font-medium text-sm"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            aria-label="Call Puja's Nail Studio"
-          >
-            <Phone className="h-4 w-4" />
-            <span>Call Now</span>
-          </motion.a>
-        </div>
-        
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between w-full">
             {/* Logo with Circle Background */}
@@ -635,7 +647,7 @@ export default function Index() {
                     </motion.div>
                   )}
                   
-                                    {/* Full Navigation - Show on initial load (not scrolled) */}
+                  {/* Full Navigation - Show on initial load (not scrolled) */}
                   {!hasScrolled && (
                     <nav 
                       className="transition-all duration-500"
@@ -662,8 +674,8 @@ export default function Index() {
               ) : (
                 <Drawer direction="right">
                   <DrawerTrigger asChild>
-                    <button aria-label="Open navigation menu" className="p-3 rounded-full bg-white/20 backdrop-blur-sm hover:bg-white/30 focus:outline-none focus:ring-2 focus:ring-white/50 transition-all duration-300">
-                      <Menu className="h-6 w-6 text-white" />
+                    <button aria-label="Open navigation menu" className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300">
+                      <Menu className="h-6 w-6 text-foreground" />
                     </button>
                   </DrawerTrigger>
                   <DrawerContent className="pb-8 w-full h-full fixed right-0 top-0 bottom-0 bg-background shadow-lg border-l border-gray-200 flex flex-col">
@@ -679,7 +691,10 @@ export default function Index() {
                     </DrawerHeader>
                     <nav className="flex flex-col gap-6 items-center mt-4">
                       <DrawerClose asChild>
-                        <a href="#about" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">About</a>
+                        <a href="#home" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Home</a>
+                      </DrawerClose>
+                      <DrawerClose asChild>
+                        <a href="#work" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Work</a>
                       </DrawerClose>
                       <DrawerClose asChild>
                         <a href="#services" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Services</a>
