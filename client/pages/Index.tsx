@@ -1097,7 +1097,7 @@ export default function Index() {
       {/* Pricing Highlight */}
               <section
           id="pricing"
-          className="py-20 pb-24 md:pb-20 bg-accent/10"
+          className="py-20 bg-accent/10"
         >
         <div className="container mx-auto px-4">
           <motion.div
@@ -1173,7 +1173,7 @@ export default function Index() {
       </section>
 
       {/* Image Grid Showcase */}
-      <section id="work" className="py-20 pb-24 md:pb-20 bg-[#591C21]/10" role="region" aria-label="Our Nail Art Gallery">
+      <section id="work" className="py-20 bg-[#591C21]/10" role="region" aria-label="Our Nail Art Gallery">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -1286,7 +1286,7 @@ export default function Index() {
 
 
       {/* Booking Form */}
-      <section id="booking" className="py-16 pb-24 md:pb-16 bg-primary/10" role="region" aria-label="Book Your Nail Appointment">
+      <section id="booking" className="py-16 bg-primary/10" role="region" aria-label="Book Your Nail Appointment">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-4xl mx-auto"
@@ -1352,7 +1352,7 @@ export default function Index() {
 
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 pb-24 md:pb-20 bg-secondary/10" role="region" aria-label="Contact Information">
+      <section id="contact" className="py-20 bg-secondary/10" role="region" aria-label="Contact Information">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-12"
@@ -1435,7 +1435,7 @@ export default function Index() {
 
       {/* Footer */}
       <footer
-        className="bg-secondary/15 py-16 pb-24 md:pb-16"
+        className="bg-secondary/15 py-16"
         role="contentinfo"
         aria-label="Footer Information"
       >
@@ -1635,23 +1635,19 @@ export default function Index() {
         </DialogContent>
       </Dialog>
 
-      {/* Sticky Contact Bar for Mobile */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden">
-        <div className="bg-gradient-to-r from-primary to-accent text-white p-3 shadow-lg">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Phone className="h-5 w-5" />
-              <span className="font-medium">Call Now:</span>
-            </div>
-            <a
-              href="tel:+918617682768"
-              className="text-lg font-bold hover:scale-105 transition-transform duration-200"
-              aria-label="Call Puja's Nail Studio"
-            >
-              +91 8617682768
-            </a>
-          </div>
-        </div>
+      {/* Floating Action Button */}
+      <div className="fixed bottom-20 right-6 z-50 flex flex-col gap-3 items-end">
+        {/* Call Button */}
+        <motion.a
+          href="tel:+918617682768"
+          className="flex items-center gap-3 bg-gradient-to-r from-primary to-accent text-white px-4 py-3 rounded-full shadow-2xl hover:shadow-primary/50 transition-all duration-300 font-medium"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          aria-label="Call Puja's Nail Studio"
+        >
+          <Phone className="h-5 w-5" />
+          <span className="hidden sm:inline">Call Now</span>
+        </motion.a>
       </div>
       </motion.div>
     </>

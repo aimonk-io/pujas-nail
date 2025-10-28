@@ -125,4 +125,14 @@
     min-height: 100vh;
     position: relative;
   }
+
+  /* Style Calendly badge */
+  .calendly-badge-wrapper {
+    bottom: 60px !important;
+    right: 10px !important;
+  }
+
+  .calendly-badge-content {
+    border-radius: 0 !important;
+  }
 }
