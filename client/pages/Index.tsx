@@ -1097,7 +1097,7 @@ export default function Index() {
       {/* Pricing Highlight */}
               <section
           id="pricing"
-          className="py-20 bg-accent/10"
+          className="py-20 pb-24 md:pb-20 bg-accent/10"
         >
         <div className="container mx-auto px-4">
           <motion.div
@@ -1173,7 +1173,7 @@ export default function Index() {
       </section>
 
       {/* Image Grid Showcase */}
-      <section id="work" className="py-20 bg-[#591C21]/10" role="region" aria-label="Our Nail Art Gallery">
+      <section id="work" className="py-20 pb-24 md:pb-20 bg-[#591C21]/10" role="region" aria-label="Our Nail Art Gallery">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -1352,7 +1352,7 @@ export default function Index() {
 
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-secondary/10" role="region" aria-label="Contact Information">
+      <section id="contact" className="py-20 pb-24 md:pb-20 bg-secondary/10" role="region" aria-label="Contact Information">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-12"
@@ -1435,7 +1435,7 @@ export default function Index() {
 
       {/* Footer */}
       <footer
-        className="bg-secondary/15 py-16"
+        className="bg-secondary/15 py-16 pb-24 md:pb-16"
         role="contentinfo"
         aria-label="Footer Information"
       >
