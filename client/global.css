@@ -108,7 +108,21 @@
     @apply border-border;
   }
 
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y;
+  }
+
   body {
     @apply bg-background text-foreground;
+  }
+
+  #root {
+    min-height: 100vh;
+    position: relative;
   }
 }

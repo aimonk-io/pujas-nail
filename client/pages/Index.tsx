@@ -439,23 +439,12 @@ const nailArtTypes = [
 ];
 
 export default function Index() {
-  const [navExpanded, setNavExpanded] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [isNavHovered, setIsNavHovered] = useState(false);
-  const [hasScrolled, setHasScrolled] = useState(false);
   const [showDiscountDialog, setShowDiscountDialog] = useState(false);
   const [showPricingDialog, setShowPricingDialog] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setNavExpanded(true);
-        setHasScrolled(true);
-      } else {
-        setNavExpanded(false);
-        setHasScrolled(false);
-      }
-
       // Detect active section
       const sections = ["home", "work", "services", "pricing", "booking"];
       const scrollPosition = window.scrollY + 100;
@@ -479,38 +468,12 @@ export default function Index() {
     script.async = true;
     document.body.appendChild(script);
 
-    // Listen for Calendly events
-    const handleCalendlyEvent = (e: MessageEvent) => {
-      if (e.data.event && e.data.event.indexOf('calendly') === 0) {
-        // Track when user schedules an event
-        if (e.data.event === 'calendly.event_scheduled') {
-          // Fire Google Ads conversion
-          if (typeof window !== 'undefined' && window.gtag) {
-            window.gtag('event', 'conversion', {
-              'send_to': 'AW-17426628132/YWhCCOLn6P8aEKT81PVA',
-              'transaction_id': ''
-            });
-            
-            // Also track as a general event
-            window.gtag('event', 'appointment_booked', {
-              event_category: 'booking',
-              event_label: 'calendly_appointment_scheduled',
-              value: 1
-            });
-          }
-        }
-      }
-    };
-
-    window.addEventListener('message', handleCalendlyEvent);
-
     return () => {
-      // Cleanup script and event listener when component unmounts
+      // Cleanup script when component unmounts
       const existingScript = document.querySelector('script[src="https://assets.calendly.com/assets/external/widget.js"]');
       if (existingScript) {
         document.body.removeChild(existingScript);
       }
-      window.removeEventListener('message', handleCalendlyEvent);
     };
   }, []);
 
@@ -564,173 +527,132 @@ export default function Index() {
         ]}
       />
       <motion.div 
-        className="min-h-screen"
+        className="min-h-screen w-full overflow-x-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
       {/* Header */}
       <motion.header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          hasScrolled ? "bg-white/95 backdrop-blur-md shadow-lg" : "bg-transparent"
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md"
         initial="hidden"
         animate="visible"
         variants={fadeIn}
       >
-        <div className="container mx-auto px-4 py-4">
+        <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between w-full">
-            {/* Logo with Circle Background */}
-            <div className="flex-1 flex justify-start">
-              <div className="bg-white rounded-full p-3 shadow-lg">
-                <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-10 w-10 object-contain" />
-              </div>
+            {/* Logo */}
+            <div className="flex items-center space-x-3">
+              <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-10 w-10 object-contain" />
+              <span className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hidden sm:block">
+                Puja's Nail Studio
+              </span>
             </div>
+            
             {/* Navigation Links - Desktop */}
-            <div className="flex-1 flex justify-end">
-              {!isMobile ? (
-                <>
-                  {/* Hamburger Menu - Show when scrolled */}
-                  {hasScrolled && (
-                    <motion.div
-                      className="relative"
-                      onMouseEnter={() => setIsNavHovered(true)}
-                      onMouseLeave={() => setIsNavHovered(false)}
-                    >
-                      <motion.div 
-                        className="flex items-center justify-center rounded-full bg-white shadow-lg border border-gray-200 transition-all duration-500 hover:shadow-xl overflow-hidden"
-                        animate={{
-                          width: isNavHovered ? "auto" : "48px",
-                          paddingLeft: isNavHovered ? "2rem" : "0px",
-                          paddingRight: isNavHovered ? "2rem" : "0px",
-                          paddingTop: isNavHovered ? "0.5rem" : "0px",
-                          paddingBottom: isNavHovered ? "0.5rem" : "0px",
-                        }}
-                        transition={{ duration: 0.4, ease: "easeInOut" }}
+            {!isMobile ? (
+              <nav className="flex items-center gap-6">
+                <a 
+                  href="#home" 
+                  className="text-foreground font-medium hover:text-primary transition-colors"
+                >
+                  Home
+                </a>
+                <a 
+                  href="#work" 
+                  className="text-foreground font-medium hover:text-primary transition-colors"
+                >
+                  Work
+                </a>
+                <a 
+                  href="#services" 
+                  className="text-foreground font-medium hover:text-primary transition-colors"
+                >
+                  Services
+                </a>
+                <a 
+                  href="#pricing" 
+                  className="text-foreground font-medium hover:text-primary transition-colors"
+                >
+                  Pricing
+                </a>
+                <a 
+                  href="#booking"
+                  className="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300"
+                >
+                  Book Now
+                </a>
+                <motion.a
+                  href="tel:+918617682768"
+                  className="flex items-center space-x-2 px-4 py-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-all duration-300 font-medium"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  aria-label="Call Puja's Nail Studio"
+                >
+                  <Phone className="h-4 w-4 text-primary" />
+                  <span className="text-primary hidden md:block">Call</span>
+                </motion.a>
+              </nav>
+            ) : (
+              <Drawer direction="right">
+                <DrawerTrigger asChild>
+                  <button 
+                    aria-label="Open navigation menu" 
+                    className="p-3 rounded-full bg-gradient-to-r from-primary to-accent text-white hover:opacity-90 transition-all duration-300"
+                  >
+                    <Menu className="h-6 w-6" />
+                  </button>
+                </DrawerTrigger>
+                <DrawerContent className="pb-8 w-full max-h-screen h-full fixed right-0 top-0 bottom-0 bg-background shadow-lg border-l border-gray-200 flex flex-col overflow-y-auto">
+                  <button aria-label="Close navigation menu" className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary">
+                    <DrawerClose asChild>
+                      <X className="h-6 w-6 text-primary" />
+                    </DrawerClose>
+                  </button>
+                  <DrawerHeader>
+                    <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-16 w-16 object-contain mx-auto mb-4" />
+                  </DrawerHeader>
+                  <nav className="flex flex-col gap-6 items-center mt-4">
+                    <DrawerClose asChild>
+                      <a href="#home" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Home</a>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <a href="#work" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Work</a>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <a href="#services" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Services</a>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <a href="#pricing" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Pricing</a>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <a 
+                        href="#booking"
+                        className="text-lg font-medium text-white bg-gradient-to-r from-primary to-accent px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 border-0 cursor-pointer"
                       >
-                        {/* Hamburger - Hidden on hover */}
-                        <motion.button
-                          className="w-12 h-12 rounded-full bg-white hover:bg-gray-100 transition-all duration-300 flex items-center justify-center shadow-sm"
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          animate={{
-                            opacity: isNavHovered ? 0 : 1,
-                            width: isNavHovered ? "0px" : "48px",
-                            height: isNavHovered ? "0px" : "48px",
-                          }}
-                          transition={{ duration: 0.4, ease: "easeInOut", delay: 0.1 }}
-                        >
-                          <Menu className="h-5 w-5 text-foreground" />
-                        </motion.button>
-
-                        {/* Navigation Items - Show on hover */}
-                        <motion.div
-                          className="flex items-center gap-8"
-                          animate={{
-                            opacity: isNavHovered ? 1 : 0,
-                            width: isNavHovered ? "auto" : "0px",
-                          }}
-                          transition={{ duration: 0.4, ease: "easeInOut", delay: 0.05 }}
-                        >
-                          <a href="#home" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10 whitespace-nowrap">Home</a>
-                          <a href="#work" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10 whitespace-nowrap">Work</a>
-                          <a href="#services" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10 whitespace-nowrap">Services</a>
-                          <a href="#pricing" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10 whitespace-nowrap">Pricing</a>
-                          <a 
-                          href="#booking"
-                          className="text-white font-medium bg-gradient-to-r from-primary to-accent px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300 whitespace-nowrap border-0 cursor-pointer"
-                        >
-                          Book Now
-                        </a>
-                        </motion.div>
-                      </motion.div>
-                    </motion.div>
-                  )}
-                  
-                  {/* Full Navigation - Show on initial load (not scrolled) */}
-                  {!hasScrolled && (
-                    <nav 
-                      className="transition-all duration-500"
-                      onMouseEnter={() => setIsNavHovered(true)}
-                      onMouseLeave={() => setIsNavHovered(false)}
-                    >
-                      <motion.div 
-                        className="flex items-center gap-8 rounded-full bg-white shadow-lg border border-gray-200 transition-all duration-500 hover:shadow-xl px-8 py-2"
+                        Book Appointment
+                      </a>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <a 
+                        href="tel:+918617682768"
+                        className="flex items-center space-x-2 text-lg font-medium text-primary hover:text-accent transition-colors"
+                        aria-label="Call Puja's Nail Studio"
                       >
-                        <a href="#home" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10">Home</a>
-                        <a href="#work" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10">Work</a>
-                        <a href="#services" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10">Services</a>
-                        <a href="#pricing" className="text-foreground font-medium hover:text-primary transition-colors px-5 py-3 rounded-full hover:bg-primary/10">Pricing</a>
-                        <a 
-                          href="#booking"
-                          className="text-white font-medium bg-gradient-to-r from-primary to-accent px-6 py-3 rounded-full hover:shadow-lg transition-all duration-300 border-0 cursor-pointer"
-                        >
-                          Book Now
-                        </a>
-                      </motion.div>
-                    </nav>
-                  )}
-                </>
-              ) : (
-                <Drawer direction="right">
-                  <DrawerTrigger asChild>
-                    <button aria-label="Open navigation menu" className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all duration-300">
-                      <Menu className="h-6 w-6 text-foreground" />
-                    </button>
-                  </DrawerTrigger>
-                  <DrawerContent className="pb-8 w-full h-full fixed right-0 top-0 bottom-0 bg-background shadow-lg border-l border-gray-200 flex flex-col">
-                    <button aria-label="Close navigation menu" className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary">
-                      <DrawerClose asChild>
-                        <X className="h-6 w-6 text-primary" />
-                      </DrawerClose>
-                    </button>
-                    <DrawerHeader>
-                      <div className="bg-white rounded-full p-4 mx-auto mb-4 shadow-lg">
-                        <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-16 w-16 object-contain" />
-                      </div>
-                    </DrawerHeader>
-                    <nav className="flex flex-col gap-6 items-center mt-4">
-                      <DrawerClose asChild>
-                        <a href="#home" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Home</a>
-                      </DrawerClose>
-                      <DrawerClose asChild>
-                        <a href="#work" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Work</a>
-                      </DrawerClose>
-                      <DrawerClose asChild>
-                        <a href="#services" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Services</a>
-                      </DrawerClose>
-                      <DrawerClose asChild>
-                        <a href="#pricing" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Pricing</a>
-                      </DrawerClose>
-                      <DrawerClose asChild>
-                        <a 
-                          href="#booking"
-                          className="text-lg font-medium text-gray-700 hover:text-primary transition-colors border-0 bg-transparent cursor-pointer"
-                        >
-                          Book Appointment
-                        </a>
-                      </DrawerClose>
-                      <DrawerClose asChild>
-                        <a 
-                          href="tel:+918617682768"
-                          className="flex items-center space-x-2 text-lg font-medium text-primary hover:text-accent transition-colors"
-                          aria-label="Call Puja's Nail Studio"
-                        >
-                          <Phone className="h-5 w-5" />
-                          <span>+91 8617682768</span>
-                        </a>
-                      </DrawerClose>
-                    </nav>
-                  </DrawerContent>
-                </Drawer>
-              )}
-            </div>
+                        <Phone className="h-5 w-5" />
+                        <span>+91 8617682768</span>
+                      </a>
+                    </DrawerClose>
+                  </nav>
+                </DrawerContent>
+              </Drawer>
+            )}
           </div>
         </div>
       </motion.header>
 
       {/* Hero Section */}
-      <section id="home" className="relative pt-32 pb-20 overflow-hidden bg-gradient-to-br from-[#F2F2F2] via-white to-primary/5" role="banner" aria-label="Welcome to Puja's Nail Studio">
+      <section id="home" className="relative pt-24 pb-20 overflow-hidden bg-gradient-to-br from-[#F2F2F2] via-white to-primary/5" role="banner" aria-label="Welcome to Puja's Nail Studio">
         {/* Background Images */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 z-10" />
@@ -820,23 +742,24 @@ export default function Index() {
               variants={fadeInUp}
               className="mt-8 text-center"
             >
-              <div className="inline-flex items-center space-x-6 bg-white/80 backdrop-blur-sm rounded-2xl px-8 py-4 shadow-lg border border-primary/20">
+              <div className="inline-flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 bg-white/80 backdrop-blur-sm rounded-2xl px-4 md:px-8 py-4 shadow-lg border border-primary/20">
                 <div className="flex items-center space-x-2">
                   <Phone className="h-5 w-5 text-primary" />
-                  <span className="text-lg font-semibold text-foreground">Call:</span>
+                  <span className="text-base md:text-lg font-semibold text-foreground">Call:</span>
                   <a
                     href="tel:+918617682768"
-                    className="text-xl font-bold text-primary hover:text-accent transition-colors"
+                    className="text-lg md:text-xl font-bold text-primary hover:text-accent transition-colors"
                     aria-label="Call Puja's Nail Studio"
                   >
                     +91 8617682768
                   </a>
                 </div>
-                <div className="w-px h-8 bg-primary/30"></div>
+                <div className="hidden md:block w-px h-8 bg-primary/30"></div>
+                <div className="block md:hidden w-full h-px bg-primary/30"></div>
                 <div className="flex items-center space-x-2">
                   <Clock className="h-5 w-5 text-primary" />
-                  <span className="text-lg font-semibold text-foreground">Open:</span>
-                  <span className="text-xl font-bold text-primary">7 Days a Week</span>
+                  <span className="text-base md:text-lg font-semibold text-foreground">Open:</span>
+                  <span className="text-lg md:text-xl font-bold text-primary">7 Days a Week</span>
                 </div>
               </div>
             </motion.div>
@@ -1363,7 +1286,7 @@ export default function Index() {
 
 
       {/* Booking Form */}
-      <section id="booking" className="py-16 bg-primary/10" role="region" aria-label="Book Your Nail Appointment">
+      <section id="booking" className="py-16 pb-24 md:pb-16 bg-primary/10" role="region" aria-label="Book Your Nail Appointment">
         <div className="container mx-auto px-4">
           <motion.div
             className="max-w-4xl mx-auto"
@@ -1409,12 +1332,15 @@ export default function Index() {
             >
               <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 hover:opacity-100 transition-opacity duration-500" />
-                <CardContent className="relative p-6">
+                <CardContent className="relative p-4 md:p-6 overflow-hidden">
                   {/* Calendly inline widget */}
                   <div 
-                    className="calendly-inline-widget" 
+                    className="calendly-inline-widget h-[500px] md:h-[600px] w-full" 
                     data-url="https://calendly.com/pujabarmanb9/puja-nail-services?background_color=ffffff&text_color=8c1f28" 
-                    style={{ minWidth: '320px', height: '700px' }}
+                    style={{ 
+                      minWidth: '320px',
+                      maxWidth: '100%'
+                    }}
                   />
                 </CardContent>
               </Card>
