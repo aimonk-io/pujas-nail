@@ -5,6 +5,7 @@ import {
   Card,
   CardContent,
   CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
@@ -509,6 +510,16 @@ export default function Index() {
 
 
   const isMobile = useIsMobile();
+  const scrollToBooking = () => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "click", {
+        event_category: "booking",
+        event_label: "pricing_card_book_now",
+        value: 1,
+      });
+    }
+    document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <>
@@ -967,17 +978,17 @@ export default function Index() {
 
 
 
-          {/* Services Grid - Side by Side */}
+          {/* Services Grid - Two Rows */}
           <motion.div
-            className="grid lg:grid-cols-2 gap-12"
+            className="space-y-16"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerSlow}
           >
             {/* Nail Extensions */}
-            <motion.div variants={fadeInLeft}>
-              <div className="text-center mb-8">
+            <motion.div variants={fadeInLeft} className="space-y-8">
+              <div className="text-center">
                 <motion.h3
                   variants={slideInFromTop}
                   className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent drop-shadow-lg"
@@ -992,21 +1003,21 @@ export default function Index() {
                 </motion.p>
               </div>
               <motion.div
-                className="grid md:grid-cols-2 gap-6"
+                className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
                 variants={staggerFast}
               >
                 {nailExtensions.map((service, index) => (
-                  <motion.div 
-                    key={index} 
+                  <motion.div
+                    key={index}
                     variants={scaleIn}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.02,
-                      transition: { duration: 0.3 }
+                      transition: { duration: 0.3 },
                     }}
                   >
-                    <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden">
+                    <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <CardHeader className="relative pb-6">
+                      <CardHeader className="relative pb-4">
                         <div className="flex justify-between items-start mb-4">
                           <CardTitle className="text-xl font-bold text-foreground group-hover:text-secondary transition-colors">
                             {service.name}
@@ -1021,12 +1032,26 @@ export default function Index() {
                         <div className="text-2xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
                           {service.price}
                         </div>
+                        <div className="text-xs text-muted-foreground mt-1">
+                          + home service charge
+                        </div>
                       </CardHeader>
-                      <CardContent className="relative">
+                      <CardContent className="relative pt-0">
                         <CardDescription className="text-muted-foreground leading-relaxed text-base">
                           {service.description}
                         </CardDescription>
+                        <div className="mt-4 text-sm text-muted-foreground">
+                          Premium home visit • Sterilized tools • Aftercare tips
+                        </div>
                       </CardContent>
+                      <CardFooter className="relative pt-0">
+                        <Button
+                          className="w-full bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg"
+                          onClick={scrollToBooking}
+                        >
+                          Book Now
+                        </Button>
+                      </CardFooter>
                     </Card>
                   </motion.div>
                 ))}
@@ -1034,8 +1059,8 @@ export default function Index() {
             </motion.div>
 
             {/* Nail Art Types */}
-            <motion.div variants={fadeInRight}>
-              <div className="text-center mb-8">
+            <motion.div variants={fadeInRight} className="space-y-8">
+              <div className="text-center">
                 <motion.h3
                   variants={slideInFromTop}
                   className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent drop-shadow-lg"
@@ -1050,21 +1075,21 @@ export default function Index() {
                 </motion.p>
               </div>
               <motion.div
-                className="grid md:grid-cols-2 gap-6"
+                className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
                 variants={staggerFast}
               >
                 {nailArtTypes.map((service, index) => (
-                  <motion.div 
-                    key={index} 
+                  <motion.div
+                    key={index}
                     variants={scaleIn}
-                    whileHover={{ 
+                    whileHover={{
                       scale: 1.02,
-                      transition: { duration: 0.3 }
+                      transition: { duration: 0.3 },
                     }}
                   >
-                    <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden">
+                    <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <CardHeader className="relative pb-6">
+                      <CardHeader className="relative pb-4">
                         <div className="flex justify-between items-start mb-4">
                           <CardTitle className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
                             {service.name}
@@ -1079,12 +1104,26 @@ export default function Index() {
                         <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
                           {service.price}
                         </div>
+                        <div className="text-xs text-muted-foreground mt-1">
+                          + home service charge
+                        </div>
                       </CardHeader>
-                      <CardContent className="relative">
+                      <CardContent className="relative pt-0">
                         <CardDescription className="text-muted-foreground leading-relaxed text-base">
                           {service.description}
                         </CardDescription>
+                        <div className="mt-4 text-sm text-muted-foreground">
+                          Includes design consult • Custom palette • Sealant finish
+                        </div>
                       </CardContent>
+                      <CardFooter className="relative pt-0">
+                        <Button
+                          className="w-full bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg"
+                          onClick={scrollToBooking}
+                        >
+                          Book Now
+                        </Button>
+                      </CardFooter>
                     </Card>
                   </motion.div>
                 ))}
