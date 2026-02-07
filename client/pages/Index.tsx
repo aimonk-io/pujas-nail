@@ -43,11 +43,12 @@ import {
 import { CalendlyPopupButton } from "@/components/CalendlyWidget";
 import { SEOHead } from "@/components/SEOHead";
 
-// Google Analytics type declaration
+// Google Analytics / Google Ads conversion type declaration
 declare global {
   interface Window {
     gtag: (...args: any[]) => void;
     dataLayer: any[];
+    gtag_report_conversion?: (url?: string) => boolean;
   }
 }
 
@@ -511,6 +512,9 @@ export default function Index() {
 
   const isMobile = useIsMobile();
   const scrollToBooking = () => {
+    if (typeof window !== "undefined" && typeof window.gtag_report_conversion === "function") {
+      window.gtag_report_conversion();
+    }
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", "click", {
         event_category: "booking",
@@ -519,6 +523,13 @@ export default function Index() {
       });
     }
     document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const reportConversionThen = (fn: () => void) => {
+    if (typeof window !== "undefined" && typeof window.gtag_report_conversion === "function") {
+      window.gtag_report_conversion();
+    }
+    fn();
   };
 
   return (
@@ -727,17 +738,16 @@ export default function Index() {
                 size="lg"
                 className="px-8 py-3 text-lg bg-gradient-to-r from-primary to-accent hover:shadow-lg transition-all duration-300"
                 onClick={() => {
-                  // Track booking button click
-                  if (typeof window !== 'undefined' && window.gtag) {
-                    window.gtag('event', 'click', {
-                      event_category: 'booking',
-                      event_label: 'hero_book_appointment',
-                      value: 1
-                    });
-                  }
-                  document
-                    .getElementById("booking")
-                    ?.scrollIntoView({ behavior: "smooth" });
+                  reportConversionThen(() => {
+                    if (typeof window !== "undefined" && window.gtag) {
+                      window.gtag("event", "click", {
+                        event_category: "booking",
+                        event_label: "hero_book_appointment",
+                        value: 1,
+                      });
+                    }
+                    document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
+                  });
                 }}
               >
                   <Sparkles className="h-5 w-5 mr-2" />
@@ -1355,6 +1365,7 @@ export default function Index() {
                   href="tel:+918617682768"
                   className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:shadow-lg transition-all duration-300"
                   aria-label="Call Puja's Nail Studio"
+                  onClick={() => typeof window !== "undefined" && window.gtag_report_conversion?.()}
                 >
                   <Phone className="h-5 w-5" />
                   <span className="font-medium">Call: +91 8617682768</span>
@@ -1683,6 +1694,7 @@ export default function Index() {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           aria-label="Call Puja's Nail Studio"
+          onClick={() => typeof window !== "undefined" && window.gtag_report_conversion?.()}
         >
           <Phone className="h-5 w-5" />
           <span className="hidden sm:inline">Call Now</span>

@@ -233,6 +233,20 @@
       gtag('js', new Date());
 
       gtag('config', 'AW-17426628132');
+
+      /* Event snippet for Contact conversion – call gtag_report_conversion() on button/link click */
+      function gtag_report_conversion(url) {
+        var callback = function () {
+          if (typeof url !== 'undefined') {
+            window.location = url;
+          }
+        };
+        gtag('event', 'conversion', {
+          send_to: 'AW-17426628132/uMOzCOmm7ukbEKT81PVA',
+          event_callback: callback
+        });
+        return false;
+      }
     </script>
     <!-- Google tag end -->
     
