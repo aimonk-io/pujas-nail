@@ -727,8 +727,7 @@ export default function Index() {
                 className="text-xl text-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
                 itemProp="description"
               >
-                Premium at-home nail services in Siliguri. We come to you for
-                nail extensions and custom nail art—salon-quality results, at your place.
+                Professional in-home nail extension and nail art in Siliguri, West Bengal. Doorstep nail service—acrylic & gel extensions, bridal nail art, custom designs. Perfect for weddings, anniversaries and special occasions. Book nail artist at home.
               </motion.p>
               <motion.div
                 variants={slideInFromBottom}
@@ -982,7 +981,7 @@ export default function Index() {
               variants={fadeInUp}
               className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             >
-              We bring premium nail extensions and custom nail art to your home in Siliguri. Relax and get salon-quality results without leaving your place.
+              In-home nail extension service and nail art across Siliguri, West Bengal. Acrylic & gel nail extensions, bridal nail art, wedding nail art at home. Mobile nail artist—we come to you. Same day nail service available.
             </motion.p>
           </motion.div>
 
@@ -1421,7 +1420,7 @@ export default function Index() {
               variants={fadeInUp}
               className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
             >
-              Get in touch with us for appointments, inquiries, or to learn more about our services
+              Book nail artist at home—home nail service booking in Siliguri, Dabgram, Matigara, Pradhan Nagar, Sevoke Road, Hakimpara & nearby. Same day appointment available.
             </motion.p>
           </motion.div>
 
@@ -1474,9 +1473,9 @@ export default function Index() {
                 <div className="bg-gradient-to-r from-accent/10 to-secondary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <MapPin className="h-8 w-8 text-accent" />
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-foreground">Service Area</h3>
-                <p className="text-lg font-medium text-accent mb-2">Siliguri & nearby areas</p>
-                <p className="text-muted-foreground text-sm">We come to you for all services</p>
+                <h3 className="text-xl font-bold mb-2 text-foreground">Areas We Serve</h3>
+                <p className="text-lg font-medium text-accent mb-2">Siliguri, West Bengal</p>
+                <p className="text-muted-foreground text-sm">Dabgram, Matigara, Pradhan Nagar, Sevoke Road, Hakimpara & nearby. Home nail service at your doorstep.</p>
               </Card>
             </motion.div>
           </motion.div>

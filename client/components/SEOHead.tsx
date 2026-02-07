@@ -19,9 +19,9 @@ interface SEOHeadProps {
 }
 
 export function SEOHead({
-  title = "At-Home Nail Services in Siliguri | Nail Extensions & Custom Nail Art | We Come To You",
-  description = "Mobile nail studio in Siliguri offering at-home nail extensions and custom nail art. Salon-quality results at your place. Open 7 days a week. Book your at-home appointment today!",
-  keywords = "home service nails, at-home nail service, mobile nail technician, acrylic extensions at home, gel extensions at home, nail extensions, Siliguri, custom nail art, nail art at home, home salon, beauty at home",
+  title = "Home Service Nails Siliguri | Wedding & Occasion Nail Art at Home | West Bengal",
+  description = "Professional in-home nail extension and nail art in Siliguri, West Bengal. Mobile nail artists: acrylic nails, gel extensions, bridal nail art, custom designs at home. Book now.",
+  keywords = "in home nail extension service, home nail extension service, nail extension at home, nail extension Siliguri, nail art at home, home nail art service, nail art service Siliguri, professional nail artist Siliguri, nail technician at home, doorstep nail service, home salon nail service, mobile nail salon, acrylic nail extension Siliguri, gel nail extension Siliguri, bridal nail art Siliguri, wedding nail art at home, nail extension service in Siliguri, best nail artist in Siliguri, affordable nail art Siliguri, book nail artist at home, home nail service booking, Matigara, Pradhan Nagar, Sevoke Road, Dabgram, West Bengal",
   image = "https://pujasnailstudio.com/logo.png",
   url = "https://pujasnailstudio.com",
   type = "business.business",
@@ -100,25 +100,24 @@ export function SEOHead({
     "sameAs": [
       "https://www.instagram.com/pujanailstudio/",
       "https://www.facebook.com/people/puja-Nails-Studio/61578745337761/"
-    ]
+    ],
+    ...(services.length > 0 && {
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        "name": "Nail Services",
+        "itemListElement": services.map(service => ({
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": service.name,
+            "description": service.description
+          },
+          "price": service.price,
+          "priceCurrency": "INR"
+        }))
+      }
+    })
   };
-
-  if (services.length > 0) {
-    structuredData.hasOfferCatalog = {
-      "@type": "OfferCatalog",
-      "name": "Nail Services",
-      "itemListElement": services.map(service => ({
-        "@type": "Offer",
-        "itemOffered": {
-          "@type": "Service",
-          "name": service.name,
-          "description": service.description
-        },
-        "price": service.price,
-        "priceCurrency": "INR"
-      }))
-    };
-  }
 
   return (
     <Helmet>
