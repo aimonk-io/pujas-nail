@@ -4,102 +4,125 @@
 
 @layer base {
   /**
-   * Tailwind CSS theme
-   * tailwind.config.ts expects the following color variables to be expressed as HSL values.
-   * A different format will require also updating the theme in tailwind.config.ts.
+   * Puja Nails — Light gray + red palette
+   * Buttons/links: #CC0022 | Headlines: black | Text: #111111 | Accent bg: #F0F2F5 | Footer: #2D2D2D
    */
   :root {
-    /* New Palette (hex reference) */
-    --chocolate-cosmos-hex: #590d22;
-    --claret-hex: #800f2f;
-    --amaranth-purple-hex: #a4133c;
-    --rose-red-hex: #c9184a;
-    --bright-pink-crayola-hex: #ff4d6d;
-    --bright-pink-crayola-2-hex: #ff758f;
-    --salmon-pink-hex: #ff8fa3;
-    --cherry-blossom-pink-hex: #ffb3c1;
-    --pink-hex: #ffccd5;
-    --lavender-blush-hex: #fff0f3;
+    /* — Typography (Syne + Inter) — */
+    --font-display: "Syne", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --text-xs: 0.72rem;
+    --text-sm: 0.82rem;
+    --text-base: 0.95rem;
+    --text-md: 1.05rem;
+    --text-lg: 1.2rem;
+    --text-xl: 1.5rem;
+    --text-2xl: 2rem;
+    --text-3xl: 2.8rem;
+    --weight-light: 300;
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-bold: 700;
+    --leading-tight: 1.15;
+    --leading-snug: 1.4;
+    --leading-body: 1.75;
+    --leading-loose: 1.9;
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.06em;
+    --tracking-wider: 0.12em;
 
-    /* Light theme mapped to HSL */
-    --background: 348 100% 97%; /* lavender blush */
-    --foreground: 343 75% 20%;  /* chocolate cosmos */
+    /* — Custom hex (use in components via var()) — */
+    --color-primary: #CC0022;
+    --color-primary-dark: #A3001B;
+    --color-primary-hover: #E60026;
+    --color-primary-light: #FF4D6A;
+    --color-heading: #000000;
+    --color-text: #111111;
+    --color-bg: #F7F8FA;
+    --color-accent-bg: #F0F2F5;
+    --color-text-on-dark: #FFFFFF;
+    --color-footer: #2D2D2D;
+    --color-border: #E4E6E9;
+    --color-nav-bg: #FFFFFF;
+    --color-nav-border: #E4E6E9;
+    --color-nav-link: #111111;
+    --color-nav-link-hover: #CC0022;
+    --color-bg-section: #F0F2F5;
+    --color-border-glow: #CC0022;
+    --gradient-hero: linear-gradient(135deg, #F0F2F5, #FFFFFF);
+    --gradient-footer: linear-gradient(180deg, #2D2D2D, #1A1A1A);
+    --color-whatsapp: #25D366;
 
-    --card: 0 0% 100%;
-    --card-foreground: 343 75% 20%;
+    /* — Tailwind theme (HSL) — */
+    --background: 220 14% 98%;       /* light gray page bg */
+    --foreground: 0 0% 7%;           /* #111111 text & headlines */
+
+    --card: 0 0% 100%;               /* white cards */
+    --card-foreground: 0 0% 7%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 343 75% 20%;
+    --popover-foreground: 0 0% 7%;
 
-    --primary: 343 79% 36%; /* amaranth purple */
-    --primary-foreground: 0 0% 98%;
+    --primary: 348 100% 40%;         /* #CC0022 red buttons/links */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 343 79% 28%; /* claret */
-    --secondary-foreground: 0 0% 98%;
+    --secondary: 348 100% 35%;       /* darker red */
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 349 100% 90%; /* pink */
-    --muted-foreground: 343 30% 40%;
+    --muted: 220 14% 95%;            /* #F0F2F5 accent bg */
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 349 100% 65%; /* bright pink crayola */
-    --accent-foreground: 0 0% 98%;
+    --accent: 220 14% 95%;           /* #F0F2F5 light gray accent */
+    --accent-foreground: 0 0% 7%;
 
-    --destructive: 343 79% 44%; /* rose red */
-    --destructive-foreground: 0 0% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 349 60% 88%; /* soft pink border */
-    --input: 349 60% 92%;
-    --ring: 343 79% 36%;
+    --border: 220 13% 91%;            /* #E4E6E9 */
+    --input: 220 13% 91%;
+    --ring: 348 100% 40%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 343 75% 20%;
-    --sidebar-primary: 343 79% 36%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 349 100% 65%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 349 60% 88%;
-    --sidebar-ring: 343 79% 36%;
+    --sidebar-background: 220 14% 95%;
+    --sidebar-foreground: 0 0% 7%;
+    --sidebar-primary: 348 100% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 95%;
+    --sidebar-accent-foreground: 0 0% 7%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 348 100% 40%;
   }
 
   .dark {
-    /* Dark theme based on palette */
-    --background: 343 75% 12%; /* deeper chocolate cosmos */
-    --foreground: 0 0% 96%;
-
-    --card: 343 75% 14%;
-    --card-foreground: 0 0% 96%;
-
-    --popover: 343 75% 14%;
-    --popover-foreground: 0 0% 96%;
-
-    --primary: 343 79% 44%; /* rose red as primary pop in dark */
-    --primary-foreground: 0 0% 98%;
-
-    --secondary: 343 79% 28%; /* claret */
-    --secondary-foreground: 0 0% 96%;
-
-    --muted: 343 25% 22%;
-    --muted-foreground: 0 0% 75%;
-
-    --accent: 349 100% 73%; /* bright pink crayola 2 */
-    --accent-foreground: 343 75% 12%;
-
-    --destructive: 343 79% 36%;
-    --destructive-foreground: 0 0% 98%;
-
-    --border: 343 30% 26%;
-    --input: 343 30% 26%;
-    --ring: 343 79% 44%;
-    
-    --sidebar-background: 343 75% 14%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 343 79% 44%;
-    --sidebar-primary-foreground: 0 0% 96%;
-    --sidebar-accent: 349 100% 73%;
-    --sidebar-accent-foreground: 343 75% 12%;
-    --sidebar-border: 343 30% 26%;
-    --sidebar-ring: 343 79% 44%;
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 348 100% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 348 100% 35%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 348 100% 40%;
+    --sidebar-background: 0 0% 10%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 348 100% 40%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 348 100% 40%;
   }
 }
 
@@ -118,7 +141,58 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-body);
+    color: #111111;
+    -webkit-font-smoothing: antialiased;
+    @apply bg-background;
+  }
+
+  .dark body { color: hsl(var(--foreground)); }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: var(--tracking-tight);
+    line-height: var(--leading-tight);
+    color: #111111;
+  }
+
+  .dark h1, .dark h2, .dark h3, .dark h4 { color: hsl(var(--foreground)); }
+  h1 { font-size: clamp(2rem, 5vw, 3.6rem); font-weight: 700; }
+  h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 700; }
+  h3 { font-size: var(--text-lg); font-weight: 600; }
+  h4 { font-size: var(--text-base); font-weight: 600; }
+
+  p {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-light);
+    line-height: var(--leading-body);
+    color: #4A5568;
+  }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: var(--text-xs);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wider);
+    text-transform: uppercase;
+    color: #CC0022;
+  }
+
+  button, .btn {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    letter-spacing: var(--tracking-wide);
+  }
+
+  nav a {
+    font-family: var(--font-body);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-regular);
   }
 
   #root {
@@ -126,13 +200,4 @@
     position: relative;
   }
 
-  /* Style Calendly badge */
-  .calendly-badge-wrapper {
-    bottom: 60px !important;
-    right: 10px !important;
-  }
-
-  .calendly-badge-content {
-    border-radius: 0 !important;
-  }
 }

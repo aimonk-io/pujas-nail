@@ -42,6 +42,22 @@ import {
 } from "@/components/ui/drawer";
 import { CalendlyPopupButton } from "@/components/CalendlyWidget";
 import { SEOHead } from "@/components/SEOHead";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/autoplay";
+
+const PHONE = "+91 8617682768";
+const PHONE_TEL = "tel:+918617682768";
+const WA_LINK = "https://wa.me/918617682768";
+const WA_BOOK_MSG = "Hi! I want to book a nail appointment in Siliguri";
 
 // Google Analytics / Google Ads conversion type declaration
 declare global {
@@ -180,37 +196,18 @@ const slideInFromBottom = {
 };
 
 const galleryImages = [
-  {
-    id: 1,
-    src: "/media/PHOTO-2025-07-07-18-03-03 2.jpg",
-    alt: "Elegant nail art with intricate design",
-    title: "Intricate Nail Art",
-  },
-  {
-    id: 2,
-    src: "/media/PHOTO-2025-07-07-18-03-03.jpg",
-    alt: "Classic French nails with perfect finish",
-    title: "Perfect French Nails",
-  },
-  {
-    id: 3,
-    src: "/media/PHOTO-2025-07-07-18-03-58.jpg",
-    alt: "Beautiful nail art with floral patterns",
-    title: "Floral Nail Design",
-  },
-  {
-    id: 4,
-    src: "/media/PHOTO-2025-07-07-18-04-22.jpg",
-    alt: "Glamorous nail art with sparkles",
-    title: "Glamorous Sparkle Nails",
-  },
-  {
-    id: 5,
-    src: "/media/PHOTO-2025-07-07-18-02-58 2.jpg",
-    alt: "Sophisticated nail design with gold accents",
-    title: "Gold Accent Nails",
-  },
+  { id: 1, src: "/media/79392099205029536.jpeg", alt: "Pink gel nail extensions with floral design — home service Siliguri", title: "Floral Gel Nails", description: "Home service in Siliguri" },
+  { id: 2, src: "/media/2308513475607877659.jpeg", alt: "Acrylic nail extensions with ombre effect done at home in Siliguri", title: "Ombré Acrylic Nails", description: "Home service in Siliguri" },
+  { id: 3, src: "/media/2422623673493669297.jpeg", alt: "Bridal nail art with gold and white design for wedding in Siliguri", title: "Bridal Nail Art", description: "Wedding nail art Siliguri" },
+  { id: 4, src: "/media/4386419946783222734.jpeg", alt: "3D nail art with rhinestone gems and chrome effect — Puja's Nail Studio", title: "3D Chrome Nails", description: "Home service in Siliguri" },
+  { id: 5, src: "/media/5026456562858868939.jpeg", alt: "French nail extensions with modern twist done at home in Siliguri", title: "Modern French Nails", description: "Home service in Siliguri" },
+  { id: 6, src: "/media/6380504046646179848.jpeg", alt: "Gel nail art with marble effect in nude tones — home nail service Siliguri", title: "Marble Gel Nails", description: "At your doorstep in Siliguri" },
+  { id: 7, src: "/media/8096948635405192285.jpeg", alt: "Glitter and holographic nail art done at home in Siliguri West Bengal", title: "Glitter Holo Nails", description: "Home service in Siliguri" },
+  { id: 8, src: "/media/12136980375840660014.jpeg", alt: "Cat eye gel nail art with deep red shade — Puja's home nail service Siliguri", title: "Cat Eye Gel Nails", description: "Home service in Siliguri" },
+  { id: 9, src: "/media/16072181640080114237.jpeg", alt: "Custom nail art design with blooming flower effect at home Siliguri", title: "Blooming Nail Art", description: "Home service in Siliguri" },
 ];
+
+const heroCarouselImages = galleryImages.map(({ src, alt }) => ({ src, alt }));
 
 function GallerySlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -263,7 +260,7 @@ function GallerySlider() {
               <p className="text-white/90 drop-shadow-md">{galleryImages[currentIndex].alt}</p>
             </div>
             <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+              <div className="bg-primary/20 backdrop-blur-sm rounded-full p-2">
                 <Sparkles className="h-6 w-6 text-white" />
               </div>
             </div>
@@ -273,7 +270,7 @@ function GallerySlider() {
         {/* Navigation Arrows */}
         <button
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/40 hover:scale-110 transition-all duration-300 group opacity-0 group-hover:opacity-100"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-primary/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-primary/40 hover:scale-110 transition-all duration-300 group opacity-0 group-hover:opacity-100"
         >
           <svg
             className="w-6 h-6 group-hover:rotate-12 transition-transform"
@@ -291,7 +288,7 @@ function GallerySlider() {
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/40 hover:scale-110 transition-all duration-300 group opacity-0 group-hover:opacity-100"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-primary/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-primary/40 hover:scale-110 transition-all duration-300 group opacity-0 group-hover:opacity-100"
         >
           <svg
             className="w-6 h-6 group-hover:-rotate-12 transition-transform"
@@ -556,7 +553,7 @@ export default function Index() {
       >
       {/* Header */}
       <motion.header
-        className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-md"
+        className="fixed top-0 left-0 right-0 z-50 bg-[var(--color-nav-bg)] backdrop-blur-md border-b border-[var(--color-nav-border)]"
         initial="hidden"
         animate="visible"
         variants={fadeIn}
@@ -564,107 +561,89 @@ export default function Index() {
         <div className="container mx-auto px-4 py-3">
           <div className="flex items-center justify-between w-full">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
+            <a href="/" className="flex items-center space-x-3">
               <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-10 w-10 object-contain" />
-              <span className="text-lg font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent hidden sm:block">
+              <span className="text-lg font-display font-semibold text-secondary hidden sm:block">
                 Puja's Nail Studio
               </span>
-            </div>
+            </a>
             
             {/* Navigation Links - Desktop */}
             {!isMobile ? (
-              <nav className="flex items-center gap-6">
-                <a 
-                  href="#home" 
-                  className="text-foreground font-medium hover:text-primary transition-colors"
-                >
-                  Home
-                </a>
-                <a 
-                  href="#work" 
-                  className="text-foreground font-medium hover:text-primary transition-colors"
-                >
-                  Work
-                </a>
-                <a 
-                  href="#services" 
-                  className="text-foreground font-medium hover:text-primary transition-colors"
-                >
-                  Services
-                </a>
-                <a 
-                  href="#pricing" 
-                  className="text-foreground font-medium hover:text-primary transition-colors"
-                >
-                  Pricing
-                </a>
-                <a 
-                  href="#booking"
-                  className="bg-gradient-to-r from-primary to-accent text-white px-6 py-2 rounded-full font-medium hover:shadow-lg transition-all duration-300"
+              <nav className="flex items-center gap-5 lg:gap-6">
+                <a href="#home" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Home</a>
+                <a href="/services/acrylic-nails" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Acrylic Nails</a>
+                <a href="/services/gel-nails" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Gel Nails</a>
+                <a href="/services/bridal-nail-art" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Bridal Nails</a>
+                <a href="#gallery" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Gallery</a>
+                <a href="/faq" className="text-foreground font-medium hover:text-primary transition-colors text-sm">FAQ</a>
+                <a
+                  href={`${WA_LINK}?text=${encodeURIComponent(WA_BOOK_MSG)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-primary text-primary-foreground px-5 py-2 rounded-full font-medium hover:bg-primary/90 transition-all text-sm"
                 >
                   Book Now
                 </a>
-                <motion.a
-                  href="tel:+918617682768"
-                  className="flex items-center space-x-2 px-4 py-2 bg-gray-100 rounded-full hover:bg-gray-200 transition-all duration-300 font-medium"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  aria-label="Call Puja's Nail Studio"
-                >
-                  <Phone className="h-4 w-4 text-primary" />
-                  <span className="text-primary hidden md:block">Call</span>
-                </motion.a>
               </nav>
             ) : (
               <Drawer direction="right">
                 <DrawerTrigger asChild>
                   <button 
                     aria-label="Open navigation menu" 
-                    className="p-3 rounded-full bg-gradient-to-r from-primary to-accent text-white hover:opacity-90 transition-all duration-300"
+                    className="p-3 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300"
                   >
                     <Menu className="h-6 w-6" />
                   </button>
                 </DrawerTrigger>
-                <DrawerContent className="pb-8 w-full max-h-screen h-full fixed right-0 top-0 bottom-0 bg-background shadow-lg border-l border-gray-200 flex flex-col overflow-y-auto">
-                  <button aria-label="Close navigation menu" className="absolute top-4 right-4 p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary">
+                <DrawerContent className="pb-8 w-full max-h-screen h-full fixed right-0 top-0 bottom-0 bg-background shadow-lg border-l border-border flex flex-col overflow-y-auto">
+                  <button aria-label="Close navigation menu" className="absolute top-4 right-4 p-2 rounded-full hover:bg-muted focus:outline-none focus:ring-2 focus:ring-primary">
                     <DrawerClose asChild>
-                      <X className="h-6 w-6 text-primary" />
+                      <X className="h-6 w-6 text-foreground" />
                     </DrawerClose>
                   </button>
-                  <DrawerHeader>
-                    <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-16 w-16 object-contain mx-auto mb-4" />
+                  <DrawerHeader className="text-center pt-4">
+                    <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-14 w-14 object-contain mx-auto mb-2" />
+                    <span className="font-display font-semibold text-lg text-foreground">Puja's Nail Studio</span>
                   </DrawerHeader>
-                  <nav className="flex flex-col gap-6 items-center mt-4">
+                  <nav className="flex flex-col gap-1 px-4 mt-6">
                     <DrawerClose asChild>
-                      <a href="#home" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Home</a>
+                      <a href="#home" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Home</a>
                     </DrawerClose>
                     <DrawerClose asChild>
-                      <a href="#work" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Work</a>
+                      <a href="/services/acrylic-nails" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Acrylic Nails</a>
                     </DrawerClose>
                     <DrawerClose asChild>
-                      <a href="#services" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Services</a>
+                      <a href="/services/gel-nails" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Gel Nails</a>
                     </DrawerClose>
                     <DrawerClose asChild>
-                      <a href="#pricing" className="text-lg font-medium text-gray-700 hover:text-primary transition-colors">Pricing</a>
+                      <a href="/services/bridal-nail-art" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Bridal Nails</a>
                     </DrawerClose>
                     <DrawerClose asChild>
-                      <a 
-                        href="#booking"
-                        className="text-lg font-medium text-white bg-gradient-to-r from-primary to-accent px-8 py-3 rounded-full hover:shadow-lg transition-all duration-300 border-0 cursor-pointer"
-                      >
-                        Book Appointment
-                      </a>
+                      <a href="#gallery" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Gallery</a>
                     </DrawerClose>
                     <DrawerClose asChild>
-                      <a 
-                        href="tel:+918617682768"
-                        className="flex items-center space-x-2 text-lg font-medium text-primary hover:text-accent transition-colors"
-                        aria-label="Call Puja's Nail Studio"
-                      >
-                        <Phone className="h-5 w-5" />
-                        <span>+91 8617682768</span>
-                      </a>
+                      <a href="/faq" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">FAQ</a>
                     </DrawerClose>
+                    <DrawerClose asChild>
+                      <a href="/about" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">About</a>
+                    </DrawerClose>
+                    <DrawerClose asChild>
+                      <a href="/contact" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Contact</a>
+                    </DrawerClose>
+                    <div className="border-t border-border my-3 pt-3">
+                      <DrawerClose asChild>
+                        <a href={`${WA_LINK}?text=${encodeURIComponent(WA_BOOK_MSG)}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2 w-full text-base font-medium text-primary-foreground bg-primary py-3.5 px-6 rounded-full hover:bg-primary/90 transition-colors">
+                          Book on WhatsApp
+                        </a>
+                      </DrawerClose>
+                      <DrawerClose asChild>
+                        <a href={PHONE_TEL} className="flex items-center justify-center gap-2 mt-2 text-base font-medium text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors" aria-label="Call">
+                          <Phone className="h-5 w-5" />
+                          <span>{PHONE}</span>
+                        </a>
+                      </DrawerClose>
+                    </div>
                   </nav>
                 </DrawerContent>
               </Drawer>
@@ -674,471 +653,229 @@ export default function Index() {
       </motion.header>
 
       {/* Hero Section */}
-      <section id="home" className="relative pt-24 pb-20 overflow-hidden bg-gradient-to-br from-[#F2F2F2] via-white to-primary/5" role="banner" aria-label="Welcome to Puja's Nail Studio">
-        {/* Background Images */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 z-10" />
-          <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-foreground/5 z-10" />
-          <div className="absolute top-0 left-0 w-1/3 h-full opacity-20">
-            <img
-              src="/media/PHOTO-2025-07-07-18-03-03.jpg"
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="absolute top-0 right-0 w-1/3 h-full opacity-20">
-            <img
-              src="/media/PHOTO-2025-07-07-18-03-03 2.jpg"
-              alt=""
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </div>
-        
-        <div className="container mx-auto px-4 relative z-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <motion.div
-              className="text-center lg:text-left"
-              initial="hidden"
-              animate="visible"
-              variants={staggerSlow}
-            >
-              <motion.div variants={bounceIn} className="flex justify-center lg:justify-start mb-6">
-                <Badge
-                  variant="secondary"
-                  className="px-6 py-2 text-sm bg-primary/10 text-primary border-primary/20"
-                >
-                  <Heart className="h-4 w-4 mr-2" />
-                  Premium Nail Artistry
+      <section id="home" className="relative pt-24 pb-16 md:pb-20 overflow-hidden bg-[var(--gradient-hero)] min-h-[88vh] flex flex-col justify-center" role="banner" aria-label="Welcome to Puja's Nail Studio" itemScope itemType="https://schema.org/BeautySalon">
+        <div className="container mx-auto px-4 md:px-5">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <motion.div className="text-center lg:text-left" initial="hidden" animate="visible" variants={staggerSlow}>
+              <motion.div variants={bounceIn} className="flex justify-center lg:justify-start mb-5">
+                <Badge className="bg-primary/15 text-secondary border-primary/20 text-xs font-medium tracking-wide uppercase px-4 py-1.5 rounded-full">
+                  <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse mr-1.5 inline-block" />
+                  Available in Siliguri, West Bengal
                 </Badge>
               </motion.div>
-                          <motion.h1
-              variants={slideInFromTop}
-              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent leading-tight drop-shadow-sm"
-              itemProp="name"
-            >
-                Beautiful Nails,
-                <br />
-                Beautiful You
+              <motion.h1 variants={slideInFromTop} className="font-display font-semibold text-3xl sm:text-4xl md:text-5xl lg:text-[3.2rem] leading-tight text-foreground mb-5" itemProp="name">
+                Professional{" "}
+                <em className="text-primary not-italic">Nail Art at Your Home</em>
+                {" "}in Siliguri
               </motion.h1>
-              <motion.p
-                variants={fadeInUp}
-                className="text-xl text-foreground mb-8 max-w-2xl mx-auto lg:mx-0 leading-relaxed"
-                itemProp="description"
-              >
-                Professional in-home nail extension and nail art in Siliguri, West Bengal. Doorstep nail service—acrylic & gel extensions, bridal nail art, custom designs. Perfect for weddings, anniversaries and special occasions. Book nail artist at home.
+              <motion.p variants={fadeInUp} className="text-muted-foreground text-base md:text-lg font-light max-w-[480px] mx-auto lg:mx-0 mb-8" itemProp="description">
+                Acrylic extensions, gel nails, bridal nail art & creative designs — all done at your doorstep. No salon travel. Just beautiful nails.
               </motion.p>
-              <motion.div
-                variants={slideInFromBottom}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center"
-              >
-                              <Button
-                size="lg"
-                className="px-8 py-3 text-lg bg-gradient-to-r from-primary to-accent hover:shadow-lg transition-all duration-300"
-                onClick={() => {
-                  reportConversionThen(() => {
-                    if (typeof window !== "undefined" && window.gtag) {
-                      window.gtag("event", "click", {
-                        event_category: "booking",
-                        event_label: "hero_book_appointment",
-                        value: 1,
-                      });
-                    }
-                    document.getElementById("booking")?.scrollIntoView({ behavior: "smooth" });
-                  });
-                }}
-              >
-                  <Sparkles className="h-5 w-5 mr-2" />
-                  Book Appointment
-                </Button>
+              <motion.div variants={slideInFromBottom} className="flex flex-wrap gap-3 justify-center lg:justify-start items-center">
+                <a href={`${WA_LINK}?text=${encodeURIComponent(WA_BOOK_MSG)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-7 py-3.5 rounded-full font-medium text-base shadow-lg shadow-primary/30 hover:shadow-xl hover:-translate-y-0.5 transition-all" onClick={() => window.gtag?.("event", "click", { event_category: "booking", event_label: "hero_whatsapp", value: 1 })}>
+                  📱 Book on WhatsApp
+                </a>
+                <a href={PHONE_TEL} className="inline-flex items-center gap-2 border-2 border-primary text-primary px-6 py-3 rounded-full font-medium text-base hover:bg-primary hover:text-primary-foreground transition-all" aria-label="Call" itemProp="telephone">
+                  📞 Call Now
+                </a>
               </motion.div>
-              
-
+              <motion.div variants={fadeInUp} className="flex flex-wrap gap-6 mt-8 justify-center lg:justify-start text-sm text-muted-foreground">
+                <span className="flex items-center gap-2">⭐ 4.9-star rated</span>
+                <span className="flex items-center gap-2">🏠 100% home service</span>
+                <span className="flex items-center gap-2">🧴 Hygienic & safe products</span>
+              </motion.div>
             </motion.div>
-
-            {/* Prominent Contact Info */}
-            <motion.div
-              variants={fadeInUp}
-              className="mt-8 text-center"
-            >
-              <div className="inline-flex flex-col md:flex-row items-center md:space-x-6 space-y-4 md:space-y-0 bg-white/80 backdrop-blur-sm rounded-2xl px-4 md:px-8 py-4 shadow-lg border border-primary/20">
-                <div className="flex items-center space-x-2">
-                  <Phone className="h-5 w-5 text-primary" />
-                  <span className="text-base md:text-lg font-semibold text-foreground">Call:</span>
-                  <a
-                    href="tel:+918617682768"
-                    className="text-lg md:text-xl font-bold text-primary hover:text-accent transition-colors"
-                    aria-label="Call Puja's Nail Studio"
-                  >
-                    +91 8617682768
-                  </a>
-                </div>
-                <div className="hidden md:block w-px h-8 bg-primary/30"></div>
-                <div className="block md:hidden w-full h-px bg-primary/30"></div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="h-5 w-5 text-primary" />
-                  <span className="text-base md:text-lg font-semibold text-foreground">Open:</span>
-                  <span className="text-lg md:text-xl font-bold text-primary">7 Days a Week</span>
-                </div>
+            <motion.div variants={fadeInRight} className="relative flex justify-center items-center order-first lg:order-none">
+              <div className="w-full max-w-[320px] md:max-w-[400px] aspect-[4/5] rounded-[40%_60%_60%_40%_/_40%_40%_60%_60%] overflow-hidden bg-primary/10 border border-primary/20">
+                <Swiper
+                  modules={[Autoplay, EffectFade]}
+                  effect="fade"
+                  autoplay={{ delay: 3500, disableOnInteraction: false }}
+                  loop
+                  className="!h-full !w-full [&_.swiper-wrapper]:!h-full [&_.swiper-slide]:!h-full"
+                >
+                  {heroCarouselImages.map((img, i) => (
+                    <SwiperSlide key={i}>
+                      <img src={img.src} alt={img.alt} className="w-full h-full object-cover" loading={i === 0 ? "eager" : "lazy"} />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              <div className="absolute bottom-6 left-2 md:left-0 z-[1] bg-card rounded-2xl px-5 py-3 shadow-lg border border-border text-sm">
+                <strong className="block text-primary text-lg">₹800 onwards</strong>
+                Starting price for nail extensions
               </div>
             </motion.div>
-
-
           </div>
         </div>
       </section>
 
-      {/* Image Gallery Section */}
-      <section className="py-20 bg-gradient-to-br from-primary/5 via-white to-accent/5" role="region" aria-label="Nail Art Gallery">
-        <div className="container mx-auto px-4 max-w-7xl">
-
-          {/* Full Screen Image Grid */}
-          <motion.div
-            className="relative w-full"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={staggerFast}
-          >
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 w-full max-w-7xl mx-auto">
-              <motion.div
-                variants={scaleIn}
-                className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <img
-                  src="/media/PHOTO-2025-07-07-18-03-58.jpg"
-                  alt="Floral nail art"
-                  className="w-full h-48 md:h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                {/* Multiple Overlay Layers */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                
-                {/* Content Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-4">
-                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Floral Elegance</h3>
-                    <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Delicate floral motifs</p>
-                  </div>
-                </div>
-                
-                {/* Decorative Elements */}
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                    <Sparkles className="h-4 w-4 text-white" />
-                  </div>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                variants={scaleIn}
-                className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <img
-                  src="/media/PHOTO-2025-07-07-18-04-22.jpg"
-                  alt="Glamorous nail art"
-                  className="w-full h-48 md:h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                {/* Multiple Overlay Layers */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                
-                {/* Content Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-4">
-                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Glamorous Sparkle</h3>
-                    <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Dazzling sparkle effects</p>
-                  </div>
-                </div>
-                
-                {/* Decorative Elements */}
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                    <Sparkles className="h-4 w-4 text-white" />
-                  </div>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                variants={scaleIn}
-                className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <img
-                  src="/media/PHOTO-2025-07-07-18-02-58 2.jpg"
-                  alt="Gold accent nails"
-                  className="w-full h-48 md:h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                {/* Multiple Overlay Layers */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                
-                {/* Content Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-4">
-                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Gold Accents</h3>
-                    <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Luxurious gold detailing</p>
-                  </div>
-                </div>
-                
-                {/* Decorative Elements */}
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                    <Sparkles className="h-4 w-4 text-white" />
-                  </div>
-                </div>
-              </motion.div>
-              
-              <motion.div
-                variants={scaleIn}
-                className="group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500"
-                whileHover={{ 
-                  scale: 1.05,
-                  transition: { duration: 0.3 }
-                }}
-              >
-                <img
-                  src="/media/PHOTO-2025-07-07-18-03-03 2.jpg"
-                  alt="Intricate nail design"
-                  className="w-full h-48 md:h-80 lg:h-96 object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                {/* Multiple Overlay Layers */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-400" />
-                
-                {/* Content Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-end p-4">
-                  <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-lg font-bold text-white mb-1 drop-shadow-lg">Intricate Design</h3>
-                    <p className="text-white/90 text-sm drop-shadow-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">Sophisticated patterns</p>
-                  </div>
-                </div>
-                
-                {/* Decorative Elements */}
-                <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
-                    <Sparkles className="h-4 w-4 text-white" />
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-            
-            {/* Floating Sparkle */}
-            <motion.div
-              className="absolute -top-4 -right-4"
-              animate={{ 
-                rotate: [0, 360],
-                scale: [1, 1.1, 1]
-              }}
-              transition={{ 
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            >
-              <div className="bg-white/20 backdrop-blur-sm rounded-full p-3 shadow-lg">
-                <Sparkles className="h-8 w-8 text-primary" />
-              </div>
-            </motion.div>
-          </motion.div>
+      {/* Services at Home - 4 cards */}
+      <section id="services" className="py-16 md:py-20 px-4 md:px-5" role="region" aria-label="Nail Services">
+        <div className="container mx-auto max-w-6xl">
+          <p className="text-primary text-xs font-medium tracking-widest uppercase mb-2">What We Offer</p>
+          <h2 className="font-display font-semibold text-2xl md:text-3xl lg:text-4xl text-foreground mb-4">Nail Services at Home in Siliguri</h2>
+          <p className="text-muted-foreground max-w-[540px] mb-12 text-base md:text-lg">
+            From acrylic extensions to bridal nail art — we bring professional nail care to your home, anywhere in Siliguri. All services use salon-grade products.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { icon: "💎", title: "Acrylic Nail Extensions", desc: "Strong, durable extensions in any shape — square, almond, coffin, stiletto. Full sets and infills.", price: "From ₹800", href: "/services/acrylic-nails" },
+              { icon: "✨", title: "Gel Nail Extensions", desc: "Lightweight, natural-looking gel extensions and gel polish. Odourless, chip-resistant, lasts 3–4 weeks.", price: "From ₹1,000", href: "/services/gel-nails" },
+              { icon: "👰", title: "Bridal Nail Art", desc: "Custom bridal nail designs for weddings & special occasions. Coordinated with your outfit and jewellery.", price: "From ₹1,500", href: "/services/bridal-nail-art" },
+              { icon: "🎨", title: "Nail Art Designs", desc: "French, ombré, 3D nail art, glitter, chrome, florals & more. Custom designs for any occasion.", price: "From ₹300", href: "/services/nail-art-designs" },
+            ].map((card, i) => (
+              <motion.a key={card.title} href={card.href} className="block bg-card rounded-2xl p-6 md:p-7 border border-border hover:border-[var(--color-border-glow)] hover:shadow-lg hover:-translate-y-1 transition-all text-foreground no-underline" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                <span className="text-3xl block mb-4">{card.icon}</span>
+                <h3 className="font-display font-semibold text-lg mb-2">{card.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">{card.desc}</p>
+                <p className="font-medium text-primary text-sm">{card.price}</p>
+                <span className="text-primary text-sm font-medium mt-2 inline-block">Learn more →</span>
+              </motion.a>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-secondary/10" role="region" aria-label="Our Nail Services">
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="text-center mb-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerSlow}
-          >
-
-            <motion.h2
-              variants={slideInFromTop}
-              className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent leading-tight drop-shadow-lg"
-            >
-              Home Nail Services
-            </motion.h2>
-            <motion.p
-              variants={fadeInUp}
-              className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
-            >
-              In-home nail extension service and nail art across Siliguri, West Bengal. Acrylic & gel nail extensions, bridal nail art, wedding nail art at home. Mobile nail artist—we come to you. Same day nail service available.
-            </motion.p>
-          </motion.div>
-
-
-
-          {/* Services Grid - Two Rows */}
-          <motion.div
-            className="space-y-16"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            variants={staggerSlow}
-          >
-            {/* Nail Extensions */}
-            <motion.div variants={fadeInLeft} className="space-y-8">
-              <div className="text-center">
-                <motion.h3
-                  variants={slideInFromTop}
-                  className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent drop-shadow-lg"
-                >
-                  Nail Extensions
-                </motion.h3>
-                <motion.p
-                  variants={fadeInUp}
-                  className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-                >
-                  Professional nail extensions for length, strength, and stunning designs
-                </motion.p>
-              </div>
-              <motion.div
-                className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
-                variants={staggerFast}
-              >
-                {nailExtensions.map((service, index) => (
-                  <motion.div
-                    key={index}
-                    variants={scaleIn}
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3 },
-                    }}
-                  >
-                    <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <CardHeader className="relative pb-4">
-                        <div className="flex justify-between items-start mb-4">
-                          <CardTitle className="text-xl font-bold text-foreground group-hover:text-secondary transition-colors">
-                            {service.name}
-                          </CardTitle>
-                          <Badge
-                            variant="outline"
-                            className="text-secondary border-secondary/30 bg-secondary/10 font-semibold"
-                          >
-                            {service.duration}
-                          </Badge>
-                        </div>
-                        <div className="text-2xl font-bold bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
-                          {service.price}
-                        </div>
-                        <div className="text-xs text-muted-foreground mt-1">
-                          + home service charge
-                        </div>
-                      </CardHeader>
-                      <CardContent className="relative pt-0">
-                        <CardDescription className="text-muted-foreground leading-relaxed text-base">
-                          {service.description}
-                        </CardDescription>
-                        <div className="mt-4 text-sm text-muted-foreground">
-                          Premium home visit • Sterilized tools • Aftercare tips
-                        </div>
-                      </CardContent>
-                      <CardFooter className="relative pt-0">
-                        <Button
-                          className="w-full bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg"
-                          onClick={scrollToBooking}
-                        >
-                          Book Now
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
+      {/* Why Us */}
+      <section className="py-16 md:py-20 bg-[var(--color-bg-section)] px-4 md:px-5" role="region" aria-label="Why choose us">
+        <div className="container mx-auto max-w-6xl">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <p className="text-primary text-xs font-medium tracking-widest uppercase mb-2">Why Puja's Nail Studio</p>
+              <h2 className="font-display font-semibold text-2xl md:text-3xl text-foreground mb-4">The Salon Experience,<br />At Your Home</h2>
+              <p className="text-muted-foreground text-base md:text-lg max-w-[480px] mb-8">
+                Puja's Nail Studio brings professional nail care to your home anywhere in Siliguri,
+                West Bengal — so you get salon-quality results without leaving your house.
+              </p>
+              <ul className="space-y-6">
+                {[
+                  { icon: "🏠", title: "We Come to You", text: "No traffic, no waiting rooms. We bring all tools, products, and equipment to your home anywhere in Siliguri." },
+                  { icon: "🧴", title: "Hygienic & Safe", text: "We use fully sanitised tools and high-quality nail products. Your safety is our top priority." },
+                  { icon: "💅", title: "Professional Results", text: "Trained nail technician with experience in acrylic, gel, and nail art techniques for all occasions." },
+                  { icon: "⏰", title: "Flexible Timings", text: "Available 7 days a week, 10 AM–8 PM. Evening and weekend appointments available." },
+                ].map((item, i) => (
+                  <motion.li key={item.title} className="flex gap-4 items-start" initial={{ opacity: 0, x: -10 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                    <span className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center text-lg shrink-0">{item.icon}</span>
+                    <div>
+                      <h4 className="font-medium text-foreground mb-1">{item.title}</h4>
+                      <p className="text-muted-foreground text-sm">{item.text}</p>
+                    </div>
+                  </motion.li>
                 ))}
-              </motion.div>
-            </motion.div>
+              </ul>
+            </div>
+            <div className="hidden lg:flex justify-center">
+              <div className="w-full max-w-[400px] aspect-square rounded-3xl bg-primary/10 flex items-center justify-center text-7xl">💅</div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Nail Art Types */}
-            <motion.div variants={fadeInRight} className="space-y-8">
-              <div className="text-center">
-                <motion.h3
-                  variants={slideInFromTop}
-                  className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent drop-shadow-lg"
-                >
-                  Nail Art Types
-                </motion.h3>
-                <motion.p
-                  variants={fadeInUp}
-                  className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-                >
-                  Creative nail art designs that express your unique style and personality
-                </motion.p>
-              </div>
-              <motion.div
-                className="grid gap-6 md:grid-cols-2 xl:grid-cols-3"
-                variants={staggerFast}
-              >
-                {nailArtTypes.map((service, index) => (
-                  <motion.div
-                    key={index}
-                    variants={scaleIn}
-                    whileHover={{
-                      scale: 1.02,
-                      transition: { duration: 0.3 },
-                    }}
-                  >
-                    <Card className="relative bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 group overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                      <CardHeader className="relative pb-4">
-                        <div className="flex justify-between items-start mb-4">
-                          <CardTitle className="text-xl font-bold text-foreground group-hover:text-accent transition-colors">
-                            {service.name}
-                          </CardTitle>
-                          <Badge
-                            variant="outline"
-                            className="text-accent border-accent/30 bg-accent/10 font-semibold"
-                          >
-                            {service.duration}
-                          </Badge>
-                        </div>
-                        <div className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                          {service.price}
-                        </div>
-                        <div className="text-xs text-muted-foreground mt-1">
-                          + home service charge
-                        </div>
-                      </CardHeader>
-                      <CardContent className="relative pt-0">
-                        <CardDescription className="text-muted-foreground leading-relaxed text-base">
-                          {service.description}
-                        </CardDescription>
-                        <div className="mt-4 text-sm text-muted-foreground">
-                          Includes design consult • Custom palette • Sealant finish
-                        </div>
-                      </CardContent>
-                      <CardFooter className="relative pt-0">
-                        <Button
-                          className="w-full bg-gradient-to-r from-primary to-accent text-white hover:shadow-lg"
-                          onClick={scrollToBooking}
-                        >
-                          Book Now
-                        </Button>
-                      </CardFooter>
-                    </Card>
-                  </motion.div>
-                ))}
+      {/* How it works */}
+      <section className="py-16 md:py-20 bg-foreground text-primary-foreground px-4 md:px-5" role="region" aria-label="How to book">
+        <div className="container mx-auto max-w-6xl">
+          <p className="text-primary-foreground/70 text-xs font-medium tracking-widest uppercase mb-2">Simple Process</p>
+          <h2 className="font-display font-semibold text-2xl md:text-3xl mb-12">How to Book Your Home Nail Appointment</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { num: "01", title: "WhatsApp or Call", text: "Message us your name, location in Siliguri, service you want, and preferred date & time." },
+              { num: "02", title: "Confirm Your Slot", text: "We confirm your appointment and send a reminder the day before." },
+              { num: "03", title: "We Come to You", text: "Our nail artist arrives at your home with all equipment, products, and nail art supplies." },
+              { num: "04", title: "Relax & Enjoy", text: "Sit back and enjoy your nail session in the comfort of your own home. Pay after the service." },
+            ].map((step, i) => (
+              <motion.div key={step.num} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
+                <div className="font-display text-4xl text-primary opacity-70 mb-2">{step.num}</div>
+                <h4 className="font-medium mb-2">{step.title}</h4>
+                <p className="text-sm text-primary-foreground/70 leading-relaxed">{step.text}</p>
               </motion.div>
-            </motion.div>
-          </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section id="reviews" className="py-16 md:py-20 px-4 md:px-5" role="region" aria-label="Client reviews">
+        <div className="container mx-auto max-w-6xl">
+          <p className="text-primary text-xs font-medium tracking-widest uppercase mb-2">Client Reviews</p>
+          <h2 className="font-display font-semibold text-2xl md:text-3xl text-foreground mb-12">What Our Clients Say</h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { stars: 5, quote: "Got bridal nail art done before my wedding — absolutely loved it! She matched the design perfectly with my lehenga. Highly recommend Puja's Nail Studio to every bride in Siliguri.", name: "Priya S.", detail: "Bridal nail art — Siliguri" },
+              { stars: 5, quote: "Amazing acrylic nail extensions done at home! Super convenient — no need to go to a salon. The nails lasted over 3 weeks and looked gorgeous. Will book again for sure.", name: "Riya D.", detail: "Acrylic extensions — Pradhan Nagar" },
+              { stars: 5, quote: "Very professional and hygienic. She came on time with all her tools. The gel nail extensions look so natural. Best nail artist in Siliguri for home service!", name: "Ankita M.", detail: "Gel nail extensions — Matigara" },
+            ].map((r, i) => (
+              <motion.div key={i} className="bg-card border border-border rounded-2xl p-6" initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
+                <div className="text-amber-500 text-sm mb-3">{"★".repeat(r.stars)}</div>
+                <blockquote className="text-muted-foreground text-sm md:text-base italic leading-relaxed mb-4">&ldquo;{r.quote}&rdquo;</blockquote>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-primary/15 flex items-center justify-center text-primary font-semibold text-sm">{r.name[0]}</div>
+                  <div>
+                    <div className="font-medium text-foreground text-sm">{r.name}</div>
+                    <div className="text-muted-foreground text-xs">{r.detail}</div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ - inline */}
+      <section id="faq" className="py-16 md:py-20 px-4 md:px-5 bg-background" role="region" aria-label="FAQ">
+        <div className="container mx-auto max-w-3xl">
+          <p className="text-primary text-xs font-medium tracking-widest uppercase mb-2">FAQ</p>
+          <h2 className="font-display font-semibold text-2xl md:text-3xl text-foreground mb-10">Frequently Asked Questions</h2>
+          <Accordion type="single" collapsible className="w-full">
+            {[
+              { q: "Do you provide nail services at home in Siliguri?", a: "Yes! Puja's Nail Studio is a home service nail artist in Siliguri, West Bengal. We come to your home with all tools, products, and equipment — you don't need to visit any salon." },
+              { q: "How long do acrylic nails last?", a: "Acrylic nails typically last 2–3 weeks before needing an infill. With good care — avoiding harsh chemicals and moisturising cuticles — they can last up to 4 weeks. We recommend infills every 2–3 weeks." },
+              { q: "What is the difference between acrylic and gel nails?", a: "Acrylic nails are stronger and better for longer lengths. Gel nails are lighter, more natural-looking, and odourless. Gel nails last slightly longer (3–4 weeks). We can recommend the best option based on your lifestyle during your appointment." },
+              { q: "How do I book a nail appointment in Siliguri?", a: `The easiest way is to WhatsApp or call us at ${PHONE}. Share your location in Siliguri, the service you want, and your preferred date and time. We'll confirm your booking within a few hours.` },
+              { q: "Do you do bridal nail art in Siliguri?", a: "Yes! We specialise in bridal nail art for weddings and special occasions. We recommend booking at least 2–3 weeks before your wedding date. We can create custom designs to match your wedding outfit and jewellery." },
+              { q: "What areas in Siliguri do you cover?", a: "We cover all areas in Siliguri including Pradhan Nagar, Hakimpara, Sevoke Road, Hill Cart Road, Matigara, Dabgram, and surrounding localities. WhatsApp us your location to confirm coverage." },
+            ].map((faq, i) => (
+              <AccordionItem key={i} value={`faq-${i}`}>
+                <AccordionTrigger className="text-left">{faq.q}</AccordionTrigger>
+                <AccordionContent>{faq.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+          <p className="mt-7 text-muted-foreground text-sm">
+            Have more questions? <a href={`${WA_LINK}`} className="text-primary font-medium">WhatsApp us</a> or see our <a href="/faq" className="text-primary font-medium">full FAQ page</a>.
+          </p>
+        </div>
+      </section>
+
+      {/* Areas served */}
+      <section className="py-16 md:py-20 px-4 md:px-5 bg-card" role="region" aria-label="Areas served">
+        <div className="container mx-auto max-w-6xl">
+          <p className="text-primary text-xs font-medium tracking-widest uppercase mb-2">Service Coverage</p>
+          <h2 className="font-display font-semibold text-2xl md:text-3xl text-foreground mb-2">Home Nail Service Areas in Siliguri</h2>
+          <p className="text-muted-foreground mb-6">
+            We provide home nail service — acrylic nails, gel nails, and bridal nail art — across all major areas of Siliguri, West Bengal including Pradhan Nagar, Matigara, Dabgram, Hakimpara, and Sevoke Road.
+          </p>
+          <div className="flex flex-wrap gap-2">
+            {["Pradhan Nagar", "Hakimpara", "Sevoke Road", "Hill Cart Road", "Matigara", "Dabgram", "Siliguri Bazar", "Ashram Para", "Punjabi Para", "Desh Bandhu Para", "Khopalasi", "& Nearby Areas"].map((area) => (
+              <span key={area} className="bg-card border border-primary/20 rounded-full px-4 py-2 text-sm text-foreground">{area}</span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Booking CTA */}
+      <section className="py-16 md:py-20 px-4 md:px-5 bg-gradient-to-br from-secondary to-primary text-primary-foreground text-center" role="region" aria-label="Book now">
+        <h2 className="font-display font-semibold text-2xl md:text-3xl mb-4">Ready for Beautiful Nails?</h2>
+        <p className="max-w-[500px] mx-auto mb-9 text-primary-foreground/85 text-base md:text-lg">
+          Book your home nail appointment in Siliguri today. WhatsApp us your preferred service and time — we'll confirm within a few hours.
+        </p>
+        <div className="flex flex-wrap gap-4 justify-center">
+          <a href={`${WA_LINK}?text=${encodeURIComponent(WA_BOOK_MSG)}`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-primary-foreground text-primary px-7 py-3.5 rounded-full font-medium hover:shadow-lg hover:-translate-y-0.5 transition-all">
+            📱 Book on WhatsApp
+          </a>
+          <a href={PHONE_TEL} className="inline-flex items-center gap-2 border-2 border-primary-foreground/60 text-primary-foreground px-6 py-3 rounded-full font-medium hover:bg-primary-foreground/10 transition-all">
+            📞 {PHONE}
+          </a>
         </div>
       </section>
 
@@ -1159,7 +896,7 @@ export default function Index() {
 
               <motion.h2 
                 variants={slideInFromTop}
-                className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent leading-tight drop-shadow-lg"
+                className="font-display font-bold text-2xl md:text-3xl mb-4 text-foreground"
               >
                 First-Time Client Special
               </motion.h2>
@@ -1221,7 +958,7 @@ export default function Index() {
       </section>
 
       {/* Image Grid Showcase */}
-      <section id="work" className="py-20 bg-[#591C21]/10" role="region" aria-label="Our Nail Art Gallery">
+      <section id="gallery" className="py-20 bg-[var(--color-bg-glow)]" role="region" aria-label="Our Nail Art Gallery">
         <div className="container mx-auto px-4">
           <motion.div
             className="text-center mb-16"
@@ -1233,7 +970,7 @@ export default function Index() {
 
             <motion.h2
               variants={slideInFromTop}
-              className="text-5xl md:text-6xl lg:text-7xl font-black mb-6 bg-gradient-to-r from-[#8C1F28] via-[#D92525] to-[#044040] bg-clip-text text-transparent leading-tight drop-shadow-lg"
+              className="font-display font-bold text-2xl md:text-3xl mb-4 text-foreground"
             >
               Nail Art Gallery
             </motion.h2>
@@ -1246,52 +983,15 @@ export default function Index() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
             variants={staggerFast}
           >
-            {[
-              {
-                src: "/media/PHOTO-2025-07-07-18-03-03 2.jpg",
-                alt: "Elegant nail art with intricate design",
-                title: "Intricate Design",
-                description: "Sophisticated patterns with precision"
-              },
-              {
-                src: "/media/PHOTO-2025-07-07-18-03-58.jpg",
-                alt: "Beautiful nail art with floral patterns",
-                title: "Floral Elegance",
-                description: "Delicate floral motifs"
-              },
-              {
-                src: "/media/PHOTO-2025-07-07-18-04-22.jpg",
-                alt: "Glamorous nail art with sparkles",
-                title: "Glamorous Sparkle",
-                description: "Dazzling sparkle effects"
-              },
-              {
-                src: "/media/PHOTO-2025-07-07-18-02-58 2.jpg",
-                alt: "Sophisticated nail design with gold accents",
-                title: "Gold Accents",
-                description: "Luxurious gold detailing"
-              },
-              {
-                src: "/media/PHOTO-2025-07-07-18-03-03.jpg",
-                alt: "Classic French nails with perfect finish",
-                title: "Perfect French Nails",
-                description: "Timeless French nails"
-              },
-              {
-                src: "/media/PHOTO-2025-07-07-18-03-03 2.jpg",
-                alt: "Elegant nail art showcase",
-                title: "Artistic Masterpiece",
-                description: "Creative nail artistry"
-              }
-            ].map((image, index) => (
+            {galleryImages.map((image) => (
               <motion.div
-                key={index}
+                key={image.id}
                 variants={scaleIn}
                 whileHover={{ 
                   scale: 1.05,
@@ -1316,12 +1016,12 @@ export default function Index() {
                     {image.description}
                   </p>
                   <div className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
+                    <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
                     <span className="text-white/80 text-xs">Hover for details</span>
                   </div>
                 </div>
                 <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2">
+                  <div className="bg-primary/20 backdrop-blur-sm rounded-full p-2">
                     <Sparkles className="h-5 w-5 text-white" />
                   </div>
                 </div>
@@ -1346,7 +1046,7 @@ export default function Index() {
             <motion.div variants={bounceIn} className="text-center mb-8">
               <motion.h2 
                 variants={slideInFromTop}
-                className="text-4xl md:text-5xl font-black mb-4 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent leading-tight drop-shadow-lg"
+                className="font-display font-bold text-2xl md:text-3xl mb-4 text-foreground"
               >
                 Book Your Appointment
               </motion.h2>
@@ -1362,7 +1062,7 @@ export default function Index() {
               >
                 <a 
                   href="tel:+918617682768"
-                  className="flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-primary to-accent text-white rounded-lg hover:shadow-lg transition-all duration-300"
+                  className="flex items-center space-x-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 hover:shadow-lg transition-all duration-300"
                   aria-label="Call Puja's Nail Studio"
                   onClick={() => typeof window !== "undefined" && window.gtag_report_conversion?.()}
                 >
@@ -1379,18 +1079,48 @@ export default function Index() {
               whileHover={{ scale: 1.01 }}
               transition={{ duration: 0.3 }}
             >
-              <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
+              <Card className="bg-card backdrop-blur-sm border border-border shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-accent/5 opacity-0 hover:opacity-100 transition-opacity duration-500" />
                 <CardContent className="relative p-4 md:p-6 overflow-hidden">
-                  {/* Calendly inline widget */}
-                  <div 
-                    className="calendly-inline-widget h-[500px] md:h-[600px] w-full" 
-                    data-url="https://calendly.com/pujabarmanb9/puja-nail-services?background_color=ffffff&text_color=8c1f28" 
-                    style={{ 
-                      minWidth: '320px',
-                      maxWidth: '100%'
-                    }}
+                  {/* SEO: visible content around the iframe that Google CAN index */}
+                  <div className="mb-6 grid sm:grid-cols-3 gap-4 text-center">
+                    <div className="bg-muted/40 rounded-xl p-4">
+                      <div className="text-2xl mb-1">🏠</div>
+                      <div className="font-medium text-sm">Home Service</div>
+                      <div className="text-muted-foreground text-xs">We come to you in Siliguri</div>
+                    </div>
+                    <div className="bg-muted/40 rounded-xl p-4">
+                      <div className="text-2xl mb-1">💅</div>
+                      <div className="font-medium text-sm">Acrylic · Gel · Bridal</div>
+                      <div className="text-muted-foreground text-xs">All nail services available</div>
+                    </div>
+                    <div className="bg-muted/40 rounded-xl p-4">
+                      <div className="text-2xl mb-1">✅</div>
+                      <div className="font-medium text-sm">Instant Confirmation</div>
+                      <div className="text-muted-foreground text-xs">Book online or WhatsApp</div>
+                    </div>
+                  </div>
+
+                  {/* Calendly widget — not indexed by Google */}
+                  <div
+                    className="calendly-inline-widget h-[500px] md:h-[600px] w-full"
+                    data-url="https://calendly.com/pujabarmanb9/puja-nail-services?background_color=ffffff&text_color=8c1f28"
+                    style={{ minWidth: "320px", maxWidth: "100%" }}
                   />
+
+                  {/* SEO: below-iframe fallback content */}
+                  <p className="text-center text-sm text-muted-foreground mt-4">
+                    Prefer WhatsApp?{" "}
+                    <a
+                      href="https://wa.me/918617682768?text=Hi!%20I%20want%20to%20book%20a%20nail%20appointment%20in%20Siliguri"
+                      className="text-primary font-medium"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Message us directly
+                    </a>{" "}
+                    and we'll confirm your home nail appointment in Siliguri within hours.
+                  </p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -1412,7 +1142,7 @@ export default function Index() {
           >
             <motion.h2
               variants={slideInFromTop}
-              className="text-4xl md:text-5xl font-black mb-6 bg-gradient-to-r from-secondary via-primary to-accent bg-clip-text text-transparent leading-tight drop-shadow-lg"
+              className="font-display font-bold text-2xl md:text-3xl mb-4 text-foreground"
             >
               Contact Us
             </motion.h2>
@@ -1433,14 +1163,14 @@ export default function Index() {
           >
             {/* Phone Contact */}
             <motion.div variants={scaleIn} className="text-center">
-              <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
+              <Card className="bg-card border border-border shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
                 <div className="bg-gradient-to-r from-secondary/10 to-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Phone className="h-8 w-8 text-secondary" />
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-foreground">Call Us</h3>
                 <a 
                   href="tel:+918617682768"
-                  className="text-2xl font-bold bg-gradient-to-r from-secondary to-primary bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 block"
+                  className="text-2xl font-bold text-foreground hover:scale-105 transition-transform duration-300 block"
                   aria-label="Call Puja's Nail Studio"
                 >
                   +91 8617682768
@@ -1451,7 +1181,7 @@ export default function Index() {
 
             {/* Email Contact */}
             <motion.div variants={scaleIn} className="text-center">
-              <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
+              <Card className="bg-card border border-border shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
                 <div className="bg-gradient-to-r from-primary/10 to-accent/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Mail className="h-8 w-8 text-primary" />
                 </div>
@@ -1469,12 +1199,12 @@ export default function Index() {
 
             {/* Location */}
             <motion.div variants={scaleIn} className="text-center">
-              <Card className="bg-white/80 backdrop-blur-sm border-0 shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
-                <div className="bg-gradient-to-r from-accent/10 to-secondary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                  <MapPin className="h-8 w-8 text-accent" />
+              <Card className="bg-card border border-border shadow-lg hover:shadow-2xl transition-all duration-500 p-6">
+                <div className="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <MapPin className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-bold mb-2 text-foreground">Areas We Serve</h3>
-                <p className="text-lg font-medium text-accent mb-2">Siliguri, West Bengal</p>
+                <p className="text-lg font-medium text-foreground mb-2">Siliguri, West Bengal</p>
                 <p className="text-muted-foreground text-sm">Dabgram, Matigara, Pradhan Nagar, Sevoke Road, Hakimpara & nearby. Home nail service at your doorstep.</p>
               </Card>
             </motion.div>
@@ -1482,123 +1212,52 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer
-        className="bg-secondary/15 py-16"
-        role="contentinfo"
-        aria-label="Footer Information"
-      >
-        <div className="container mx-auto px-4">
-          <motion.div
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-            variants={staggerSlow}
-          >
-            <motion.div variants={fadeIn} className="lg:col-span-2">
-              <div className="flex items-center space-x-2 mb-4">
-                <img src="/logo.png" alt="Puja's Nail Studio Logo" className="h-10 w-10 object-contain" />
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Puja's Nail Studio
-                </h3>
-              </div>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Where artistry meets precision. Creating beautiful nails and
-                confident smiles since 2020. Book your appointment today and
-                experience the difference.
+      {/* Footer - NAP & links */}
+      <footer className="bg-[var(--color-footer)] text-[var(--color-text-on-dark)] py-14 md:py-16" role="contentinfo" aria-label="Footer">
+        <div className="container mx-auto px-4 md:px-5">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12 mb-12">
+            <div className="lg:col-span-2">
+              <div className="font-display font-semibold text-xl text-white mb-3">Puja's Nail Studio</div>
+              <p className="text-sm leading-relaxed max-w-[280px] mb-4 text-white/80">
+                Professional home service nail art in Siliguri, West Bengal. Acrylic nails, gel extensions, bridal nail art and custom designs at your doorstep.
               </p>
-              <div className="flex space-x-4">
-                <a 
-                  href="https://www.instagram.com/pujanailstudio/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label="Follow us on Instagram"
-                >
-                  <Instagram className="h-6 w-6 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                </a>
-                <a 
-                  href="https://www.facebook.com/people/puja-Nails-Studio/61578745337761/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  aria-label="Follow us on Facebook"
-                >
-                  <Facebook className="h-6 w-6 text-muted-foreground hover:text-primary cursor-pointer transition-colors" />
-                </a>
-              </div>
-            </motion.div>
-
-            <motion.div variants={fadeIn}>
-              <h4 className="text-lg font-semibold mb-4 text-foreground">
-                Contact Info
-              </h4>
-              <div className="space-y-3">
-                <div className="flex items-center space-x-3">
-                  <Phone className="h-5 w-5 text-primary" />
-                  <a 
-                    href="tel:+918617682768" 
-                    className="text-muted-foreground hover:text-primary transition-colors font-medium"
-                    aria-label="Call Puja's Nail Studio"
-                  >
-                    +91 8617682768
-                  </a>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Mail className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">
-                    pujanailstudio@gmail.com
-                  </span>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-primary" />
-                  <span className="text-muted-foreground">
-                    Dabgram, Siliguri
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div variants={fadeIn}>
-              <h4 className="text-lg font-semibold mb-4 text-foreground">
-                Service Hours
-              </h4>
-              <div className="space-y-2">
-                <div className="flex items-center space-x-3">
-                  <Clock className="h-5 w-5 text-primary" />
-                  <div>
-                    <div className="text-muted-foreground">Mon - Sun</div>
-                    <div className="text-sm text-muted-foreground">
-                      10:00 AM - 8:00 PM
-                    </div>
-                  </div>
-                </div>
-                <div className="text-muted-foreground">
-                  <div>7 Days a Week</div>
-                </div>
-              </div>
-            </motion.div>
-          </motion.div>
-
-          <Separator className="my-8" />
-
-          <motion.div
-            className="text-center text-muted-foreground"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeIn}
-          >
-            <p>
-              &copy; 2024 Puja's Nail Studio. All rights reserved. Made with ❤️
-              for beautiful nails.
-            </p>
-          </motion.div>
+              <address className="text-sm not-italic leading-loose text-white/80" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
+                📍 <span itemProp="addressLocality">Siliguri</span>, <span itemProp="addressRegion">West Bengal</span> 734015<br />
+                📞 <a href={PHONE_TEL} className="text-white/80 hover:text-white" itemProp="telephone">{PHONE}</a><br />
+                📱 <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white">WhatsApp Us</a><br />
+                ✉️ <a href="mailto:pujanailstudio@gmail.com" className="text-white/80 hover:text-white">pujanailstudio@gmail.com</a>
+              </address>
+            </div>
+            <div>
+              <h4 className="text-white text-xs font-medium tracking-wider uppercase mb-4">Services</h4>
+              <ul className="space-y-2.5">
+                <li><a href="/services/acrylic-nails" className="text-white/70 hover:text-white text-sm">Acrylic Nail Extensions</a></li>
+                <li><a href="/services/gel-nails" className="text-white/70 hover:text-white text-sm">Gel Nail Extensions</a></li>
+                <li><a href="/services/bridal-nail-art" className="text-white/70 hover:text-white text-sm">Bridal Nail Art</a></li>
+                <li><a href="/services/nail-art-designs" className="text-white/70 hover:text-white text-sm">Nail Art Designs</a></li>
+                <li><a href="/services" className="text-white/70 hover:text-white text-sm">All Services</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white text-xs font-medium tracking-wider uppercase mb-4">Quick Links</h4>
+              <ul className="space-y-2.5">
+                <li><a href="#gallery" className="text-white/70 hover:text-white text-sm">Gallery</a></li>
+                <li><a href="/faq" className="text-white/70 hover:text-white text-sm">FAQ</a></li>
+                <li><a href="/about" className="text-white/70 hover:text-white text-sm">About</a></li>
+                <li><a href="/contact" className="text-white/70 hover:text-white text-sm">Contact & Booking</a></li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-white/20 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/60">
+            <span>© {new Date().getFullYear()} Puja's Nail Studio. Home service nail art in Siliguri, West Bengal.</span>
+            <span>7 days a week · 10 AM–8 PM</span>
+          </div>
         </div>
       </footer>
 
       {/* Discount Dialog */}
       <Dialog open={showDiscountDialog} onOpenChange={setShowDiscountDialog}>
-        <DialogContent className="sm:max-w-md bg-white/95 backdrop-blur-sm border-gray-200">
+        <DialogContent className="sm:max-w-md bg-card backdrop-blur-sm border border-border">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-center bg-gradient-to-r from-accent to-primary bg-clip-text text-transparent">
               🎉 First-Time Client Special!
@@ -1618,7 +1277,7 @@ export default function Index() {
             {/* Discount Code Section */}
             <div className="bg-gray-50 p-4 rounded-lg border-2 border-dashed border-accent/30">
               <div className="text-sm font-medium text-gray-600 mb-2">Use Discount Code:</div>
-              <div className="bg-white px-4 py-2 rounded border border-gray-200">
+              <div className="bg-background px-4 py-2 rounded border border-border">
                 <span className="text-xl font-bold text-accent tracking-wider">FIRST10C</span>
               </div>
               <div className="text-xs text-gray-500 mt-2">
@@ -1643,7 +1302,7 @@ export default function Index() {
 
       {/* Pricing List Dialog */}
       <Dialog open={showPricingDialog} onOpenChange={setShowPricingDialog}>
-        <DialogContent className="sm:max-w-lg bg-white/95 backdrop-blur-sm border-gray-200">
+        <DialogContent className="sm:max-w-lg bg-card backdrop-blur-sm border border-border">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-center bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               📋 Complete Price List
@@ -1684,21 +1343,21 @@ export default function Index() {
         </DialogContent>
       </Dialog>
 
-      {/* Floating Action Button */}
-      <div className="fixed bottom-20 right-6 z-50 flex flex-col gap-3 items-end">
-        {/* Call Button */}
-        <motion.a
-          href="tel:+918617682768"
-          className="flex items-center gap-3 bg-gradient-to-r from-primary to-accent text-white px-4 py-3 rounded-full shadow-2xl hover:shadow-primary/50 transition-all duration-300 font-medium"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          aria-label="Call Puja's Nail Studio"
-          onClick={() => typeof window !== "undefined" && window.gtag_report_conversion?.()}
-        >
-          <Phone className="h-5 w-5" />
-          <span className="hidden sm:inline">Call Now</span>
-        </motion.a>
-      </div>
+      {/* Floating WhatsApp Button */}
+      <motion.a
+        href={`${WA_LINK}?text=${encodeURIComponent(WA_BOOK_MSG)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-7 right-7 z-[999] flex items-center gap-2.5 bg-[var(--color-whatsapp)] text-white px-5 py-3.5 rounded-full font-medium text-base shadow-lg shadow-[var(--color-whatsapp)]/40 hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        aria-label="Book on WhatsApp"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        onClick={() => window.gtag?.("event", "click", { event_category: "booking", event_label: "float_whatsapp", value: 1 })}
+      >
+        <span className="text-xl" aria-hidden>💬</span>
+        <span className="hidden sm:inline">Book on WhatsApp</span>
+      </motion.a>
       </motion.div>
     </>
   );
