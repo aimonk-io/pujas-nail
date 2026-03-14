@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 import { Phone, Mail, MapPin, Clock, Instagram, Facebook } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
 import { PageHeader } from "@/components/PageHeader";
 import { Button } from "@/components/ui/button";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
@@ -17,6 +17,37 @@ const PHONE_TEL = "tel:+918617682768";
 const EMAIL = "pujanailstudio@gmail.com";
 const AREAS = "Dabgram, Matigara, Pradhan Nagar, Sevoke Road, Hakimpara & nearby";
 
+const GOOGLE_MAPS_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3564.2901832790126!2d88.43752087535059!3d26.703175069064145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2710d18370bbb72b%3A0xd12b9f713cf3b1d1!2sPuja%20Nails%20Studio!5e0!3m2!1sen!2sin!4v1773475043638!5m2!1sen!2sin";
+
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "NailSalon",
+  name: "Puja's Nail Studio",
+  url: "https://www.pujanails.com/contact",
+  telephone: "+918617682768",
+  email: "pujanailstudio@gmail.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Dabgram",
+    addressLocality: "Siliguri",
+    addressRegion: "West Bengal",
+    postalCode: "734015",
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 26.703175069064145,
+    longitude: 88.43752087535059,
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    opens: "10:00",
+    closes: "20:00",
+  },
+};
+
 export default function Contact() {
   return (
     <>
@@ -25,6 +56,9 @@ export default function Contact() {
         description="Book nail artist at home in Siliguri. Call, WhatsApp or email Puja's Nail Studio. Serving Dabgram, Matigara, Pradhan Nagar, Sevoke Road, Hakimpara & nearby."
         url="https://pujasnailstudio.com/contact"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(contactPageSchema)}</script>
+      </Helmet>
       <div className="min-h-screen bg-background">
         <PageHeader />
         <main className="container mx-auto px-4 py-12 md:py-16">
@@ -123,6 +157,31 @@ export default function Contact() {
                 </div>
               </CardHeader>
             </Card>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35 }}
+            className="mt-12 max-w-4xl mx-auto"
+          >
+            <h2 className="text-2xl font-bold text-foreground mb-4 text-center">Find us on Google Maps</h2>
+            <p className="text-muted-foreground text-center mb-6 max-w-xl mx-auto">
+              Puja Nails Studio — Siliguri. Visit our location or book a home service.
+            </p>
+            <div className="rounded-2xl overflow-hidden border border-border shadow-lg bg-card">
+              <iframe
+                src={GOOGLE_MAPS_EMBED_URL}
+                width="600"
+                height="450"
+                style={{ border: 0, width: "100%", minHeight: "350px" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Puja Nails Studio location on Google Maps"
+                className="block w-full min-h-[350px] md:min-h-[450px]"
+              />
+            </div>
           </motion.div>
 
           <motion.div
