@@ -756,7 +756,11 @@ export default function Index() {
               </ul>
             </div>
             <div className="hidden lg:flex justify-center">
-              <div className="w-full max-w-[400px] aspect-square rounded-3xl bg-primary/10 flex items-center justify-center text-7xl">💅</div>
+              <img
+                src="/media/5026456562858868939.jpeg"
+                alt="Salon experience at your home — professional nail art in Siliguri"
+                className="w-full max-w-[400px] aspect-square object-cover rounded-3xl"
+              />
             </div>
           </div>
         </div>
