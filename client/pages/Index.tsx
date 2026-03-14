@@ -572,9 +572,9 @@ export default function Index() {
             {!isMobile ? (
               <nav className="flex items-center gap-5 lg:gap-6">
                 <a href="#home" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Home</a>
-                <a href="/services/acrylic-nails" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Acrylic Nails</a>
-                <a href="/services/gel-nails" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Gel Nails</a>
-                <a href="/services/bridal-nail-art" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Bridal Nails</a>
+                <a href="/services" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Acrylic Nails</a>
+                <a href="/services" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Gel Nails</a>
+                <a href="/services" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Bridal Nails</a>
                 <a href="#gallery" className="text-foreground font-medium hover:text-primary transition-colors text-sm">Gallery</a>
                 <a href="/faq" className="text-foreground font-medium hover:text-primary transition-colors text-sm">FAQ</a>
                 <a
@@ -611,13 +611,13 @@ export default function Index() {
                       <a href="#home" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Home</a>
                     </DrawerClose>
                     <DrawerClose asChild>
-                      <a href="/services/acrylic-nails" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Acrylic Nails</a>
+                      <a href="/services" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Acrylic Nails</a>
                     </DrawerClose>
                     <DrawerClose asChild>
-                      <a href="/services/gel-nails" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Gel Nails</a>
+                      <a href="/services" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Gel Nails</a>
                     </DrawerClose>
                     <DrawerClose asChild>
-                      <a href="/services/bridal-nail-art" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Bridal Nails</a>
+                      <a href="/services" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Bridal Nails</a>
                     </DrawerClose>
                     <DrawerClose asChild>
                       <a href="#gallery" className="text-base font-medium text-foreground hover:text-primary py-3 px-4 rounded-lg hover:bg-muted/50 transition-colors">Gallery</a>
@@ -720,10 +720,10 @@ export default function Index() {
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { icon: "💎", title: "Acrylic Nail Extensions", desc: "Strong, durable extensions in any shape — square, almond, coffin, stiletto. Full sets and infills.", price: "From ₹800", href: "/services/acrylic-nails" },
-              { icon: "✨", title: "Gel Nail Extensions", desc: "Lightweight, natural-looking gel extensions and gel polish. Odourless, chip-resistant, lasts 3–4 weeks.", price: "From ₹1,000", href: "/services/gel-nails" },
-              { icon: "👰", title: "Bridal Nail Art", desc: "Custom bridal nail designs for weddings & special occasions. Coordinated with your outfit and jewellery.", price: "From ₹1,500", href: "/services/bridal-nail-art" },
-              { icon: "🎨", title: "Nail Art Designs", desc: "French, ombré, 3D nail art, glitter, chrome, florals & more. Custom designs for any occasion.", price: "From ₹300", href: "/services/nail-art-designs" },
+              { icon: "💎", title: "Acrylic Nail Extensions", desc: "Strong, durable extensions in any shape — square, almond, coffin, stiletto. Full sets and infills.", price: "From ₹800", href: "/services" },
+              { icon: "✨", title: "Gel Nail Extensions", desc: "Lightweight, natural-looking gel extensions and gel polish. Odourless, chip-resistant, lasts 3–4 weeks.", price: "From ₹1,000", href: "/services" },
+              { icon: "👰", title: "Bridal Nail Art", desc: "Custom bridal nail designs for weddings & special occasions. Coordinated with your outfit and jewellery.", price: "From ₹1,500", href: "/services" },
+              { icon: "🎨", title: "Nail Art Designs", desc: "French, ombré, 3D nail art, glitter, chrome, florals & more. Custom designs for any occasion.", price: "From ₹300", href: "/services" },
             ].map((card, i) => (
               <motion.a key={card.title} href={card.href} className="block bg-card rounded-2xl p-6 md:p-7 border border-border hover:border-[var(--color-border-glow)] hover:shadow-lg hover:-translate-y-1 transition-all text-foreground no-underline" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.05 }}>
                 <span className="text-3xl block mb-4">{card.icon}</span>
@@ -1231,10 +1231,10 @@ export default function Index() {
             <div>
               <h4 className="text-white text-xs font-medium tracking-wider uppercase mb-4">Services</h4>
               <ul className="space-y-2.5">
-                <li><a href="/services/acrylic-nails" className="text-white/70 hover:text-white text-sm">Acrylic Nail Extensions</a></li>
-                <li><a href="/services/gel-nails" className="text-white/70 hover:text-white text-sm">Gel Nail Extensions</a></li>
-                <li><a href="/services/bridal-nail-art" className="text-white/70 hover:text-white text-sm">Bridal Nail Art</a></li>
-                <li><a href="/services/nail-art-designs" className="text-white/70 hover:text-white text-sm">Nail Art Designs</a></li>
+                <li><a href="/services" className="text-white/70 hover:text-white text-sm">Acrylic Nail Extensions</a></li>
+                <li><a href="/services" className="text-white/70 hover:text-white text-sm">Gel Nail Extensions</a></li>
+                <li><a href="/services" className="text-white/70 hover:text-white text-sm">Bridal Nail Art</a></li>
+                <li><a href="/services" className="text-white/70 hover:text-white text-sm">Nail Art Designs</a></li>
                 <li><a href="/services" className="text-white/70 hover:text-white text-sm">All Services</a></li>
               </ul>
             </div>
