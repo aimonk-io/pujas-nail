@@ -32,7 +32,7 @@ const contactPageSchema = {
     streetAddress: "Dabgram",
     addressLocality: "Siliguri",
     addressRegion: "West Bengal",
-    postalCode: "734015",
+    postalCode: "734006",
     addressCountry: "IN",
   },
   geo: {

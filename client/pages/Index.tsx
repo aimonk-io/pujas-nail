@@ -1215,7 +1215,7 @@ export default function Index() {
                 Professional home service nail art in Siliguri, West Bengal. Acrylic nails, gel extensions, bridal nail art and custom designs at your doorstep.
               </p>
               <address className="text-sm not-italic leading-loose text-white/80" itemProp="address" itemScope itemType="https://schema.org/PostalAddress">
-                📍 <span itemProp="addressLocality">Siliguri</span>, <span itemProp="addressRegion">West Bengal</span> 734015<br />
+                📍 <span itemProp="addressLocality">Siliguri</span>, <span itemProp="addressRegion">West Bengal</span> 734006<br />
                 📞 <a href={PHONE_TEL} className="text-white/80 hover:text-white" itemProp="telephone">{PHONE}</a><br />
                 📱 <a href={WA_LINK} target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-white">WhatsApp Us</a><br />
                 ✉️ <a href="mailto:pujanailstudio@gmail.com" className="text-white/80 hover:text-white">pujanailstudio@gmail.com</a>

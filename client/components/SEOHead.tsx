@@ -34,93 +34,57 @@ export function SEOHead({
   type = "website",
   businessName = "Puja's Nail Studio",
   businessPhone = "+918617682768",
-  businessAddress = "Dabgram, Siliguri, West Bengal 734015, India",
+  businessAddress = "Dabgram, Siliguri, West Bengal 734006, India",
   businessHours = "Mo-Su 10:00-20:00",
   services = [],
 }: SEOHeadProps) {
   const isHome = isHomepage({ title, url });
 
-  // ── Homepage: NailSalon JSON-LD (for Google Maps / rich results) ───────
+  // ── Block 1: NailSalon + LocalBusiness (Google Search & Maps rich results) ─────
   const nailSalonSchema = isHome
     ? {
         "@context": "https://schema.org",
         "@type": "NailSalon",
-        name: "Puja's Nail Studio",
-        alternateName: "Puja Nails Siliguri",
+        name: "Puja Nails Studio",
         url: DEFAULT_HOME_URL,
-        logo: "https://www.pujanails.com/logo.png",
-        image: [
-          "https://www.pujanails.com/media/79392099205029536.jpeg",
-          "https://www.pujanails.com/media/2308513475607877659.jpeg",
-          "https://www.pujanails.com/media/5026456562858868939.jpeg",
-        ],
-        description:
-          "Puja's Nail Studio offers professional home service nail art in Siliguri, West Bengal. Acrylic nails, gel extensions, bridal nail art and custom designs delivered at your doorstep.",
-        telephone: "+918617682768",
+        telephone: "+91-8617682768",
         email: "pujanailstudio@gmail.com",
+        image: "https://www.pujanails.com/logo.png",
+        description:
+          "Professional nail art at home in Siliguri, West Bengal. Mobile nail artists offering acrylic nails, gel extensions, bridal nail art and custom designs.",
         address: {
           "@type": "PostalAddress",
           streetAddress: "Dabgram",
           addressLocality: "Siliguri",
           addressRegion: "West Bengal",
-          postalCode: "734015",
+          postalCode: "734006",
           addressCountry: "IN",
         },
         geo: {
           "@type": "GeoCoordinates",
-          latitude: "26.7271",
-          longitude: "88.3953",
+          latitude: 26.7031703,
+          longitude: 88.4400958,
         },
-        areaServed: [
-          { "@type": "City", name: "Siliguri" },
-          { "@type": "Place", name: "Pradhan Nagar" },
-          { "@type": "Place", name: "Pradhanagar" },
-          { "@type": "Place", name: "Matigara" },
-          { "@type": "Place", name: "Dabgram" },
-          { "@type": "Place", name: "Hakimpara" },
-          { "@type": "Place", name: "Sevoke Road" },
-          { "@type": "Place", name: "Hill Cart Road" },
-          { "@type": "Place", name: "Siliguri Bazar" },
-          { "@type": "Place", name: "Ashram Para" },
-          { "@type": "Place", name: "Punjabi Para" },
-          { "@type": "Place", name: "Desh Bandhu Para" },
-          { "@type": "Place", name: "Khopalasi" },
-        ],
+        openingHours: ["Mo-Su 10:00-20:00"],
         priceRange: "₹₹",
-        currenciesAccepted: "INR",
-        paymentAccepted: "Cash, UPI, Google Pay, PhonePe",
-        openingHoursSpecification: [
-          {
-            "@type": "OpeningHoursSpecification",
-            dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-            opens: "10:00",
-            closes: "20:00",
-          },
-        ],
-        ...(services.length > 0 && {
-          hasOfferCatalog: {
-            "@type": "OfferCatalog",
-            name: "Nail Services",
-            itemListElement: services.map((s, i) => ({
-              "@type": "ListItem",
-              position: i + 1,
-              item: {
-                "@type": "Service",
-                name: s.name,
-                description: s.description,
-                provider: { "@type": "NailSalon", name: "Puja's Nail Studio" },
-                areaServed: { "@type": "City", name: "Siliguri" },
-                offers: {
-                  "@type": "Offer",
-                  priceCurrency: "INR",
-                  price: s.price.replace(/[₹,]/g, ""),
-                  availability: "https://schema.org/InStock",
-                },
-              },
-            })),
-          },
-        }),
+        areaServed: {
+          "@type": "City",
+          name: "Siliguri",
+        },
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Nail Services",
+          itemListElement: [
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nail Art at Home Siliguri" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Acrylic Nail Extension" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Gel Nail Polish" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bridal Nail Art" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Wedding Nail Art at Home" } },
+            { "@type": "Offer", itemOffered: { "@type": "Service", name: "Nail Art Design" } },
+          ],
+        },
         sameAs: [
+          "https://www.google.com/maps/place/Puja+Nails+Studio/@26.7031703,88.4400958",
           "https://www.instagram.com/pujanailstudio",
           "https://www.facebook.com/pujanailstudio",
         ],
@@ -130,7 +94,7 @@ export function SEOHead({
   // Keep for backwards compatibility (localBusinessSchema name used in script tag)
   const localBusinessSchema = nailSalonSchema;
 
-  // ── Homepage: FAQ Schema ────────────────────────────────────────────
+  // ── Block 2: FAQPage schema (for FAQ rich results) ────────────────────
   const faqSchema = isHome
     ? {
         "@context": "https://schema.org",
@@ -138,62 +102,59 @@ export function SEOHead({
         mainEntity: [
           {
             "@type": "Question",
-            name: "Do you provide nail services at home in Siliguri?",
+            name: "Do you provide nail art at home in Siliguri?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes! Puja's Nail Studio provides professional nail art and nail extension services at your home anywhere in Siliguri, West Bengal. We bring all tools, products, and equipment to your doorstep.",
+              text: "Yes, Puja Nails Studio provides professional nail art services at home across Siliguri and nearby areas in West Bengal. Our mobile nail artists come fully equipped to your address.",
             },
           },
           {
             "@type": "Question",
-            name: "How long do acrylic nails last?",
+            name: "How do I book a home nail appointment?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Acrylic nails typically last 2–3 weeks before needing an infill. With proper care they can last up to 4 weeks. We recommend infills every 2–3 weeks.",
+              text: "You can book by calling or WhatsApping us at +91-8617682768. We will confirm your appointment and send a certified nail artist to your home in Siliguri.",
             },
           },
           {
             "@type": "Question",
-            name: "What is the difference between acrylic and gel nails?",
+            name: "Do you do bridal nail art at home?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Acrylic nails are stronger and better for longer lengths. Gel nails are lighter, more natural-looking, and odourless. Gel nails last 3–4 weeks. We recommend the best option for your lifestyle during your appointment.",
+              text: "Yes, we specialise in bridal and wedding nail art at home in Siliguri. We offer custom bridal nail designs, acrylic extensions, and gel nails for your wedding day.",
             },
           },
           {
             "@type": "Question",
-            name: "How do I book a nail appointment at home in Siliguri?",
+            name: "What nail services do you offer at home?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "You can book by calling or WhatsApp messaging us at +91 8617682768. Share your location in Siliguri, the service you want, and your preferred date and time. We confirm within a few hours.",
+              text: "We offer acrylic nail extensions, gel nail polish, gel extensions, bridal nail art, custom nail art designs, nail removal, and nail repair — all at your home in Siliguri.",
             },
           },
           {
             "@type": "Question",
-            name: "Do you offer bridal nail art in Siliguri?",
+            name: "Which areas in Siliguri do you serve?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes! We specialise in bridal nail art for weddings and special occasions in Siliguri. We recommend booking at least 2–3 weeks before your wedding date.",
-            },
-          },
-          {
-            "@type": "Question",
-            name: "What areas in Siliguri do you cover for home nail service?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "We cover all major areas of Siliguri including Pradhan Nagar, Hakimpara, Sevoke Road, Hill Cart Road, Matigara, Dabgram, and surrounding localities.",
+              text: "We serve all major areas of Siliguri including Pradhanagar, Sevoke Road, Hakimpara, Babupara, Hill Cart Road, Matigara, Bagdogra, and surrounding localities in West Bengal.",
             },
           },
         ],
       }
     : null;
 
-  // ── Homepage: Breadcrumb Schema ─────────────────────────────────────
+  // ── Block 3: BreadcrumbList schema (helps sub-pages in search) ────────
   const breadcrumbSchema = isHome
     ? {
         "@context": "https://schema.org",
         "@type": "BreadcrumbList",
-        itemListElement: [{ "@type": "ListItem", position: 1, name: "Home", item: DEFAULT_HOME_URL }],
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: `${DEFAULT_HOME_URL}/` },
+          { "@type": "ListItem", position: 2, name: "Bridal Nail Art Siliguri", item: `${DEFAULT_HOME_URL}/bridal-nail-art-siliguri` },
+          { "@type": "ListItem", position: 3, name: "Acrylic Nail Extension Siliguri", item: `${DEFAULT_HOME_URL}/acrylic-nail-extension-siliguri` },
+          { "@type": "ListItem", position: 4, name: "Gel Nails Home Service Siliguri", item: `${DEFAULT_HOME_URL}/gel-nails-home-service-siliguri` },
+        ],
       }
     : null;
 

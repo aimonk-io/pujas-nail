@@ -13,7 +13,7 @@ The site is a client-rendered SPA, so the initial HTML had no H1, no body text, 
 After deploying, use “View crawled page” in Google Search Console (URL Inspection) to confirm the response includes H1, body text, and FAQ.
 
 ## Done in code
-- **NailSalon schema** — Homepage `<head>` has a full **NailSalon** JSON-LD block (schema.org) with phone (+918617682768), address (Dabgram, Siliguri, West Bengal 734015), geo, opening hours (10:00–20:00, 7 days), areaServed (all neighbourhoods), and offer catalog. Test it at [search.google.com/test/rich-results](https://search.google.com/test/rich-results).
+- **NailSalon schema** — Homepage `<head>` has a full **NailSalon** JSON-LD block (schema.org) with phone (+918617682768), address (Dabgram, Siliguri, West Bengal 734006), geo, opening hours (10:00–20:00, 7 days), areaServed (all neighbourhoods), and offer catalog. Test it at [search.google.com/test/rich-results](https://search.google.com/test/rich-results).
 - **Service area section** — Homepage has a dedicated “Home Nail Service in These Siliguri Areas” section (id="areas") that names every neighbourhood: Pradhan Nagar, Sevoke Road, Hakimpara, Matigara, Dabgram, Hill Cart Road, Siliguri Bazar, Ashram Para, Punjabi Para, Desh Bandhu Para, Khopalasi, and nearby. This helps with hyper-local search.
 - **Dedicated service pages** — Live and in sitemap:
   - `/bridal-nail-art-siliguri` — Bridal Nail Art Siliguri
