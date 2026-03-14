@@ -13,6 +13,9 @@ import Faq from "./pages/Faq";
 import Services from "./pages/Services";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
+import BridalNailArtSiliguri from "./pages/BridalNailArtSiliguri";
+import AcrylicNailExtension from "./pages/AcrylicNailExtension";
+import GelNailsHomeService from "./pages/GelNailsHomeService";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -29,6 +32,9 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/faq" element={<Faq />} />
               <Route path="/services" element={<Services />} />
+              <Route path="/bridal-nail-art-siliguri" element={<BridalNailArtSiliguri />} />
+              <Route path="/acrylic-nail-extension-siliguri" element={<AcrylicNailExtension />} />
+              <Route path="/gel-nails-home-service-siliguri" element={<GelNailsHomeService />} />
               <Route path="/about" element={<About />} />
               <Route path="/contact" element={<Contact />} />
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

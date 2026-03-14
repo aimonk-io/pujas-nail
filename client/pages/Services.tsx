@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Sparkles, Phone } from "lucide-react";
 import { SEOHead } from "@/components/SEOHead";
@@ -93,6 +94,23 @@ export default function Services() {
             <p className="text-xl text-muted-foreground">
               Professional in-home nail extension and nail art across Siliguri, West Bengal. We bring the salon to you — acrylic & gel extensions, bridal nail art, and custom designs at your doorstep.
             </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="mb-10 flex flex-wrap justify-center gap-3"
+          >
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/acrylic-nail-extension-siliguri">Acrylic Nail Extension Siliguri</Link>
+            </Button>
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/gel-nails-home-service-siliguri">Gel Nails Home Service Siliguri</Link>
+            </Button>
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/bridal-nail-art-siliguri">Bridal Nail Art Siliguri</Link>
+            </Button>
           </motion.div>
 
           <Separator className="mb-10" />

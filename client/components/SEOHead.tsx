@@ -60,6 +60,7 @@ export function SEOHead({
         email: "pujanailstudio@gmail.com",
         address: {
           "@type": "PostalAddress",
+          streetAddress: "Dabgram",
           addressLocality: "Siliguri",
           addressRegion: "West Bengal",
           postalCode: "734015",
