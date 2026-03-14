@@ -837,16 +837,19 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Areas served */}
-      <section className="py-16 md:py-20 px-4 md:px-5 bg-card" role="region" aria-label="Areas served">
+      {/* Areas served — hyper-local SEO: names every neighbourhood we cover */}
+      <section id="areas" className="py-16 md:py-20 px-4 md:px-5 bg-card" role="region" aria-label="Areas we serve in Siliguri">
         <div className="container mx-auto max-w-6xl">
           <p className="text-primary text-xs font-medium tracking-widest uppercase mb-2">Service Coverage</p>
-          <h2 className="font-display font-semibold text-2xl md:text-3xl text-foreground mb-2">Home Nail Service Areas in Siliguri</h2>
-          <p className="text-muted-foreground mb-6">
-            We provide home nail service — acrylic nails, gel nails, and bridal nail art — across all major areas of Siliguri, West Bengal including Pradhan Nagar, Matigara, Dabgram, Hakimpara, and Sevoke Road.
+          <h2 className="font-display font-semibold text-2xl md:text-3xl text-foreground mb-4">Home Nail Service in These Siliguri Areas</h2>
+          <p className="text-muted-foreground mb-4 max-w-3xl">
+            We provide home nail art and nail extension service in <strong className="text-foreground">Pradhan Nagar</strong>, <strong className="text-foreground">Sevoke Road</strong>, <strong className="text-foreground">Hakimpara</strong>, <strong className="text-foreground">Matigara</strong>, <strong className="text-foreground">Dabgram</strong>, <strong className="text-foreground">Hill Cart Road</strong>, <strong className="text-foreground">Siliguri Bazar</strong>, <strong className="text-foreground">Ashram Para</strong>, <strong className="text-foreground">Punjabi Para</strong>, <strong className="text-foreground">Desh Bandhu Para</strong>, <strong className="text-foreground">Khopalasi</strong>, and surrounding localities in Siliguri, West Bengal. Acrylic nails, gel extensions, and bridal nail art — all at your doorstep.
+          </p>
+          <p className="text-muted-foreground text-sm mb-6">
+            Not sure if we cover your area? WhatsApp us your location and we'll confirm. We serve Siliguri and nearby areas 7 days a week.
           </p>
           <div className="flex flex-wrap gap-2">
-            {["Pradhan Nagar", "Hakimpara", "Sevoke Road", "Hill Cart Road", "Matigara", "Dabgram", "Siliguri Bazar", "Ashram Para", "Punjabi Para", "Desh Bandhu Para", "Khopalasi", "& Nearby Areas"].map((area) => (
+            {["Pradhan Nagar", "Pradhanagar", "Sevoke Road", "Hakimpara", "Matigara", "Dabgram", "Hill Cart Road", "Siliguri Bazar", "Ashram Para", "Punjabi Para", "Desh Bandhu Para", "Khopalasi", "Nearby Areas"].map((area) => (
               <span key={area} className="bg-card border border-primary/20 rounded-full px-4 py-2 text-sm text-foreground">{area}</span>
             ))}
           </div>

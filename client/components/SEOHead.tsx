@@ -40,11 +40,11 @@ export function SEOHead({
 }: SEOHeadProps) {
   const isHome = isHomepage({ title, url });
 
-  // ── Homepage: Local Business Schema ──────────────────────────────────
-  const localBusinessSchema = isHome
+  // ── Homepage: NailSalon JSON-LD (for Google Maps / rich results) ───────
+  const nailSalonSchema = isHome
     ? {
         "@context": "https://schema.org",
-        "@type": "BeautySalon",
+        "@type": "NailSalon",
         name: "Puja's Nail Studio",
         alternateName: "Puja Nails Siliguri",
         url: DEFAULT_HOME_URL,
@@ -74,10 +74,17 @@ export function SEOHead({
         areaServed: [
           { "@type": "City", name: "Siliguri" },
           { "@type": "Place", name: "Pradhan Nagar" },
+          { "@type": "Place", name: "Pradhanagar" },
           { "@type": "Place", name: "Matigara" },
           { "@type": "Place", name: "Dabgram" },
           { "@type": "Place", name: "Hakimpara" },
           { "@type": "Place", name: "Sevoke Road" },
+          { "@type": "Place", name: "Hill Cart Road" },
+          { "@type": "Place", name: "Siliguri Bazar" },
+          { "@type": "Place", name: "Ashram Para" },
+          { "@type": "Place", name: "Punjabi Para" },
+          { "@type": "Place", name: "Desh Bandhu Para" },
+          { "@type": "Place", name: "Khopalasi" },
         ],
         priceRange: "₹₹",
         currenciesAccepted: "INR",
@@ -101,7 +108,7 @@ export function SEOHead({
                 "@type": "Service",
                 name: s.name,
                 description: s.description,
-                provider: { "@type": "BeautySalon", name: "Puja's Nail Studio" },
+                provider: { "@type": "NailSalon", name: "Puja's Nail Studio" },
                 areaServed: { "@type": "City", name: "Siliguri" },
                 offers: {
                   "@type": "Offer",
@@ -119,6 +126,9 @@ export function SEOHead({
         ],
       }
     : null;
+
+  // Keep for backwards compatibility (localBusinessSchema name used in script tag)
+  const localBusinessSchema = nailSalonSchema;
 
   // ── Homepage: FAQ Schema ────────────────────────────────────────────
   const faqSchema = isHome

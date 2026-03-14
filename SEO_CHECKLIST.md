@@ -1,7 +1,8 @@
 # SEO checklist (pujanails.com / pujasnailstudio.com)
 
 ## Done in code
-- **LocalBusiness schema** — Homepage has full JSON-LD (BeautySalon) with phone, address (including streetAddress), service area, opening hours, and offer catalog.
+- **NailSalon schema** — Homepage `<head>` has a full **NailSalon** JSON-LD block (schema.org) with phone (+918617682768), address (Dabgram, Siliguri, West Bengal 734015), geo, opening hours (10:00–20:00, 7 days), areaServed (all neighbourhoods), and offer catalog. Test it at [search.google.com/test/rich-results](https://search.google.com/test/rich-results).
+- **Service area section** — Homepage has a dedicated “Home Nail Service in These Siliguri Areas” section (id="areas") that names every neighbourhood: Pradhan Nagar, Sevoke Road, Hakimpara, Matigara, Dabgram, Hill Cart Road, Siliguri Bazar, Ashram Para, Punjabi Para, Desh Bandhu Para, Khopalasi, and nearby. This helps with hyper-local search.
 - **Dedicated service pages** — Live and in sitemap:
   - `/bridal-nail-art-siliguri` — Bridal Nail Art Siliguri
   - `/acrylic-nail-extension-siliguri` — Acrylic Nail Extension at Home
