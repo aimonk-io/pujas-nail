@@ -79,7 +79,7 @@ className={cn(
 ### Shared Types
 Import consistent types in both client and server:
 ```typescript
-import { DemoResponse } from '@shared/api';
+import { MyRouteResponse } from '@shared/api';
 ```
 
 Path aliases:
